@@ -293,7 +293,24 @@
             @endforelse
         </section>
 
-        </main>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#e1e3e4] py-10 text-center flex flex-col items-center gap-3 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 w-full flex flex-col items-center">
+            <div class="flex items-center gap-2 mb-1">
+                <span class="material-symbols-outlined text-[#012d1d] fill-icon text-[26px]">recycling</span>
+                <span class="text-xl font-bold text-[#012d1d]">SampahKita</span>
+            </div>
+            <p class="text-xs sm:text-sm text-[#414844] max-w-md leading-relaxed">Berdaya mengelola sampah, berkontribusi untuk bumi dari desa Balonggandu, Karawang.</p>
+            <div class="flex gap-6 mt-4">
+                <a href="/kontak" class="text-xs sm:text-sm font-medium text-[#414844] hover:text-[#934b00] transition-colors">Kontak</a>
+                <a href="/privasi" class="text-xs sm:text-sm font-medium text-[#414844] hover:text-[#934b00] transition-colors">Privasi</a>
+                <a href="/syarat" class="text-xs sm:text-sm font-medium text-[#414844] hover:text-[#934b00] transition-colors">Syarat</a>
+            </div>
+            <p class="mt-6 text-xs text-[#414844]/60">© {{ date('Y') }} SampahKita Community. Bersama menjaga bumi.</p>
+        </div>
+    </footer>
 
     <!-- ══════════ MODAL ARTIKEL 3R ══════════ -->
 
@@ -303,7 +320,7 @@
 
     <!-- ═══ ARTIKEL REDUCE ═══ -->
     <div id="modal-reduce"
-         class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[480px] z-[60] bg-white rounded-t-3xl shadow-2xl translate-y-full transition-transform duration-500 ease-out max-h-[90vh] overflow-y-auto">
+         class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[540px] md:max-w-2xl z-[60] bg-white rounded-t-3xl shadow-2xl translate-y-full transition-transform duration-500 ease-out max-h-[90vh] overflow-y-auto">
         <!-- Handle Bar -->
         <div class="sticky top-0 bg-white/95 backdrop-blur-sm z-10 rounded-t-3xl">
             <div class="flex justify-center pt-3 pb-1">
@@ -425,7 +442,7 @@
 
     <!-- ═══ ARTIKEL REUSE ═══ -->
     <div id="modal-reuse"
-         class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[480px] z-[60] bg-white rounded-t-3xl shadow-2xl translate-y-full transition-transform duration-500 ease-out max-h-[90vh] overflow-y-auto">
+         class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[540px] md:max-w-2xl z-[60] bg-white rounded-t-3xl shadow-2xl translate-y-full transition-transform duration-500 ease-out max-h-[90vh] overflow-y-auto">
         <div class="sticky top-0 bg-white/95 backdrop-blur-sm z-10 rounded-t-3xl">
             <div class="flex justify-center pt-3 pb-1">
                 <div class="w-10 h-1 bg-[#c1c8c2] rounded-full"></div>
@@ -545,7 +562,7 @@
 
     <!-- ═══ ARTIKEL RECYCLE ═══ -->
     <div id="modal-recycle"
-         class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[480px] z-[60] bg-white rounded-t-3xl shadow-2xl translate-y-full transition-transform duration-500 ease-out max-h-[90vh] overflow-y-auto">
+         class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[540px] md:max-w-2xl z-[60] bg-white rounded-t-3xl shadow-2xl translate-y-full transition-transform duration-500 ease-out max-h-[90vh] overflow-y-auto">
         <div class="sticky top-0 bg-white/95 backdrop-blur-sm z-10 rounded-t-3xl">
             <div class="flex justify-center pt-3 pb-1">
                 <div class="w-10 h-1 bg-[#c1c8c2] rounded-full"></div>
@@ -685,21 +702,6 @@
             </button>
         </div>
     </div>
-
-        <!-- FOOTER -->
-        <footer class="bg-[#012d1d] py-8 text-center flex flex-col items-center gap-2 text-white">
-            <h2 class="text-[17px] font-bold">SampahKita</h2>
-            <nav class="flex flex-wrap justify-center gap-4 mt-2">
-                <a class="text-[#a5d0b9] hover:underline text-[13px]" href="#">About Us</a>
-                <a class="text-[#a5d0b9] hover:underline text-[13px]" href="#">Contact</a>
-                <a class="text-[#a5d0b9] hover:underline text-[13px]" href="#">Privacy Policy</a>
-                <a class="text-[#a5d0b9] hover:underline text-[13px]" href="#">Community Guidelines</a>
-            </nav>
-            <p class="text-[12px] text-[#a5d0b9] mt-3">© 2024 SampahKita Community</p>
-        </footer>
-
-    </div><!-- /Content Area -->
-</div><!-- /Layout Container -->
 
 <script>
     // ── Article Modal Logic ──
