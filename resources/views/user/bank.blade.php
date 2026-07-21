@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html class="light" lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Edukasi Bank Sampah - SampahKita Karawang</title>
+<meta name="description" content="Pelajari cara pengelolaan bank sampah yang baik dan benar untuk komunitas desa Karawang yang lebih bersih dan sejahtera."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet"/>
+<script>
+    try {
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary":                  "#012d1d",
+                        "primary-container":        "#1b4332",
+                        "primary-fixed":            "#c1ecd4",
+                        "primary-fixed-dim":        "#a5d0b9",
+                        "on-primary":               "#ffffff",
+                        "on-primary-container":     "#86af99",
+                        "on-primary-fixed":         "#002114",
+                        "on-primary-fixed-variant": "#274e3d",
+                        "secondary":                "#934b00",
+                        "secondary-container":      "#fd8603",
+                        "secondary-fixed":          "#ffdcc4",
+                        "secondary-fixed-dim":      "#ffb781",
+                        "on-secondary":             "#ffffff",
+                        "on-secondary-container":   "#5f2f00",
+                        "on-secondary-fixed":       "#301400",
+                        "on-secondary-fixed-variant":"#703800",
+                        "tertiary":                 "#152b1c",
+                        "tertiary-fixed":           "#cee9d3",
+                        "tertiary-fixed-dim":       "#b3cdb7",
+                        "on-tertiary":              "#ffffff",
+                        "on-tertiary-fixed":        "#092012",
+                        "on-tertiary-fixed-variant":"#354c3b",
+                        "tertiary-container":       "#2a4131",
+                        "on-tertiary-container":    "#93ad98",
+                        "background":               "#f8f9fa",
+                        "surface":                  "#f8f9fa",
+                        "surface-bright":           "#f8f9fa",
+                        "surface-dim":              "#d9dadb",
+                        "surface-variant":          "#e1e3e4",
+                        "surface-container":        "#edeeef",
+                        "surface-container-low":    "#f3f4f5",
+                        "surface-container-high":   "#e7e8e9",
+                        "surface-container-highest":"#e1e3e4",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-tint":             "#3f6653",
+                        "on-surface":               "#191c1d",
+                        "on-surface-variant":       "#414844",
+                        "on-background":            "#191c1d",
+                        "outline":                  "#717973",
+                        "outline-variant":          "#c1c8c2",
+                        "inverse-surface":          "#2e3132",
+                        "inverse-on-surface":       "#f0f1f2",
+                        "inverse-primary":          "#a5d0b9",
+                        "error":                    "#ba1a1a",
+                        "error-container":          "#ffdad6",
+                        "on-error":                 "#ffffff",
+                        "on-error-container":       "#93000a",
+                    },
+                    borderRadius: { DEFAULT:"0.25rem", lg:"0.5rem", xl:"0.75rem", full:"9999px" },
+                    spacing: {
+                        "container-margin":"20px", "section-gap":"32px",
+                        "card-padding":"16px", gutter:"16px", base:"8px"
+                    },
+                    fontFamily: {
+                        "headline-lg-mobile":["Plus Jakarta Sans"],
+                        "headline-lg":       ["Plus Jakarta Sans"],
+                        "headline-md":       ["Plus Jakarta Sans"],
+                        "label-md":          ["Plus Jakarta Sans"],
+                        "body-md":           ["Be Vietnam Pro"],
+                        "body-lg":           ["Be Vietnam Pro"],
+                    },
+                    fontSize: {
+                        "headline-lg-mobile":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"700"}],
+                        "headline-lg":       ["30px",{lineHeight:"38px",letterSpacing:"-0.02em",fontWeight:"700"}],
+                        "headline-md":       ["20px",{lineHeight:"28px",fontWeight:"600"}],
+                        "label-md":          ["14px",{lineHeight:"20px",fontWeight:"600"}],
+                        "body-md":           ["16px",{lineHeight:"24px",fontWeight:"400"}],
+                        "body-lg":           ["18px",{lineHeight:"28px",fontWeight:"400"}],
+                    }
+                }
+            }
+        }
+    } catch(_e) {}
+</script>
+<style>
+    body { font-family: 'Be Vietnam Pro', sans-serif; }
+    h1,h2,h3,h4,h5 { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .fill-icon { font-variation-settings: 'FILL' 1; }
+
+    /* Article card hover */
+    .edu-card {
+        transition: transform .25s cubic-bezier(.34,1.56,.64,1),
+                    box-shadow .25s ease,
+                    border-color .2s ease;
+    }
+    .edu-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(1,45,29,.1); }
+    .edu-card:hover .card-icon { transform: scale(1.1); }
+    .card-icon { transition: transform .25s cubic-bezier(.34,1.56,.64,1); }
+
+    /* Tag pill */
+    .tag { transition: background .2s, color .2s; }
+    .tag:hover { background: #012d1d; color: #fff; }
+
+    /* Scroll reveal */
+    .reveal { opacity:0; transform:translateY(16px); transition:opacity .55s ease, transform .55s ease; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+
+    /* Read more expand */
+    .article-body { max-height:0; overflow:hidden; transition: max-height .4s ease; }
+    .article-open .article-body { max-height: 600px; }
+    .article-open .read-arrow { transform: rotate(90deg); }
+    .read-arrow { transition: transform .3s ease; }
+
+    /* Quote highlight */
+    blockquote {
+        border-left: 4px solid #fd8603;
+        background: #fff8f0;
+        border-radius: 0 8px 8px 0;
+    }
+</style>
+</head>
+<body class="bg-[#d9dadb] text-[#191c1d] min-h-screen">
+
+<!-- Layout Container -->
+<div class="w-full max-w-[680px] mx-auto min-h-screen bg-[#f8f9fa] shadow-2xl relative overflow-hidden flex flex-col">
+
+    <!-- Backdrop Overlay -->
+    <div id="drawer-backdrop" onclick="toggleSidebar()"
+         class="absolute inset-0 bg-black/40 z-40 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+
+    <!-- Drawer Navigation Sidebar -->
+    <aside id="drawer-menu"
+           class="absolute top-0 left-0 h-full w-[260px] z-50 bg-[#f8f9fa] border-r border-[#c1c8c2]/50
+                  shadow-2xl flex flex-col p-5 gap-4 -translate-x-full transition-transform duration-300 ease-in-out">
+        <!-- Drawer Header -->
+        <div class="flex items-center justify-between pb-3 border-b border-[#c1c8c2]/30">
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-[#012d1d] fill-icon text-[24px]">recycling</span>
+                <span class="font-extrabold text-[16px] text-[#012d1d] tracking-tight">SampahKita</span>
+            </div>
+            <button onclick="toggleSidebar()" class="p-1.5 rounded-full hover:bg-[#edeeef] transition-colors flex items-center justify-center">
+                <span class="material-symbols-outlined text-[20px] text-[#414844]">close</span>
+            </button>
+        </div>
+
+        <!-- Navigation Links -->
+        <nav class="flex flex-col gap-1.5">
+            <!-- Home -->
+            <a href="/" class="flex items-center gap-3.5 px-4 py-3 rounded-xl text-[#414844] hover:text-[#012d1d] hover:bg-[#edeeef] font-semibold text-[14px] transition-all">
+                <span class="material-symbols-outlined text-[22px]">home</span>
+                Home
+            </a>
+            <!-- Edukasi -->
+            <a href="/edukasi" class="flex items-center gap-3.5 px-4 py-3 rounded-xl text-[#414844] hover:text-[#012d1d] hover:bg-[#edeeef] font-semibold text-[14px] transition-all">
+                <span class="material-symbols-outlined text-[22px]">school</span>
+                Edukasi
+            </a>
+            <!-- Pengelolaan (active) -->
+            <a href="/bank" class="flex items-center gap-3.5 px-4 py-3 rounded-xl text-white bg-[#1b4332] font-semibold text-[14px] transition-all">
+                <span class="material-symbols-outlined text-[22px] fill-icon">delete_sweep</span>
+                Pengelolaan
+            </a>
+            <!-- Galeri -->
+            <a href="/galeri" class="flex items-center gap-3.5 px-4 py-3 rounded-xl text-[#414844] hover:text-[#012d1d] hover:bg-[#edeeef] font-semibold text-[14px] transition-all">
+                <span class="material-symbols-outlined text-[22px]">photo_library</span>
+                Galeri
+            </a>
+        </nav>
+    </aside>
+
+    <!-- TOP APP BAR -->
+    <header id="topbar" class="sticky top-0 w-full z-30 bg-[#f8f9fa] border-b border-[#c1c8c2]/40 shadow-sm transition-all duration-300">
+        <div class="flex items-center justify-between px-5 h-14">
+            <div class="flex items-center gap-3">
+                <button onclick="toggleSidebar()" class="p-1.5 rounded-full hover:bg-[#edeeef] transition-colors flex items-center justify-center">
+                    <span class="material-symbols-outlined text-[#414844] text-[22px]">menu</span>
+                </button>
+                <div class="flex items-center gap-1.5">
+                    <span class="material-symbols-outlined text-[#012d1d] fill-icon text-[24px]">recycling</span>
+                    <h1 class="text-[17px] font-bold text-[#012d1d] leading-none">SampahKita</h1>
+                </div>
+            </div>
+            <div class="w-8"></div>
+        </div>
+    </header>
+
+    <!-- Content Area -->
+    <main class="flex-1 pb-12">
+
+        <!-- HERO BANNER -->
+        <section class="px-5 pt-6 pb-2 reveal">
+            <div class="bg-[#012d1d] rounded-2xl overflow-hidden relative min-h-[180px] flex items-center p-6">
+                <div class="absolute -top-8 -right-8 w-40 h-40 rounded-full bg-white/5"></div>
+                <div class="absolute -bottom-6 right-10 w-24 h-24 rounded-full bg-[#fd8603]/20"></div>
+                <div class="absolute top-4 right-4 opacity-10">
+                    <span class="material-symbols-outlined text-[80px] text-white fill-icon">account_balance</span>
+                </div>
+                <div class="relative z-10">
+                    <span class="inline-flex items-center gap-1 px-3 py-1 bg-[#fd8603]/20 text-[#ffb781] rounded-full text-[11px] font-bold mb-3">
+                        <span class="material-symbols-outlined text-[14px]">menu_book</span>
+                        Edukasi Pengelolaan
+                    </span>
+                    <h2 class="text-[22px] font-extrabold text-white leading-tight mb-2">
+                        Kenali &amp; Kelola<br>Bank Sampah Desa
+                    </h2>
+                    <p class="text-[13px] text-[#c1ecd4]/80 leading-relaxed max-w-[260px]">
+                        Panduan lengkap memahami bank sampah sebagai solusi lingkungan dan pemberdayaan ekonomi warga.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Topic chips -->
+            <div class="flex gap-2 overflow-x-auto mt-4 pb-1 hide-scrollbar">
+                <span class="tag flex-shrink-0 px-4 py-1.5 bg-[#012d1d] text-white rounded-full text-[12px] font-bold cursor-pointer">Semua</span>
+                <span class="tag flex-shrink-0 px-4 py-1.5 bg-[#e7e8e9] text-[#414844] rounded-full text-[12px] font-semibold cursor-pointer border border-[#c1c8c2]">Dasar</span>
+                <span class="tag flex-shrink-0 px-4 py-1.5 bg-[#e7e8e9] text-[#414844] rounded-full text-[12px] font-semibold cursor-pointer border border-[#c1c8c2]">Pengelolaan</span>
+                <span class="tag flex-shrink-0 px-4 py-1.5 bg-[#e7e8e9] text-[#414844] rounded-full text-[12px] font-semibold cursor-pointer border border-[#c1c8c2]">Manfaat</span>
+                <span class="tag flex-shrink-0 px-4 py-1.5 bg-[#e7e8e9] text-[#414844] rounded-full text-[12px] font-semibold cursor-pointer border border-[#c1c8c2]">Regulasi</span>
+            </div>
+        </section>
+
+        @forelse ($articles as $index => $article)
+            <!-- ARTIKEL DYNAMIC -->
+            <section class="px-5 mt-5 reveal">
+                <div class="edu-card bg-white rounded-2xl border border-[#c1c8c2]/50 shadow-sm overflow-hidden">
+                    <div class="h-1.5 @if($index % 2 === 0) bg-[#012d1d] @else bg-[#934b00] @endif"></div>
+                    <div class="p-5">
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="card-icon w-12 h-12 rounded-xl @if($index % 2 === 0) bg-[#c1ecd4] @else bg-[#ffdcc4] @endif flex items-center justify-center flex-shrink-0">
+                                <span class="material-symbols-outlined @if($index % 2 === 0) text-[#012d1d] @else text-[#934b00] @endif fill-icon text-[24px]">
+                                    @if($index % 2 === 0) account_balance @else category @endif
+                                </span>
+                            </div>
+                            <div class="flex-1">
+                                <span class="text-[11px] font-bold text-[#934b00] uppercase tracking-wide">Artikel {{ $article->category }}</span>
+                                <h3 class="text-[16px] font-bold text-[#012d1d] mt-1 leading-snug">{{ $article->title }}</h3>
+                            </div>
+                        </div>
+                        <p class="text-[13px] text-[#414844] leading-relaxed">
+                            {{ Str::limit($article->content, 180) }}
+                        </p>
+
+                        <div class="article-body">
+                            <div class="mt-4 flex flex-col gap-4">
+                                <blockquote class="px-4 py-3 text-[13px] text-[#414844] italic leading-relaxed whitespace-pre-line">
+                                    {{ $article->content }}
+                                </blockquote>
+                            </div>
+                        </div>
+
+                        <button onclick="toggleArticle(this)" class="flex items-center gap-1 mt-4 text-[#934b00] text-[13px] font-bold hover:underline">
+                            <span class="read-text">Baca Selengkapnya</span>
+                            <span class="material-symbols-outlined read-arrow text-[18px]">chevron_right</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        @empty
+            <p class="text-[13px] text-center text-[#717973] py-8">Belum ada artikel pengelolaan sampah.</p>
+        @endforelse
+
+            <!-- REFERENSI -->
+            <section class="px-5 mt-8 reveal">
+                <h3 class="text-[16px] font-bold text-[#012d1d] mb-4">📎 Referensi &amp; Regulasi Resmi</h3>
+                <div class="flex flex-col gap-3">
+                    <a href="#" class="flex items-center justify-between p-4 bg-white rounded-xl border border-[#c1c8c2]/50 shadow-sm hover:bg-[#c1ecd4]/30 hover:border-[#012d1d] transition-all group">
+                        <div class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-[#012d1d] fill-icon text-[20px]">gavel</span>
+                            <span class="text-[13px] font-semibold text-[#012d1d]">PP No. 81 Tahun 2012 – Pengelolaan Sampah</span>
+                        </div>
+                        <span class="material-symbols-outlined text-[#414844] group-hover:translate-x-1 transition-transform text-[18px]">open_in_new</span>
+                    </a>
+                    <a href="#" class="flex items-center justify-between p-4 bg-white rounded-xl border border-[#c1c8c2]/50 shadow-sm hover:bg-[#c1ecd4]/30 hover:border-[#012d1d] transition-all group">
+                        <div class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-[#012d1d] fill-icon text-[20px]">public</span>
+                            <span class="text-[13px] font-semibold text-[#012d1d]">SIPSN – Sistem Info Pengelolaan Sampah Nasional</span>
+                        </div>
+                        <span class="material-symbols-outlined text-[#414844] group-hover:translate-x-1 transition-transform text-[18px]">open_in_new</span>
+                    </a>
+                    <a href="#" class="flex items-center justify-between p-4 bg-white rounded-xl border border-[#c1c8c2]/50 shadow-sm hover:bg-[#c1ecd4]/30 hover:border-[#012d1d] transition-all group">
+                        <div class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-[#012d1d] fill-icon text-[20px]">menu_book</span>
+                            <span class="text-[13px] font-semibold text-[#012d1d]">Panduan Bank Sampah – KLHK RI</span>
+                        </div>
+                        <span class="material-symbols-outlined text-[#414844] group-hover:translate-x-1 transition-transform text-[18px]">open_in_new</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- CTA -->
+            <section class="px-5 mt-8 mb-4 reveal">
+                <div class="bg-gradient-to-br from-[#012d1d] to-[#1b4332] rounded-2xl p-6 flex flex-col items-center text-center gap-4 relative overflow-hidden">
+                    <div class="absolute -top-6 -right-6 w-28 h-28 rounded-full bg-white/5"></div>
+                    <div class="absolute -bottom-4 left-4 w-20 h-20 rounded-full bg-[#fd8603]/10"></div>
+                    <span class="material-symbols-outlined text-[#c1ecd4] fill-icon text-[40px]">how_to_reg</span>
+                    <div>
+                        <h4 class="text-[16px] font-bold text-white mb-1">Siap Jadi Nasabah Bank Sampah?</h4>
+                        <p class="text-[12px] text-[#c1ecd4]/80 leading-relaxed">Mulai pilah sampah dari rumah dan bergabunglah bersama warga Karawang dalam menjaga lingkungan.</p>
+                    </div>
+                    <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $setting->whatsapp ?? '6281234567890') }}" target="_blank" class="bg-[#fd8603] hover:bg-[#e07800] active:scale-95 text-white font-bold text-[14px] px-8 py-3 rounded-full shadow-lg transition-all flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[18px]">add_circle</span>
+                        Hubungi Pengelola
+                    </a>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="bg-[#e1e3e4] py-8 text-center flex flex-col items-center gap-2 mt-auto">
+            <div class="flex items-center gap-2 mb-1">
+                <span class="material-symbols-outlined text-[#012d1d] fill-icon text-[22px]">recycling</span>
+                <span class="text-[17px] font-bold text-[#012d1d]">SampahKita</span>
+            </div>
+            <p class="text-[13px] text-[#414844]">© 2024 SampahKita Community. Bersama menjaga bumi.</p>
+            <div class="flex gap-6 mt-3">
+                <a href="#" class="text-[13px] text-[#414844] hover:text-[#934b00] transition-colors font-semibold">Kontak</a>
+                <a href="#" class="text-[13px] text-[#414844] hover:text-[#934b00] transition-colors font-semibold">Privasi</a>
+                <a href="#" class="text-[13px] text-[#414844] hover:text-[#934b00] transition-colors font-semibold">Syarat</a>
+            </div>
+        </footer>
+
+</div><!-- /Layout Container -->
+
+<script>
+    // ── Drawer Toggle Logic ──
+    function toggleSidebar() {
+        const drawer = document.getElementById('drawer-menu');
+        const backdrop = document.getElementById('drawer-backdrop');
+        const isOpen = drawer.classList.contains('translate-x-0');
+
+        if (isOpen) {
+            drawer.classList.remove('translate-x-0');
+            drawer.classList.add('-translate-x-full');
+            backdrop.classList.remove('opacity-100', 'pointer-events-auto');
+            backdrop.classList.add('opacity-0', 'pointer-events-none');
+        } else {
+            drawer.classList.remove('-translate-x-full');
+            drawer.classList.add('translate-x-0');
+            backdrop.classList.remove('opacity-0', 'pointer-events-none');
+            backdrop.classList.add('opacity-100', 'pointer-events-auto');
+        }
+    }
+
+    function toggleArticle(btn) {
+        const card = btn.closest('.edu-card');
+        const body = card.querySelector('.article-body');
+        const text = btn.querySelector('.read-text');
+        const isOpen = body.style.maxHeight && body.style.maxHeight !== '0px';
+        body.style.transition = 'max-height .4s ease';
+        if (isOpen) {
+            body.style.maxHeight = '0';
+            text.textContent = 'Baca Selengkapnya';
+            btn.querySelector('.read-arrow').style.transform = 'rotate(0deg)';
+        } else {
+            body.style.maxHeight = body.scrollHeight + 'px';
+            text.textContent = 'Sembunyikan';
+            btn.querySelector('.read-arrow').style.transform = 'rotate(90deg)';
+        }
+    }
+
+    const obs = new IntersectionObserver((entries) => {
+        entries.forEach((e, i) => {
+            if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 60);
+        });
+    }, { threshold: 0.08, rootMargin:'0px 0px -30px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    window.addEventListener('scroll', () => {
+        document.getElementById('topbar').classList.toggle('shadow-md', window.scrollY > 16);
+    }, { passive: true });
+</script>
+</body>
+</html>
