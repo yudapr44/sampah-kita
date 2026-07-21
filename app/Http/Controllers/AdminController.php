@@ -86,6 +86,19 @@ class AdminController extends Controller
         ]);
     }
 
+    // Hapus Artikel (via DELETE)
+    public function deleteArtikel($id)
+    {
+        $article = Article::find($id);
+        if (!$article) {
+            return response()->json(['success' => false, 'message' => 'Artikel tidak ditemukan'], 404);
+        }
+
+        $article->delete();
+
+        return response()->json(['success' => true, 'message' => 'Artikel berhasil dihapus']);
+    }
+
     // Kelola Kontak / Setting
     public function kontak()
     {

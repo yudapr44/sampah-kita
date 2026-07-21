@@ -255,7 +255,7 @@
                         </thead>
                         <tbody id="article-rows" class="divide-y-2 divide-on-background/10">
                             @forelse ($articles as $article)
-                                <tr class="hover:bg-surface-container-low transition-colors article-row">
+                                <tr id="article-row-{{ $article->id }}" class="hover:bg-surface-container-low transition-colors article-row">
                                     <td class="px-6 py-6">
                                         <div class="flex flex-col">
                                             <span class="font-headline-md text-[18px] text-on-background leading-tight">{{ $article->title }}</span>
@@ -289,10 +289,10 @@
                                     </td>
                                     <td class="px-6 py-6">
                                         <div class="flex justify-center gap-4">
-                                            <button class="p-2 neubrutalism-border rounded-lg bg-white hover:bg-surface-container-high transition-all active:scale-90">
+                                            <button class="p-2 neubrutalism-border rounded-lg bg-white hover:bg-surface-container-high transition-all active:scale-90" title="Edit Artikel">
                                                 <span class="material-symbols-outlined text-[20px]">edit</span>
                                             </button>
-                                            <button class="p-2 neubrutalism-border rounded-lg bg-error-container hover:bg-error text-on-error-container hover:text-white transition-all active:scale-90">
+                                            <button onclick="deleteArticle({{ $article->id }}, this)" class="p-2 neubrutalism-border rounded-lg bg-error-container hover:bg-error text-on-error-container hover:text-white transition-all active:scale-90" title="Hapus Artikel">
                                                 <span class="material-symbols-outlined text-[20px]">delete</span>
                                             </button>
                                         </div>
@@ -454,10 +454,10 @@
                         <td class="px-6 py-6 font-body-md text-body-md text-on-background font-medium">Hari ini</td>
                         <td class="px-6 py-6">
                             <div class="flex justify-center gap-4">
-                                <button class="p-2 neubrutalism-border rounded-lg bg-white hover:bg-surface-container-high transition-all active:scale-90">
+                                <button class="p-2 neubrutalism-border rounded-lg bg-white hover:bg-surface-container-high transition-all active:scale-90" title="Edit Artikel">
                                     <span class="material-symbols-outlined text-[20px]">edit</span>
                                 </button>
-                                <button class="p-2 neubrutalism-border rounded-lg bg-error-container hover:bg-error text-on-error-container hover:text-white transition-all active:scale-90">
+                                <button onclick="deleteArticle(${data.article.id}, this)" class="p-2 neubrutalism-border rounded-lg bg-error-container hover:bg-error text-on-error-container hover:text-white transition-all active:scale-90" title="Hapus Artikel">
                                     <span class="material-symbols-outlined text-[20px]">delete</span>
                                 </button>
                             </div>
@@ -477,6 +477,43 @@
             .catch(err => {
                 console.error(err);
                 alert("Terjadi kesalahan saat menyimpan artikel.");
+            });
+        }
+
+        // Delete article logic (Fetch API DELETE)
+        function deleteArticle(id, btn) {
+            if (!confirm('Apakah Anda yakin ingin menghapus artikel ini?')) return;
+
+            fetch(`/admin/artikel/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                }
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    const row = btn.closest('tr');
+                    if (row) {
+                        row.style.transition = 'all 0.3s ease';
+                        row.style.opacity = '0';
+                        row.style.transform = 'scale(0.95)';
+                        setTimeout(() => row.remove(), 300);
+                    }
+                    const toast = document.getElementById('toast');
+                    toast.querySelector('span:last-child').textContent = 'Artikel Berhasil Dihapus';
+                    toast.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+                    setTimeout(() => {
+                        toast.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+                    }, 3000);
+                } else {
+                    alert(data.message || 'Gagal menghapus artikel');
+                }
+            })
+            .catch(err => {
+                console.error(err);
+                alert('Terjadi kesalahan saat menghapus artikel');
             });
         }
 
