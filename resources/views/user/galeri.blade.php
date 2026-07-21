@@ -104,9 +104,8 @@
     .gallery-card:hover img { transform: scale(1.04); }
     .gallery-card img { transition: transform 0.4s ease; }
 
-    /* Scroll reveal */
-    .reveal { opacity:0; transform:translateY(16px); transition:opacity .55s ease, transform .55s ease; }
-    .reveal.visible { opacity:1; transform:translateY(0); }
+    /* Scroll animation */
+    .reveal { opacity: 1; transform: translateY(0); transition: opacity .4s ease, transform .4s ease; }
 
     /* Modal / lightbox */
     .modal { transition: opacity 0.25s ease, visibility 0.25s ease; }

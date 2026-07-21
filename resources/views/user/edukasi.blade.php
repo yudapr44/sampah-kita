@@ -104,9 +104,8 @@
     .r-card { transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
     .r-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(1,45,29,.1); }
 
-    /* Scroll reveal */
-    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .5s ease, transform .5s ease; }
-    .reveal.visible { opacity:1; transform: translateY(0); }
+    /* Scroll animation */
+    .reveal { opacity: 1; transform: translateY(0); transition: opacity .4s ease, transform .4s ease; }
 </style>
 </head>
 <body class="bg-[#f8f9fa] text-[#191c1d] min-h-screen flex flex-col">

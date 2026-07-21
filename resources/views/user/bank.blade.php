@@ -108,9 +108,8 @@
     .tag { transition: background .2s, color .2s; }
     .tag:hover { background: #012d1d; color: #fff; }
 
-    /* Scroll reveal */
-    .reveal { opacity:0; transform:translateY(16px); transition:opacity .55s ease, transform .55s ease; }
-    .reveal.visible { opacity:1; transform:translateY(0); }
+    /* Scroll animation */
+    .reveal { opacity:1; transform:translateY(0); transition:opacity .4s ease, transform .4s ease; }
 
     /* Read more expand */
     .article-body { max-height:0; overflow:hidden; transition: max-height .4s ease; }

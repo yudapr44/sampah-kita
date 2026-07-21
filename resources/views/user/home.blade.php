@@ -82,9 +82,8 @@
     .feature-card:hover .card-icon { transform: scale(1.12); }
     .card-icon { transition: transform 0.25s cubic-bezier(.34,1.56,.64,1); }
 
-    /* Scroll fade-in */
-    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .55s ease, transform .55s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    /* Scroll animation */
+    .reveal { opacity: 1; transform: translateY(0); transition: opacity .4s ease, transform .4s ease; }
 
     /* Progress bar fill animation */
     .prog-fill { width: 0; transition: width 1.3s cubic-bezier(.4,0,.2,1); }
