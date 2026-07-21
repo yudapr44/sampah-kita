@@ -112,32 +112,29 @@
     .modal { transition: opacity 0.25s ease, visibility 0.25s ease; }
 </style>
 </head>
-<body class="bg-[#d9dadb] text-[#191c1d] min-h-screen">
-
-<!-- Layout Container -->
-<div class="w-full max-w-[680px] mx-auto min-h-screen bg-[#f8f9fa] shadow-2xl relative overflow-hidden flex flex-col">
+<body class="bg-[#f8f9fa] text-[#191c1d] min-h-screen flex flex-col">
 
     <!-- Backdrop Overlay -->
     <div id="drawer-backdrop" onclick="toggleSidebar()"
-         class="absolute inset-0 bg-black/40 z-40 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+         class="fixed inset-0 bg-black/50 z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
 
     <!-- Drawer Navigation Sidebar -->
     <aside id="drawer-menu"
-           class="absolute top-0 left-0 h-full w-[260px] z-50 bg-[#f8f9fa] border-r border-[#c1c8c2]/50
-                  shadow-2xl flex flex-col p-5 gap-4 -translate-x-full transition-transform duration-300 ease-in-out">
+           class="fixed top-0 left-0 h-full w-[280px] z-50 bg-[#f8f9fa] border-r border-[#c1c8c2]/50
+                  shadow-2xl flex flex-col p-6 gap-4 -translate-x-full transition-transform duration-300 ease-in-out">
         <!-- Drawer Header -->
-        <div class="flex items-center justify-between pb-3 border-b border-[#c1c8c2]/30">
-            <div class="flex items-center gap-2">
-                <span class="material-symbols-outlined text-[#012d1d] fill-icon text-[24px]">recycling</span>
-                <span class="font-extrabold text-[16px] text-[#012d1d] tracking-tight">SampahKita</span>
+        <div class="flex items-center justify-between pb-4 border-b border-[#c1c8c2]/30">
+            <div class="flex items-center gap-2.5">
+                <span class="material-symbols-outlined text-[#012d1d] fill-icon text-[28px]">recycling</span>
+                <span class="font-extrabold text-[18px] text-[#012d1d] tracking-tight">SampahKita</span>
             </div>
             <button onclick="toggleSidebar()" class="p-1.5 rounded-full hover:bg-[#edeeef] transition-colors flex items-center justify-center">
-                <span class="material-symbols-outlined text-[20px] text-[#414844]">close</span>
+                <span class="material-symbols-outlined text-[22px] text-[#414844]">close</span>
             </button>
         </div>
 
         <!-- Navigation Links -->
-        <nav class="flex flex-col gap-1.5">
+        <nav class="flex flex-col gap-2 mt-2">
             <!-- Home -->
             <a href="/" class="flex items-center gap-3.5 px-4 py-3 rounded-xl text-[#414844] hover:text-[#012d1d] hover:bg-[#edeeef] font-semibold text-[14px] transition-all">
                 <span class="material-symbols-outlined text-[22px]">home</span>
@@ -146,49 +143,61 @@
             <!-- Edukasi -->
             <a href="/edukasi" class="flex items-center gap-3.5 px-4 py-3 rounded-xl text-[#414844] hover:text-[#012d1d] hover:bg-[#edeeef] font-semibold text-[14px] transition-all">
                 <span class="material-symbols-outlined text-[22px]">school</span>
-                Edukasi
+                Edukasi 3R
             </a>
             <!-- Pengelolaan -->
             <a href="/bank" class="flex items-center gap-3.5 px-4 py-3 rounded-xl text-[#414844] hover:text-[#012d1d] hover:bg-[#edeeef] font-semibold text-[14px] transition-all">
                 <span class="material-symbols-outlined text-[22px]">delete_sweep</span>
-                Pengelolaan
+                Pengelolaan Sampah
             </a>
             <!-- Galeri (active) -->
-            <a href="/galeri" class="flex items-center gap-3.5 px-4 py-3 rounded-xl text-white bg-[#1b4332] font-semibold text-[14px] transition-all">
+            <a href="/galeri" class="flex items-center gap-3.5 px-4 py-3 rounded-xl text-white bg-[#1b4332] font-semibold text-[14px] transition-all shadow-sm">
                 <span class="material-symbols-outlined text-[22px] fill-icon">photo_library</span>
-                Galeri
+                Galeri Kegiatan
             </a>
         </nav>
+        <div class="mt-auto border-t border-[#c1c8c2]/30 pt-4 text-xs text-[#717973]">
+            <p class="font-semibold text-[#012d1d]">Desa Balonggandu</p>
+            <p>Karawang, Jawa Barat</p>
+        </div>
     </aside>
 
     <!-- TOP APP BAR -->
-    <header id="topbar" class="sticky top-0 w-full z-30 bg-[#f8f9fa] border-b border-[#c1c8c2]/40 shadow-sm transition-all duration-300">
-        <div class="flex items-center justify-between px-5 h-14">
+    <header id="topbar" class="sticky top-0 w-full z-40 bg-[#f8f9fa]/95 backdrop-blur-md border-b border-[#c1c8c2]/40 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <button onclick="toggleSidebar()" class="p-1.5 rounded-full hover:bg-[#edeeef] transition-colors flex items-center justify-center">
-                    <span class="material-symbols-outlined text-[#414844] text-[22px]">menu</span>
+                <button onclick="toggleSidebar()" aria-label="Open Menu" class="p-2 rounded-xl hover:bg-[#edeeef] transition-colors flex items-center justify-center text-[#012d1d]">
+                    <span class="material-symbols-outlined text-[26px]">menu</span>
                 </button>
-                <div class="flex items-center gap-1.5">
-                    <span class="material-symbols-outlined text-[#012d1d] fill-icon text-[24px]">recycling</span>
-                    <h1 class="text-[17px] font-bold text-[#012d1d] leading-none">SampahKita</h1>
-                </div>
+                <a href="/" class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[#012d1d] fill-icon text-[26px]">recycling</span>
+                    <h1 class="text-[19px] font-bold text-[#012d1d] leading-none">SampahKita</h1>
+                </a>
             </div>
-            <div class="w-8"></div>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-6">
+                <a href="/" class="text-[14px] font-semibold text-[#414844] hover:text-[#012d1d] transition-colors">Home</a>
+                <a href="/edukasi" class="text-[14px] font-semibold text-[#414844] hover:text-[#012d1d] transition-colors">Edukasi</a>
+                <a href="/bank" class="text-[14px] font-semibold text-[#414844] hover:text-[#012d1d] transition-colors">Pengelolaan</a>
+                <a href="/galeri" class="text-[14px] font-bold text-[#012d1d] border-b-2 border-[#1b4332] pb-0.5">Galeri</a>
+                <a href="/admin/login" class="text-[13px] font-bold text-[#012d1d] bg-[#c1ecd4] hover:bg-[#a5d0b9] px-4 py-2 rounded-full transition-all">Admin Panel</a>
+            </nav>
         </div>
     </header>
 
     <!-- Content Area -->
-    <main class="flex-1 px-5 pb-12">
+    <main class="flex-1 w-full pb-16">
 
         <!-- INTRO SECTION -->
-        <section class="pt-6 pb-2 reveal">
-            <div class="bg-[#cee9d3] p-6 rounded-2xl shadow-sm relative overflow-hidden">
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-2 w-full reveal">
+            <div class="bg-[#cee9d3] p-6 sm:p-8 rounded-3xl shadow-sm relative overflow-hidden">
                 <div class="absolute -right-6 -bottom-6 opacity-10 text-[#012d1d]">
-                    <span class="material-symbols-outlined text-[130px] fill-icon">eco</span>
+                    <span class="material-symbols-outlined text-[160px] fill-icon">eco</span>
                 </div>
-                <div class="relative z-10">
-                    <h2 class="text-[20px] font-extrabold text-[#012d1d] leading-tight mb-2">Momen KKN Desa Balonggandu</h2>
-                    <p class="text-[13px] text-[#414844] leading-relaxed">
+                <div class="relative z-10 max-w-2xl">
+                    <h2 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#012d1d] leading-tight mb-2">Momen KKN Desa Balonggandu</h2>
+                    <p class="text-xs sm:text-sm md:text-base text-[#414844] leading-relaxed">
                         Lihat bagaimana kebersamaan kita dalam mewujudkan desa yang bersih dan mandiri. Galeri ini menampilkan dokumentasi kegiatan KKN selama program pemberdayaan sampah berlangsung.
                     </p>
                 </div>
@@ -196,13 +205,13 @@
         </section>
 
         <!-- PHOTO GALLERY SECTION -->
-        <section class="mt-6 reveal">
-            <div class="flex items-center justify-between mb-4">
-                <h3 class="text-[16px] font-bold text-[#012d1d]">Aktivitas Komunitas</h3>
-                <div class="h-0.5 w-24 bg-[#c1c8c2]/50"></div>
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-8 reveal">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-lg sm:text-xl font-bold text-[#012d1d]">Aktivitas Komunitas</h3>
+                <div class="h-0.5 flex-1 max-w-[200px] bg-[#c1c8c2]/50 ml-4 hidden sm:block"></div>
             </div>
 
-            <div class="flex flex-col gap-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Card 1 -->
                 <div onclick="openLightbox(this)" class="gallery-card bg-white rounded-xl shadow-sm overflow-hidden border border-[#c1c8c2]/60 cursor-pointer">
                     <div class="h-44 overflow-hidden relative">
@@ -283,9 +292,22 @@
                     <h4 class="text-[14px] font-bold text-white mb-1">Perjalanan KKN Pemberdayaan Sampah Desa Balonggandu</h4>
                     <p class="text-[11px] text-white/80 leading-normal">Satu bulan penuh makna, merajut asa demi lingkungan yang lebih baik.</p>
                 </div>
+        <!-- VIDEO SECTION -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-10 mb-8 reveal">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-lg sm:text-xl font-bold text-[#012d1d]">Video Liputan KKN</h3>
+                <div class="h-0.5 flex-1 max-w-[200px] bg-[#c1c8c2]/50 ml-4 hidden sm:block"></div>
+            </div>
+            <div onclick="playVideo()" class="relative rounded-3xl overflow-hidden shadow-md cursor-pointer group h-64 sm:h-80 md:h-96 w-full">
+                <img src="/images/video_thumbnail.png" alt="Video KKN" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+                <div class="absolute bottom-6 left-6 right-6 text-white">
+                    <span class="px-3 py-1 bg-[#fd8603] text-white rounded-full text-xs font-bold mb-2 inline-block">Video Dokumentasi</span>
+                    <h4 class="text-lg sm:text-xl font-bold">Aksi Pengelolaan Sampah Balonggandu</h4>
+                </div>
                 <div class="absolute inset-0 flex items-center justify-center">
-                    <div class="w-14 h-14 bg-[#fd8603] rounded-full flex items-center justify-center text-white shadow-lg transform transition-all group-hover:scale-110 active:scale-95">
-                        <span class="material-symbols-outlined text-[28px] fill-icon">play_arrow</span>
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 bg-[#fd8603] rounded-full flex items-center justify-center text-white shadow-xl transform transition-all group-hover:scale-110 active:scale-95">
+                        <span class="material-symbols-outlined text-[36px] fill-icon">play_arrow</span>
                     </div>
                 </div>
             </div>
@@ -294,20 +316,21 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-[#e1e3e4] py-8 text-center flex flex-col items-center gap-2 mt-auto">
-        <div class="flex items-center gap-2 mb-1">
-            <span class="material-symbols-outlined text-[#012d1d] fill-icon text-[22px]">recycling</span>
-            <span class="text-[17px] font-bold text-[#012d1d]">SampahKita</span>
-        </div>
-        <p class="text-[13px] text-[#414844]">© 2024 SampahKita Community. Bersama menjaga bumi.</p>
-        <div class="flex gap-6 mt-3">
-            <a href="#" class="text-[13px] text-[#414844] hover:text-[#934b00] transition-colors font-semibold">Kontak</a>
-            <a href="#" class="text-[13px] text-[#414844] hover:text-[#934b00] transition-colors font-semibold">Privasi</a>
-            <a href="#" class="text-[13px] text-[#414844] hover:text-[#934b00] transition-colors font-semibold">Syarat</a>
+    <footer class="bg-[#e1e3e4] py-10 text-center flex flex-col items-center gap-3 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 w-full flex flex-col items-center">
+            <div class="flex items-center gap-2 mb-1">
+                <span class="material-symbols-outlined text-[#012d1d] fill-icon text-[26px]">recycling</span>
+                <span class="text-xl font-bold text-[#012d1d]">SampahKita</span>
+            </div>
+            <p class="text-xs sm:text-sm text-[#414844] max-w-md leading-relaxed">Berdaya mengelola sampah, berkontribusi untuk bumi dari desa Balonggandu, Karawang.</p>
+            <div class="flex gap-6 mt-4">
+                <a href="/kontak" class="text-xs sm:text-sm font-medium text-[#414844] hover:text-[#934b00] transition-colors">Kontak</a>
+                <a href="/privasi" class="text-xs sm:text-sm font-medium text-[#414844] hover:text-[#934b00] transition-colors">Privasi</a>
+                <a href="/syarat" class="text-xs sm:text-sm font-medium text-[#414844] hover:text-[#934b00] transition-colors">Syarat</a>
+            </div>
+            <p class="mt-6 text-xs text-[#414844]/60">© {{ date('Y') }} SampahKita Community. Bersama menjaga bumi.</p>
         </div>
     </footer>
-
-</div><!-- /Layout Container -->
 
 <!-- LIGHTBOX -->
 <div id="lightbox" class="modal fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-5 opacity-0 pointer-events-none transition-all duration-300">

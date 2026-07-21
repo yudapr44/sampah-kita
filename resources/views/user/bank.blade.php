@@ -126,32 +126,29 @@
     }
 </style>
 </head>
-<body class="bg-[#d9dadb] text-[#191c1d] min-h-screen">
-
-<!-- Layout Container -->
-<div class="w-full max-w-[680px] mx-auto min-h-screen bg-[#f8f9fa] shadow-2xl relative overflow-hidden flex flex-col">
+<body class="bg-[#f8f9fa] text-[#191c1d] min-h-screen flex flex-col">
 
     <!-- Backdrop Overlay -->
     <div id="drawer-backdrop" onclick="toggleSidebar()"
-         class="absolute inset-0 bg-black/40 z-40 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+         class="fixed inset-0 bg-black/50 z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
 
     <!-- Drawer Navigation Sidebar -->
     <aside id="drawer-menu"
-           class="absolute top-0 left-0 h-full w-[260px] z-50 bg-[#f8f9fa] border-r border-[#c1c8c2]/50
-                  shadow-2xl flex flex-col p-5 gap-4 -translate-x-full transition-transform duration-300 ease-in-out">
+           class="fixed top-0 left-0 h-full w-[280px] z-50 bg-[#f8f9fa] border-r border-[#c1c8c2]/50
+                  shadow-2xl flex flex-col p-6 gap-4 -translate-x-full transition-transform duration-300 ease-in-out">
         <!-- Drawer Header -->
-        <div class="flex items-center justify-between pb-3 border-b border-[#c1c8c2]/30">
-            <div class="flex items-center gap-2">
-                <span class="material-symbols-outlined text-[#012d1d] fill-icon text-[24px]">recycling</span>
-                <span class="font-extrabold text-[16px] text-[#012d1d] tracking-tight">SampahKita</span>
+        <div class="flex items-center justify-between pb-4 border-b border-[#c1c8c2]/30">
+            <div class="flex items-center gap-2.5">
+                <span class="material-symbols-outlined text-[#012d1d] fill-icon text-[28px]">recycling</span>
+                <span class="font-extrabold text-[18px] text-[#012d1d] tracking-tight">SampahKita</span>
             </div>
             <button onclick="toggleSidebar()" class="p-1.5 rounded-full hover:bg-[#edeeef] transition-colors flex items-center justify-center">
-                <span class="material-symbols-outlined text-[20px] text-[#414844]">close</span>
+                <span class="material-symbols-outlined text-[22px] text-[#414844]">close</span>
             </button>
         </div>
 
         <!-- Navigation Links -->
-        <nav class="flex flex-col gap-1.5">
+        <nav class="flex flex-col gap-2 mt-2">
             <!-- Home -->
             <a href="/" class="flex items-center gap-3.5 px-4 py-3 rounded-xl text-[#414844] hover:text-[#012d1d] hover:bg-[#edeeef] font-semibold text-[14px] transition-all">
                 <span class="material-symbols-outlined text-[22px]">home</span>
@@ -160,71 +157,85 @@
             <!-- Edukasi -->
             <a href="/edukasi" class="flex items-center gap-3.5 px-4 py-3 rounded-xl text-[#414844] hover:text-[#012d1d] hover:bg-[#edeeef] font-semibold text-[14px] transition-all">
                 <span class="material-symbols-outlined text-[22px]">school</span>
-                Edukasi
+                Edukasi 3R
             </a>
             <!-- Pengelolaan (active) -->
-            <a href="/bank" class="flex items-center gap-3.5 px-4 py-3 rounded-xl text-white bg-[#1b4332] font-semibold text-[14px] transition-all">
+            <a href="/bank" class="flex items-center gap-3.5 px-4 py-3 rounded-xl text-white bg-[#1b4332] font-semibold text-[14px] transition-all shadow-sm">
                 <span class="material-symbols-outlined text-[22px] fill-icon">delete_sweep</span>
-                Pengelolaan
+                Pengelolaan Sampah
             </a>
             <!-- Galeri -->
             <a href="/galeri" class="flex items-center gap-3.5 px-4 py-3 rounded-xl text-[#414844] hover:text-[#012d1d] hover:bg-[#edeeef] font-semibold text-[14px] transition-all">
                 <span class="material-symbols-outlined text-[22px]">photo_library</span>
-                Galeri
+                Galeri Kegiatan
             </a>
         </nav>
+        <div class="mt-auto border-t border-[#c1c8c2]/30 pt-4 text-xs text-[#717973]">
+            <p class="font-semibold text-[#012d1d]">Desa Balonggandu</p>
+            <p>Karawang, Jawa Barat</p>
+        </div>
     </aside>
 
     <!-- TOP APP BAR -->
-    <header id="topbar" class="sticky top-0 w-full z-30 bg-[#f8f9fa] border-b border-[#c1c8c2]/40 shadow-sm transition-all duration-300">
-        <div class="flex items-center justify-between px-5 h-14">
+    <header id="topbar" class="sticky top-0 w-full z-40 bg-[#f8f9fa]/95 backdrop-blur-md border-b border-[#c1c8c2]/40 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <button onclick="toggleSidebar()" class="p-1.5 rounded-full hover:bg-[#edeeef] transition-colors flex items-center justify-center">
-                    <span class="material-symbols-outlined text-[#414844] text-[22px]">menu</span>
+                <button onclick="toggleSidebar()" aria-label="Open Menu" class="p-2 rounded-xl hover:bg-[#edeeef] transition-colors flex items-center justify-center text-[#012d1d]">
+                    <span class="material-symbols-outlined text-[26px]">menu</span>
                 </button>
-                <div class="flex items-center gap-1.5">
-                    <span class="material-symbols-outlined text-[#012d1d] fill-icon text-[24px]">recycling</span>
-                    <h1 class="text-[17px] font-bold text-[#012d1d] leading-none">SampahKita</h1>
-                </div>
+                <a href="/" class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[#012d1d] fill-icon text-[26px]">recycling</span>
+                    <h1 class="text-[19px] font-bold text-[#012d1d] leading-none">SampahKita</h1>
+                </a>
             </div>
-            <div class="w-8"></div>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-6">
+                <a href="/" class="text-[14px] font-semibold text-[#414844] hover:text-[#012d1d] transition-colors">Home</a>
+                <a href="/edukasi" class="text-[14px] font-semibold text-[#414844] hover:text-[#012d1d] transition-colors">Edukasi</a>
+                <a href="/bank" class="text-[14px] font-bold text-[#012d1d] border-b-2 border-[#1b4332] pb-0.5">Pengelolaan</a>
+                <a href="/galeri" class="text-[14px] font-semibold text-[#414844] hover:text-[#012d1d] transition-colors">Galeri</a>
+                <a href="/admin/login" class="text-[13px] font-bold text-[#012d1d] bg-[#c1ecd4] hover:bg-[#a5d0b9] px-4 py-2 rounded-full transition-all">Admin Panel</a>
+            </nav>
         </div>
     </header>
 
     <!-- Content Area -->
-    <main class="flex-1 pb-12">
+    <main class="flex-1 w-full pb-16">
 
         <!-- HERO BANNER -->
-        <section class="px-5 pt-6 pb-2 reveal">
-            <div class="bg-[#012d1d] rounded-2xl overflow-hidden relative min-h-[180px] flex items-center p-6">
-                <div class="absolute -top-8 -right-8 w-40 h-40 rounded-full bg-white/5"></div>
-                <div class="absolute -bottom-6 right-10 w-24 h-24 rounded-full bg-[#fd8603]/20"></div>
-                <div class="absolute top-4 right-4 opacity-10">
-                    <span class="material-symbols-outlined text-[80px] text-white fill-icon">account_balance</span>
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-2 w-full reveal">
+            <div class="bg-[#012d1d] rounded-3xl overflow-hidden relative min-h-[200px] flex items-center p-6 sm:p-10">
+                <div class="absolute -top-8 -right-8 w-48 h-48 rounded-full bg-white/5"></div>
+                <div class="absolute -bottom-6 right-10 w-32 h-32 rounded-full bg-[#fd8603]/20"></div>
+                <div class="absolute top-6 right-6 opacity-10 hidden sm:block">
+                    <span class="material-symbols-outlined text-[120px] text-white fill-icon">account_balance</span>
                 </div>
-                <div class="relative z-10">
-                    <span class="inline-flex items-center gap-1 px-3 py-1 bg-[#fd8603]/20 text-[#ffb781] rounded-full text-[11px] font-bold mb-3">
+                <div class="relative z-10 max-w-xl">
+                    <span class="inline-flex items-center gap-1 px-3 py-1 bg-[#fd8603]/20 text-[#ffb781] rounded-full text-xs font-bold mb-3">
                         <span class="material-symbols-outlined text-[14px]">menu_book</span>
-                        Edukasi Pengelolaan
+                        Edukasi & Pengelolaan
                     </span>
-                    <h2 class="text-[22px] font-extrabold text-white leading-tight mb-2">
-                        Kenali &amp; Kelola<br>Bank Sampah Desa
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white leading-tight mb-3">
+                        Kenali & Kelola Bank Sampah Desa
                     </h2>
-                    <p class="text-[13px] text-[#c1ecd4]/80 leading-relaxed max-w-[260px]">
-                        Panduan lengkap memahami bank sampah sebagai solusi lingkungan dan pemberdayaan ekonomi warga.
+                    <p class="text-xs sm:text-sm md:text-base text-[#c1ecd4]/80 leading-relaxed">
+                        Panduan lengkap memahami bank sampah sebagai solusi lingkungan dan pemberdayaan ekonomi warga Desa Balonggandu.
                     </p>
                 </div>
             </div>
 
             <!-- Topic chips -->
-            <div class="flex gap-2 overflow-x-auto mt-4 pb-1 hide-scrollbar">
-                <span class="tag flex-shrink-0 px-4 py-1.5 bg-[#012d1d] text-white rounded-full text-[12px] font-bold cursor-pointer">Semua</span>
-                <span class="tag flex-shrink-0 px-4 py-1.5 bg-[#e7e8e9] text-[#414844] rounded-full text-[12px] font-semibold cursor-pointer border border-[#c1c8c2]">Dasar</span>
-                <span class="tag flex-shrink-0 px-4 py-1.5 bg-[#e7e8e9] text-[#414844] rounded-full text-[12px] font-semibold cursor-pointer border border-[#c1c8c2]">Pengelolaan</span>
-                <span class="tag flex-shrink-0 px-4 py-1.5 bg-[#e7e8e9] text-[#414844] rounded-full text-[12px] font-semibold cursor-pointer border border-[#c1c8c2]">Manfaat</span>
-                <span class="tag flex-shrink-0 px-4 py-1.5 bg-[#e7e8e9] text-[#414844] rounded-full text-[12px] font-semibold cursor-pointer border border-[#c1c8c2]">Regulasi</span>
+            <div class="flex gap-2 overflow-x-auto mt-6 pb-1 hide-scrollbar">
+                <span class="tag flex-shrink-0 px-4 py-2 bg-[#012d1d] text-white rounded-full text-xs font-bold cursor-pointer">Semua</span>
+                <span class="tag flex-shrink-0 px-4 py-2 bg-[#e7e8e9] text-[#414844] rounded-full text-xs font-semibold cursor-pointer border border-[#c1c8c2]">Dasar</span>
+                <span class="tag flex-shrink-0 px-4 py-2 bg-[#e7e8e9] text-[#414844] rounded-full text-xs font-semibold cursor-pointer border border-[#c1c8c2]">Pengelolaan</span>
+                <span class="tag flex-shrink-0 px-4 py-2 bg-[#e7e8e9] text-[#414844] rounded-full text-xs font-semibold cursor-pointer border border-[#c1c8c2]">Manfaat</span>
+                <span class="tag flex-shrink-0 px-4 py-2 bg-[#e7e8e9] text-[#414844] rounded-full text-xs font-semibold cursor-pointer border border-[#c1c8c2]">Regulasi</span>
             </div>
         </section>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
 
         @forelse ($articles as $index => $article)
             <!-- ARTIKEL DYNAMIC -->
@@ -292,42 +303,42 @@
                         <span class="material-symbols-outlined text-[#414844] group-hover:translate-x-1 transition-transform text-[18px]">open_in_new</span>
                     </a>
                 </div>
-            </section>
+        </div><!-- /max-w-7xl -->
 
-            <!-- CTA -->
-            <section class="px-5 mt-8 mb-4 reveal">
-                <div class="bg-gradient-to-br from-[#012d1d] to-[#1b4332] rounded-2xl p-6 flex flex-col items-center text-center gap-4 relative overflow-hidden">
-                    <div class="absolute -top-6 -right-6 w-28 h-28 rounded-full bg-white/5"></div>
-                    <div class="absolute -bottom-4 left-4 w-20 h-20 rounded-full bg-[#fd8603]/10"></div>
-                    <span class="material-symbols-outlined text-[#c1ecd4] fill-icon text-[40px]">how_to_reg</span>
-                    <div>
-                        <h4 class="text-[16px] font-bold text-white mb-1">Siap Jadi Nasabah Bank Sampah?</h4>
-                        <p class="text-[12px] text-[#c1ecd4]/80 leading-relaxed">Mulai pilah sampah dari rumah dan bergabunglah bersama warga Karawang dalam menjaga lingkungan.</p>
-                    </div>
-                    <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $setting->whatsapp ?? '6281234567890') }}" target="_blank" class="bg-[#fd8603] hover:bg-[#e07800] active:scale-95 text-white font-bold text-[14px] px-8 py-3 rounded-full shadow-lg transition-all flex items-center gap-2">
-                        <span class="material-symbols-outlined text-[18px]">add_circle</span>
-                        Hubungi Pengelola
-                    </a>
+        <!-- CTA -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-10 mb-8 reveal">
+            <div class="bg-gradient-to-br from-[#012d1d] to-[#1b4332] rounded-3xl p-8 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6 relative overflow-hidden">
+                <div class="absolute -top-6 -right-6 w-36 h-36 rounded-full bg-white/5"></div>
+                <div class="relative z-10 max-w-xl text-center sm:text-left">
+                    <span class="material-symbols-outlined text-[#c1ecd4] fill-icon text-[40px] mb-2">how_to_reg</span>
+                    <h4 class="text-xl sm:text-2xl font-bold text-white mb-2">Siap Jadi Nasabah Bank Sampah?</h4>
+                    <p class="text-xs sm:text-sm text-[#c1ecd4]/90 leading-relaxed">Mulai pilah sampah dari rumah dan bergabunglah bersama warga Desa Balonggandu dalam menjaga lingkungan.</p>
                 </div>
-            </section>
+                <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $setting->whatsapp ?? '6281234567890') }}" target="_blank" class="bg-[#fd8603] hover:bg-[#e07800] active:scale-95 text-white font-bold text-sm sm:text-base px-8 py-4 rounded-full shadow-lg transition-all flex items-center gap-2.5 flex-shrink-0">
+                    <span class="material-symbols-outlined text-[20px]">add_circle</span>
+                    Hubungi Pengelola
+                </a>
+            </div>
+        </section>
 
-        </main>
+    </main>
 
-        <!-- FOOTER -->
-        <footer class="bg-[#e1e3e4] py-8 text-center flex flex-col items-center gap-2 mt-auto">
+    <!-- FOOTER -->
+    <footer class="bg-[#e1e3e4] py-10 text-center flex flex-col items-center gap-3 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 w-full flex flex-col items-center">
             <div class="flex items-center gap-2 mb-1">
-                <span class="material-symbols-outlined text-[#012d1d] fill-icon text-[22px]">recycling</span>
-                <span class="text-[17px] font-bold text-[#012d1d]">SampahKita</span>
+                <span class="material-symbols-outlined text-[#012d1d] fill-icon text-[26px]">recycling</span>
+                <span class="text-xl font-bold text-[#012d1d]">SampahKita</span>
             </div>
-            <p class="text-[13px] text-[#414844]">© 2024 SampahKita Community. Bersama menjaga bumi.</p>
-            <div class="flex gap-6 mt-3">
-                <a href="#" class="text-[13px] text-[#414844] hover:text-[#934b00] transition-colors font-semibold">Kontak</a>
-                <a href="#" class="text-[13px] text-[#414844] hover:text-[#934b00] transition-colors font-semibold">Privasi</a>
-                <a href="#" class="text-[13px] text-[#414844] hover:text-[#934b00] transition-colors font-semibold">Syarat</a>
+            <p class="text-xs sm:text-sm text-[#414844] max-w-md leading-relaxed">Berdaya mengelola sampah, berkontribusi untuk bumi dari desa Balonggandu, Karawang.</p>
+            <div class="flex gap-6 mt-4">
+                <a href="/kontak" class="text-xs sm:text-sm font-medium text-[#414844] hover:text-[#934b00] transition-colors">Kontak</a>
+                <a href="/privasi" class="text-xs sm:text-sm font-medium text-[#414844] hover:text-[#934b00] transition-colors">Privasi</a>
+                <a href="/syarat" class="text-xs sm:text-sm font-medium text-[#414844] hover:text-[#934b00] transition-colors">Syarat</a>
             </div>
-        </footer>
-
-</div><!-- /Layout Container -->
+            <p class="mt-6 text-xs text-[#414844]/60">© {{ date('Y') }} SampahKita Community. Bersama menjaga bumi.</p>
+        </div>
+    </footer>
 
 <script>
     // ── Drawer Toggle Logic ──
