@@ -300,7 +300,7 @@
             @php
                 // Calculate dynamic SVG coordinates safely for last 7 days
                 $counts = array_column($trafficData, 'count');
-                $maxVal = empty($counts) ? 100 : max($counts) ?: 100;
+                $maxVal = (!empty($counts) && max($counts) > 0) ? max($counts) : 100;
                 $points = [];
                 $stepX = 1000 / 6; // divide 1000px width equally by 7 points (6 intervals)
                 
