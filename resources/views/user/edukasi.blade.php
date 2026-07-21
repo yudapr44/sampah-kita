@@ -273,7 +273,12 @@
                                     @if($index % 2 === 0) science @else forest @endif
                                 </span>
                             </div>
-                            <span class="text-[15px] font-bold text-[#191c1d]">{{ $article->title }}</span>
+                            <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
+                                <span class="text-[15px] font-bold text-[#191c1d]">{{ $article->title }}</span>
+                                <span class="px-2.5 py-0.5 text-[11px] font-bold rounded-full w-fit @if($article->category === 'Pengelolaan') bg-[#fd8603]/15 text-[#934b00] @else bg-[#1b4332]/15 text-[#1b4332] @endif">
+                                    {{ $article->category }}
+                                </span>
+                            </div>
                         </div>
                         <span class="material-symbols-outlined chevron-icon text-[#414844] flex-shrink-0">expand_more</span>
                     </button>

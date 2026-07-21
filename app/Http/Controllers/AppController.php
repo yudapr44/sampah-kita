@@ -18,19 +18,19 @@ class AppController extends Controller
     // Edukasi Page
     public function edukasi()
     {
+        // Get all active articles so user can view all published materials
         $articles = Article::where('status', 'Aktif')
-            ->whereIn('category', ['Dasar', 'Tips'])
+            ->latest()
             ->get();
         return view('user.edukasi', compact('articles'));
     }
 
-    // Pengelolaan Page (formerly Bank)
+    // Pengelolaan Page
     public function bank()
     {
         $setting = Setting::first();
-        // Get articles relevant to management
         $articles = Article::where('status', 'Aktif')
-            ->whereIn('category', ['Pengelolaan', 'Manfaat'])
+            ->latest()
             ->get();
         return view('user.bank', compact('setting', 'articles'));
     }
