@@ -259,7 +259,7 @@
                                     <td class="px-6 py-6">
                                         <div class="flex flex-col">
                                             <span class="font-headline-md text-[18px] text-on-background leading-tight">{{ $article->title }}</span>
-                                            <span class="font-body-md text-body-md text-outline mt-1">Oleh: Admin Balonggandu</span>
+                                            <span class="font-body-md text-body-md text-outline mt-1">Oleh: {{ $article->user->name ?? 'Admin Balonggandu' }}</span>
                                         </div>
                                     </td>
                                     <td class="px-6 py-6">

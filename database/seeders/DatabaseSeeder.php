@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // 1. Create Default Admin User
-        User::updateOrCreate(
+        $admin = User::updateOrCreate(
             ['email' => 'admin@balonggandu.desa.id'],
             [
                 'name'     => 'Admin Balonggandu',
@@ -62,6 +62,7 @@ class DatabaseSeeder extends Seeder
             Article::updateOrCreate(
                 ['slug' => Str::slug($art['title'])],
                 [
+                    'user_id' => $admin->id,
                     'title' => $art['title'],
                     'category' => $art['category'],
                     'content' => $art['content'],

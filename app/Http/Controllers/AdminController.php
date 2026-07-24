@@ -54,7 +54,7 @@ class AdminController extends Controller
     // Kelola Artikel
     public function artikel()
     {
-        $articles = Article::orderBy('id', 'desc')->get();
+        $articles = Article::with('user')->orderBy('id', 'desc')->get();
         $publishedCount = Article::where('status', 'Aktif')->count();
         $draftCount = Article::where('status', 'Draft')->count();
         $totalViews = Article::sum('views');
@@ -71,7 +71,10 @@ class AdminController extends Controller
             'content' => 'required|string',
         ]);
 
+        $adminId = session('admin_id') ?? \App\Models\User::first()?->id;
+
         $article = Article::create([
+            'user_id' => $adminId,
             'title' => $request->title,
             'slug' => Str::slug($request->title) . '-' . rand(100, 999),
             'category' => $request->category,
