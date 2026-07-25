@@ -14,6 +14,7 @@ class Gallery extends Model
         'category',
         'type',
         'image_url',
+        'description',
         'uploader',
         'is_featured',
     ];

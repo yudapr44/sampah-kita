@@ -387,6 +387,11 @@
             </div>
 
             <div>
+                <label class="block font-label-sm text-label-sm font-semibold text-on-surface mb-1">Artikel / Deskripsi Penjelasan Foto</label>
+                <textarea id="input-description" name="description" rows="3" placeholder="Tuliskan ringkasan artikel atau penjelasan kegiatan dari foto ini..." class="w-full px-3 py-2 bg-surface-container-low border border-outline-variant rounded-lg focus:border-primary focus:ring-1 focus:ring-primary outline-none text-xs"></textarea>
+            </div>
+
+            <div>
                 <label class="block font-label-sm text-label-sm font-semibold text-on-surface mb-1">Upload File Gambar (Max 5MB)</label>
                 <input type="file" id="input-image-file" name="image" accept="image/*" class="w-full text-xs bg-surface-container-low border border-outline-variant rounded-lg p-2 file:mr-3 file:py-1 file:px-3 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-primary file:text-on-primary">
             </div>
@@ -398,7 +403,7 @@
 
             <div class="flex items-center gap-2 pt-1">
                 <input type="checkbox" id="input-featured" name="is_featured" value="1" class="rounded text-primary focus:ring-primary h-4 w-4">
-                <label for="input-featured" class="font-label-sm text-label-sm text-on-surface font-medium cursor-pointer">Jadikan Media Unggulan (Featured Card Utamadi Bento Grid)</label>
+                <label for="input-featured" class="font-label-sm text-label-sm text-on-surface font-medium cursor-pointer">Jadikan Media Unggulan (Featured Card Utama di Bento Grid)</label>
             </div>
 
             <div class="flex justify-end gap-3 pt-3 border-t border-outline-variant">
@@ -454,6 +459,7 @@
         document.getElementById('input-category').value = item.category;
         document.getElementById('input-type').value = item.type;
         document.getElementById('input-uploader').value = item.uploader;
+        document.getElementById('input-description').value = item.description || '';
         document.getElementById('input-image-url').value = item.image_url;
         document.getElementById('input-featured').checked = !!item.is_featured;
         document.getElementById('upload-modal').classList.remove('opacity-0', 'pointer-events-none');

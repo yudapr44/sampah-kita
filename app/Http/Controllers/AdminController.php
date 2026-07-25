@@ -165,6 +165,7 @@ class AdminController extends Controller
             'title' => 'required|string|max:255',
             'category' => 'required|string',
             'type' => 'required|string',
+            'description' => 'nullable|string',
             'uploader' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
             'image_url' => 'nullable|string'
@@ -192,6 +193,7 @@ class AdminController extends Controller
             'category' => $request->category,
             'type' => $request->type,
             'image_url' => $imageUrl,
+            'description' => $request->description,
             'uploader' => $request->uploader ?: (session('admin_name') ?? 'Admin Utama'),
             'is_featured' => $request->has('is_featured') ? (bool)$request->is_featured : false
         ]);
@@ -213,6 +215,7 @@ class AdminController extends Controller
             'title' => 'required|string|max:255',
             'category' => 'required|string',
             'type' => 'required|string',
+            'description' => 'nullable|string',
             'uploader' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
             'image_url' => 'nullable|string'
@@ -237,6 +240,7 @@ class AdminController extends Controller
         $gallery->title = $request->title;
         $gallery->category = $request->category;
         $gallery->type = $request->type;
+        $gallery->description = $request->description;
         if ($request->filled('uploader')) {
             $gallery->uploader = $request->uploader;
         }

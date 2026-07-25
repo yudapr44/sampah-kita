@@ -215,36 +215,51 @@
                     <div onclick="openLightbox(this)" 
                          data-img="{{ $item->image_url }}"
                          data-title="{{ $item->title }}"
-                         data-desc="Kategori: {{ $item->category }} • Oleh: {{ $item->uploader }} ({{ $item->created_at->format('d M Y') }})"
-                         class="gallery-card bg-white rounded-xl shadow-sm overflow-hidden border border-[#c1c8c2]/60 cursor-pointer group">
-                        <div class="h-48 overflow-hidden relative bg-neutral-100">
-                            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                                 src="{{ $item->image_url }}" 
-                                 alt="{{ $item->title }}"
-                                 onerror="this.src='/images/hero_karawang.png'"/>
-                            
-                            @if(strtolower($item->type) === 'video')
-                                <div class="absolute top-3 left-3 bg-[#fd8603] text-white px-2.5 py-0.5 rounded-full text-[10px] font-bold shadow flex items-center gap-1">
-                                    <span class="material-symbols-outlined text-[14px]">videocam</span>
-                                    <span>Video</span>
-                                </div>
-                                <div class="absolute inset-0 flex items-center justify-center bg-black/20">
-                                    <div class="w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-[#012d1d] shadow-lg">
-                                        <span class="material-symbols-outlined text-[24px]">play_arrow</span>
+                         data-category="{{ $item->category }}"
+                         data-uploader="{{ $item->uploader }}"
+                         data-date="{{ $item->created_at->format('d M Y') }}"
+                         data-article="{{ $item->description }}"
+                         class="gallery-card bg-white rounded-2xl shadow-sm overflow-hidden border border-[#c1c8c2]/60 cursor-pointer group flex flex-col justify-between">
+                        <div>
+                            <div class="h-48 overflow-hidden relative bg-neutral-100">
+                                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                                     src="{{ $item->image_url }}" 
+                                     alt="{{ $item->title }}"
+                                     onerror="this.src='/images/hero_karawang.png'"/>
+                                
+                                @if(strtolower($item->type) === 'video')
+                                    <div class="absolute top-3 left-3 bg-[#fd8603] text-white px-2.5 py-0.5 rounded-full text-[10px] font-bold shadow flex items-center gap-1">
+                                        <span class="material-symbols-outlined text-[14px]">videocam</span>
+                                        <span>Video</span>
                                     </div>
+                                    <div class="absolute inset-0 flex items-center justify-center bg-black/20">
+                                        <div class="w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-[#012d1d] shadow-lg">
+                                            <span class="material-symbols-outlined text-[24px]">play_arrow</span>
+                                        </div>
+                                    </div>
+                                @else
+                                    <div class="absolute top-3 left-3 bg-[#012d1d] text-white px-2.5 py-0.5 rounded-full text-[10px] font-bold shadow">
+                                        {{ $item->category }}
+                                    </div>
+                                @endif
+                            </div>
+                            <!-- Artikel & Deskripsi di Bawah Gambar -->
+                            <div class="p-5">
+                                <div class="flex items-center justify-between gap-2 mb-1">
+                                    <span class="text-[11px] font-bold text-[#934b00] uppercase tracking-wider">{{ $item->category }}</span>
+                                    <span class="text-[11px] text-[#717973]">{{ $item->created_at->format('d M Y') }}</span>
                                 </div>
-                            @else
-                                <div class="absolute top-3 left-3 bg-[#012d1d] text-white px-2.5 py-0.5 rounded-full text-[10px] font-bold shadow">
-                                    {{ $item->category }}
-                                </div>
-                            @endif
+                                <h4 class="text-[15px] font-bold text-[#012d1d] leading-snug mb-2">{{ $item->title }}</h4>
+                                @if ($item->description)
+                                    <p class="text-[12px] text-[#414844] leading-relaxed line-clamp-3 bg-[#f8f9fa] p-3 rounded-xl border border-[#c1c8c2]/30 mb-2">
+                                        {{ $item->description }}
+                                    </p>
+                                @endif
+                            </div>
                         </div>
-                        <div class="p-4">
-                            <p class="text-[12px] font-bold text-[#934b00] mb-0.5">{{ $item->category }}</p>
-                            <h4 class="text-[14px] font-bold text-[#191c1d] leading-snug truncate mb-1">{{ $item->title }}</h4>
-                            <p class="text-[11px] text-[#717973] flex items-center gap-1">
-                                <span class="material-symbols-outlined text-[14px]">person</span> {{ $item->uploader }}
-                            </p>
+                        <div class="px-5 pb-4 pt-0 flex items-center justify-between text-[11px] text-[#717973] border-t border-[#f0f1f2] pt-3">
+                            <span class="flex items-center gap-1 font-medium"><span class="material-symbols-outlined text-[14px]">person</span> {{ $item->uploader }}</span>
+                            <span class="font-bold text-[#012d1d] hover:underline flex items-center gap-0.5">Baca Detail <span class="material-symbols-outlined text-[14px]">chevron_right</span></span>
                         </div>
                     </div>
                 @empty
@@ -340,11 +355,20 @@
     function openLightbox(card) {
         const imgSrc = card.getAttribute('data-img') || card.querySelector('img')?.src;
         const titleText = card.getAttribute('data-title') || card.querySelector('h4')?.textContent || '';
-        const descText = card.getAttribute('data-desc') || '';
+        const category = card.getAttribute('data-category') || '';
+        const uploader = card.getAttribute('data-uploader') || '';
+        const date = card.getAttribute('data-date') || '';
+        const articleText = card.getAttribute('data-article') || '';
+
         lightboxImg.src = imgSrc;
         lightboxImg.alt = titleText;
         lightboxTitle.textContent = titleText;
-        lightboxDesc.textContent = descText;
+        lightboxDesc.innerHTML = `
+            <div class="flex items-center gap-2 mb-2 text-xs text-[#934b00] font-bold">
+                <span>${category}</span> • <span>Oleh: ${uploader}</span> • <span>${date}</span>
+            </div>
+            ${articleText ? `<div class="p-3 bg-[#f8f9fa] rounded-xl border border-[#c1c8c2]/40 text-xs text-[#414844] leading-relaxed">${articleText}</div>` : ''}
+        `;
         lightbox.classList.remove('opacity-0', 'pointer-events-none');
     }
     function closeLightbox() {
