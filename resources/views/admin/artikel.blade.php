@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kelola Artikel Edukasi — Admin SampahKita</title>
+    <title>Artikel Edukasi — Admin Panel Desa Balonggandu</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0..1&display=block" rel="stylesheet">
@@ -15,49 +15,42 @@
 </head>
 <body class="bg-[#f3f4f6] text-[#191c1d] min-h-screen flex overflow-x-hidden">
 
-    <!-- SIDEBAR NAVIGATION (SMOOTH TOGGLE) -->
+    <!-- SIDEBAR UNIFORM -->
     <aside id="adminSidebar" class="w-64 bg-[#012d1d] text-white flex flex-col justify-between p-5 min-h-screen sticky top-0 shadow-xl z-20 flex-shrink-0 transition-all duration-300">
         <div>
-            <div class="flex items-center justify-between pb-6 border-b border-white/10 mb-6">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-[#fd8603] flex items-center justify-center text-white shadow-md">
-                        <span class="material-symbols-outlined fill-icon text-[24px]">admin_panel_settings</span>
-                    </div>
-                    <div>
-                        <h1 class="font-extrabold text-[16px] leading-none">Admin Desa</h1>
-                        <p class="text-[11px] text-[#a5d0b9] mt-1">Balonggandu Portal</p>
-                    </div>
+            <div class="flex items-center gap-3 pb-6 border-b border-white/10 mb-6">
+                <div class="w-10 h-10 rounded-xl bg-[#fd8603] flex items-center justify-center text-white shadow-md">
+                    <span class="material-symbols-outlined fill-icon text-[24px]">analytics</span>
+                </div>
+                <div>
+                    <h1 class="font-extrabold text-[16px] leading-none">SIP 3R Balonggandu</h1>
+                    <p class="text-[11px] text-[#a5d0b9] mt-1">Admin Panel Desa</p>
                 </div>
             </div>
 
-            <!-- Nav Links -->
             <nav class="space-y-1.5">
                 <a href="/admin" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-300 hover:text-white hover:bg-white/10 font-semibold text-xs transition-all">
                     <span class="material-symbols-outlined text-[20px]">dashboard</span>
                     Dashboard Utama
                 </a>
-
                 <a href="/admin/bank-digital" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-300 hover:text-white hover:bg-white/10 font-semibold text-xs transition-all">
-                    <span class="material-symbols-outlined text-[20px] text-[#fd8603]">equalizer</span>
-                    Bank Sampah Digital
+                    <span class="material-symbols-outlined text-[20px] text-[#fd8603]">analytics</span>
+                    Data Digital 3R
                 </a>
-
-                <!-- ACTIVE MENU: ARTIKEL -->
                 <a href="/admin/artikel" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/15 text-white font-bold text-xs shadow-inner">
                     <span class="material-symbols-outlined text-[20px] fill-icon">school</span>
                     Artikel Edukasi
                 </a>
-
-                <a href="/admin/kontak" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-300 hover:text-white hover:bg-white/10 font-semibold text-xs transition-all">
-                    <span class="material-symbols-outlined text-[20px]">contact_mail</span>
-                    Pesan &amp; Kontak
+                <a href="/admin/galeri" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-300 hover:text-white hover:bg-white/10 font-semibold text-xs transition-all">
+                    <span class="material-symbols-outlined text-[20px]">photo_library</span>
+                    Galeri Kegiatan
                 </a>
 
                 <div class="pt-4 mt-4 border-t border-white/10">
-                    <a href="/" target="_blank" class="flex items-center justify-between px-4 py-2.5 rounded-xl bg-emerald-900/50 hover:bg-emerald-900 text-[#a5d0b9] font-bold text-xs transition-all border border-emerald-700/50">
+                    <a href="/bank-digital" target="_blank" class="flex items-center justify-between px-4 py-2.5 rounded-xl bg-emerald-900/50 hover:bg-emerald-900 text-[#a5d0b9] font-bold text-xs transition-all border border-emerald-700/50">
                         <span class="flex items-center gap-2">
                             <span class="material-symbols-outlined text-[18px]">public</span>
-                            Lihat Website Warga
+                            Portal Warga 3R
                         </span>
                         <span class="material-symbols-outlined text-[14px]">open_in_new</span>
                     </a>
@@ -75,7 +68,6 @@
                     <p class="text-[10px] text-gray-400 truncate">admin@balonggandu.desa.id</p>
                 </div>
             </div>
-            
             <form action="{{ route('admin.logout') }}" method="POST">
                 @csrf
                 <button type="submit" class="w-full bg-red-500/20 hover:bg-red-600 text-red-200 hover:text-white font-bold py-2.5 rounded-xl transition-all text-xs flex items-center justify-center gap-2 border border-red-500/30">
@@ -86,9 +78,8 @@
         </div>
     </aside>
 
-    <!-- MAIN CONTENT AREA -->
+    <!-- MAIN CONTENT -->
     <main class="flex-1 p-4 sm:p-8 overflow-y-auto w-full transition-all duration-300">
-
         @if(session('success'))
             <div class="mb-6 p-4 bg-emerald-600 text-white rounded-2xl shadow-md flex items-center justify-between">
                 <div class="flex items-center gap-3">
@@ -101,15 +92,14 @@
             </div>
         @endif
 
-        <!-- TOP BAR / HEADER WITH TOGGLE -->
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 bg-white p-4 sm:p-6 rounded-3xl border border-gray-100 shadow-sm">
             <div class="flex items-center gap-3">
-                <button onclick="toggleAdminSidebar()" class="p-2.5 rounded-2xl bg-gray-100 hover:bg-[#012d1d] hover:text-white text-[#012d1d] transition-all flex items-center justify-center shadow-sm cursor-pointer" title="Buka/Tutup Sidebar">
+                <button onclick="toggleAdminSidebar()" class="p-2.5 rounded-2xl bg-gray-100 hover:bg-[#012d1d] hover:text-white text-[#012d1d] transition-all flex items-center justify-center shadow-sm cursor-pointer">
                     <span class="material-symbols-outlined text-[24px]">menu</span>
                 </button>
                 <div>
                     <h2 class="text-base sm:text-xl font-extrabold text-[#012d1d]">Kelola Artikel Edukasi 📚</h2>
-                    <p class="text-[11px] sm:text-xs text-gray-500 mt-0.5">Publikasikan panduan 3R dan informasi desa</p>
+                    <p class="text-[11px] sm:text-xs text-gray-500 mt-0.5">Publikasikan panduan Reduce, Reuse, Recycle untuk warga desa</p>
                 </div>
             </div>
             <button onclick="toggleModal()" class="bg-[#fd8603] hover:bg-[#e07800] active:scale-95 text-white font-bold text-xs px-5 py-3 rounded-xl transition-all flex items-center gap-2 shadow-sm self-start sm:self-auto">
@@ -118,7 +108,6 @@
             </button>
         </div>
 
-        <!-- STATISTIK ARTIKEL -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-8">
             <div class="bg-white p-5 rounded-3xl border border-gray-100 shadow-sm flex items-center justify-between">
                 <div>
@@ -151,11 +140,10 @@
             </div>
         </div>
 
-        <!-- TABEL LIST ARTIKEL -->
         <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm">
             <div class="flex items-center justify-between mb-6">
                 <h3 class="text-base font-bold text-[#012d1d]">Daftar Artikel Terpublikasi</h3>
-                <span class="text-xs bg-emerald-100 text-emerald-800 font-bold px-3 py-1 rounded-full">Tampil di Portal Edukasi</span>
+                <span class="text-xs bg-emerald-100 text-emerald-800 font-bold px-3 py-1 rounded-full">Tampil di Portal Warga</span>
             </div>
 
             <div class="overflow-x-auto">
@@ -171,22 +159,16 @@
                     <tbody class="divide-y divide-gray-100">
                         @forelse($articles as $a)
                             <tr class="hover:bg-gray-50 transition-colors">
-                                <td class="py-3.5 px-4 font-bold text-[#012d1d] max-w-[220px]">
-                                    {{ $a->title }}
-                                </td>
+                                <td class="py-3.5 px-4 font-bold text-[#012d1d] max-w-[220px]">{{ $a->title }}</td>
                                 <td class="py-3.5 px-4">
-                                    <span class="px-2.5 py-1 bg-orange-100 text-[#fd8603] rounded-lg font-bold text-[11px]">
-                                        {{ $a->category }}
-                                    </span>
+                                    <span class="px-2.5 py-1 bg-orange-100 text-[#fd8603] rounded-lg font-bold text-[11px]">{{ $a->category }}</span>
                                 </td>
-                                <td class="py-3.5 px-4 text-gray-500 max-w-[320px] truncate">
-                                    {{ $a->content }}
-                                </td>
+                                <td class="py-3.5 px-4 text-gray-500 max-w-[320px] truncate">{{ $a->content }}</td>
                                 <td class="py-3.5 px-4 text-center">
                                     <form action="/admin/artikel/{{ $a->id }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus artikel ini?')">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="p-2 bg-red-100 text-red-600 hover:bg-red-600 hover:text-white rounded-xl transition-all" title="Hapus Artikel">
+                                        <button type="submit" class="p-2 bg-red-100 text-red-600 hover:bg-red-600 hover:text-white rounded-xl transition-all">
                                             <span class="material-symbols-outlined text-[18px]">delete</span>
                                         </button>
                                     </form>
@@ -194,24 +176,20 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="4" class="text-center py-12 text-gray-400">
-                                    <span class="material-symbols-outlined text-[48px] text-gray-300 block mb-2">auto_stories</span>
-                                    Belum ada artikel edukasi yang dibuat.
-                                </td>
+                                <td colspan="4" class="text-center py-12 text-gray-400">Belum ada artikel edukasi yang dibuat.</td>
                             </tr>
                         @endforelse
                     </tbody>
                 </table>
             </div>
         </div>
-
     </main>
 
-    <!-- MODAL FORM TAMBAH ARTIKEL -->
+    <!-- MODAL ADD ARTIKEL -->
     <div id="modalTambah" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 p-4">
         <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl space-y-4">
             <div class="flex items-center justify-between pb-3 border-b border-gray-100">
-                <h3 class="text-base font-bold text-[#012d1d]">Tambah Artikel Edukasi Baru</h3>
+                <h3 class="text-base font-bold text-[#012d1d]">Tambah Artikel Edukasi 3R Baru</h3>
                 <button onclick="toggleModal()" class="text-gray-400 hover:text-gray-600">
                     <span class="material-symbols-outlined text-[20px]">close</span>
                 </button>
@@ -227,9 +205,9 @@
                 <div>
                     <label class="block text-xs font-bold text-gray-700 mb-1.5">Kategori Topik</label>
                     <select name="category" required class="w-full rounded-xl border-gray-200 bg-gray-50 text-xs font-semibold p-3 focus:bg-white focus:border-[#012d1d] focus:ring-0">
-                        <option value="Dasar">Dasar 3R</option>
+                        <option value="Dasar 3R">Dasar 3R</option>
                         <option value="Pengelolaan">Pengelolaan Sampah</option>
-                        <option value="Manfaat">Manfaat Ekonomi</option>
+                        <option value="Manfaat">Manfaat Daur Ulang</option>
                         <option value="Regulasi">Regulasi Lingkungan</option>
                     </select>
                 </div>
@@ -249,10 +227,8 @@
 
     <script>
         function toggleAdminSidebar() {
-            const sidebar = document.getElementById('adminSidebar');
-            sidebar.classList.toggle('-ml-64');
+            document.getElementById('adminSidebar').classList.toggle('-ml-64');
         }
-
         function toggleModal() {
             const modal = document.getElementById('modalTambah');
             modal.classList.toggle('opacity-0');
