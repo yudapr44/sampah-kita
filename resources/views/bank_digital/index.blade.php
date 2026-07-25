@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pendataan Data Digital 3R — Aparatur Desa Balonggandu</title>
+    <title>Pengelolaan Data Digital 3R — Admin Panel Desa Balonggandu</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0..1&display=block" rel="stylesheet">
@@ -15,7 +15,7 @@
 </head>
 <body class="bg-[#f3f4f6] text-[#191c1d] min-h-screen flex overflow-x-hidden">
 
-    <!-- SIDEBAR -->
+    <!-- SIDEBAR UNIFORM -->
     <aside id="adminSidebar" class="w-64 bg-[#012d1d] text-white flex flex-col justify-between p-5 min-h-screen sticky top-0 shadow-xl z-20 flex-shrink-0 transition-all duration-300">
         <div>
             <div class="flex items-center gap-3 pb-6 border-b border-white/10 mb-6">
@@ -24,7 +24,7 @@
                 </div>
                 <div>
                     <h1 class="font-extrabold text-[16px] leading-none">SIP 3R Balonggandu</h1>
-                    <p class="text-[11px] text-[#a5d0b9] mt-1">Aparatur Desa Portal</p>
+                    <p class="text-[11px] text-[#a5d0b9] mt-1">Admin Panel Desa</p>
                 </div>
             </div>
 
@@ -33,20 +33,17 @@
                     <span class="material-symbols-outlined text-[20px]">dashboard</span>
                     Dashboard Utama
                 </a>
-
                 <a href="/admin/bank-digital" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/15 text-white font-bold text-xs shadow-inner">
                     <span class="material-symbols-outlined text-[20px] text-[#fd8603] fill-icon">analytics</span>
                     Data Digital 3R
                 </a>
-
                 <a href="/admin/artikel" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-300 hover:text-white hover:bg-white/10 font-semibold text-xs transition-all">
                     <span class="material-symbols-outlined text-[20px]">school</span>
-                    Edukasi 3R
+                    Artikel Edukasi
                 </a>
-
                 <a href="/admin/galeri" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-300 hover:text-white hover:bg-white/10 font-semibold text-xs transition-all">
                     <span class="material-symbols-outlined text-[20px]">photo_library</span>
-                    Galeri Kegiatan 3R
+                    Galeri Kegiatan
                 </a>
 
                 <div class="pt-4 mt-4 border-t border-white/10">
@@ -67,7 +64,7 @@
                     <span class="material-symbols-outlined text-[20px]">person</span>
                 </div>
                 <div class="overflow-hidden">
-                    <p class="text-xs font-bold truncate">Aparatur Balonggandu</p>
+                    <p class="text-xs font-bold truncate">Admin Balonggandu</p>
                     <p class="text-[10px] text-gray-400 truncate">admin@balonggandu.desa.id</p>
                 </div>
             </div>
@@ -83,7 +80,6 @@
 
     <!-- MAIN CONTENT -->
     <main class="flex-1 p-4 sm:p-8 overflow-y-auto w-full transition-all duration-300">
-
         @if(session('success'))
             <div class="mb-6 p-4 bg-emerald-600 text-white rounded-2xl shadow-md flex items-center justify-between animate-bounce">
                 <div class="flex items-center gap-3">
@@ -104,7 +100,7 @@
                 <div>
                     <div class="flex items-center gap-2">
                         <h2 class="text-base sm:text-xl font-extrabold text-[#012d1d]">Pengelolaan Data Digital 3R</h2>
-                        <span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2.5 py-0.5 rounded-full">Modul Aparatur Desa</span>
+                        <span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2.5 py-0.5 rounded-full">Modul Desa</span>
                     </div>
                     <p class="text-[11px] sm:text-xs text-gray-500 mt-0.5">Pendataan pemilahan sampah warga (Reduce, Reuse, Recycle)</p>
                 </div>
@@ -149,7 +145,6 @@
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
             <div class="lg:col-span-4 space-y-6">
-                <!-- FORM PENDATAAN SAMPAH -->
                 <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm">
                     <div class="flex items-center gap-2.5 mb-5 pb-3 border-b border-gray-100">
                         <span class="material-symbols-outlined text-[#fd8603] fill-icon text-[24px]">post_add</span>
@@ -190,7 +185,6 @@
                     </form>
                 </div>
 
-                <!-- FORM REGISTRASI WARGA -->
                 <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm">
                     <div class="flex items-center gap-2.5 mb-5 pb-3 border-b border-gray-100">
                         <span class="material-symbols-outlined text-[#012d1d] fill-icon text-[24px]">person_add</span>
@@ -219,7 +213,6 @@
             </div>
 
             <div class="lg:col-span-8 space-y-6">
-                <!-- TABEL MONITORING DATA -->
                 <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm">
                     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
                         <div>
@@ -281,7 +274,6 @@
                     </div>
                 </div>
 
-                <!-- KATALOG 3R -->
                 <div class="bg-gradient-to-br from-[#012d1d] to-[#1b4332] p-6 rounded-3xl text-white shadow-md">
                     <div class="flex items-center justify-between mb-4">
                         <div class="flex items-center gap-2.5">

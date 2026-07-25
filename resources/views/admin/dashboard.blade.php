@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Utama 3R — Aparatur Desa Balonggandu</title>
+    <title>Dashboard Utama 3R — Admin Panel Desa Balonggandu</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0..1&display=block" rel="stylesheet">
@@ -15,7 +15,7 @@
 </head>
 <body class="bg-[#f3f4f6] text-[#191c1d] min-h-screen flex overflow-x-hidden">
 
-    <!-- SIDEBAR NAVIGATION -->
+    <!-- SIDEBAR UNIFORM -->
     <aside id="adminSidebar" class="w-64 bg-[#012d1d] text-white flex flex-col justify-between p-5 min-h-screen sticky top-0 shadow-xl z-20 flex-shrink-0 transition-all duration-300">
         <div>
             <div class="flex items-center gap-3 pb-6 border-b border-white/10 mb-6">
@@ -24,7 +24,7 @@
                 </div>
                 <div>
                     <h1 class="font-extrabold text-[16px] leading-none">SIP 3R Balonggandu</h1>
-                    <p class="text-[11px] text-[#a5d0b9] mt-1">Aparatur Desa Portal</p>
+                    <p class="text-[11px] text-[#a5d0b9] mt-1">Admin Panel Desa</p>
                 </div>
             </div>
 
@@ -33,20 +33,17 @@
                     <span class="material-symbols-outlined text-[20px] fill-icon">dashboard</span>
                     Dashboard Utama
                 </a>
-
                 <a href="/admin/bank-digital" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-300 hover:text-white hover:bg-white/10 font-semibold text-xs transition-all">
                     <span class="material-symbols-outlined text-[20px] text-[#fd8603]">analytics</span>
                     Data Digital 3R
                 </a>
-
                 <a href="/admin/artikel" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-300 hover:text-white hover:bg-white/10 font-semibold text-xs transition-all">
                     <span class="material-symbols-outlined text-[20px]">school</span>
-                    Edukasi 3R
+                    Artikel Edukasi
                 </a>
-
                 <a href="/admin/galeri" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-300 hover:text-white hover:bg-white/10 font-semibold text-xs transition-all">
                     <span class="material-symbols-outlined text-[20px]">photo_library</span>
-                    Galeri Kegiatan 3R
+                    Galeri Kegiatan
                 </a>
 
                 <div class="pt-4 mt-4 border-t border-white/10">
@@ -67,7 +64,7 @@
                     <span class="material-symbols-outlined text-[20px]">person</span>
                 </div>
                 <div class="overflow-hidden">
-                    <p class="text-xs font-bold truncate">Aparatur Balonggandu</p>
+                    <p class="text-xs font-bold truncate">Admin Balonggandu</p>
                     <p class="text-[10px] text-gray-400 truncate">admin@balonggandu.desa.id</p>
                 </div>
             </div>
@@ -95,11 +92,11 @@
             </div>
             <span class="text-xs font-bold bg-emerald-100 text-emerald-800 px-3.5 py-1.5 rounded-full hidden sm:flex items-center gap-1.5">
                 <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-                Sistem 3R Active
+                Sistem Active
             </span>
         </div>
 
-        <!-- WIDGET STATISTIK -->
+        <!-- STATISTIK -->
         <div class="grid grid-cols-1 sm:grid-cols-4 gap-5 mb-8">
             <div class="bg-white p-5 rounded-3xl border border-gray-100 shadow-sm flex items-center justify-between">
                 <div>
@@ -142,8 +139,7 @@
             </div>
         </div>
 
-        <!-- MODUL -->
-        <h3 class="text-base font-bold text-[#012d1d] mb-4">Modul Aparatur Desa</h3>
+        <h3 class="text-base font-bold text-[#012d1d] mb-4">Modul Pengelola Desa</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div class="bg-gradient-to-br from-[#012d1d] to-[#1b4332] text-white p-6 rounded-3xl shadow-md flex flex-col justify-between">
                 <div>
