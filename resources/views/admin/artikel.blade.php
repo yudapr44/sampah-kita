@@ -145,7 +145,7 @@
                 <span class="material-symbols-outlined">description</span>
                 <span class="font-body-md text-body-md font-semibold">Artikel</span>
             </a>
-            <a class="flex items-center gap-3 p-3 text-on-primary-fixed-variant hover:bg-primary-fixed transition-all rounded-lg" href="/galeri">
+            <a class="flex items-center gap-3 p-3 text-on-primary-fixed-variant hover:bg-primary-fixed transition-all rounded-lg" href="/admin/galeri">
                 <span class="material-symbols-outlined">image</span>
                 <span class="font-body-md text-body-md font-semibold">Galeri</span>
             </a>

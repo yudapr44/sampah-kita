@@ -107,17 +107,71 @@ class DatabaseSeeder extends Seeder
             }
         }
 
-        // 5. Create Dynamic Visitor logs for last 7 days
-        for ($i = 6; $i >= 0; $i--) {
-            $date = date('Y-m-d', strtotime("-$i days"));
-            $randomVisitorCount = rand(80, 260);
-
-            for ($j = 0; $j < $randomVisitorCount; $j++) {
-                \App\Models\Visitor::create([
-                    'ip_address' => '192.168.1.' . rand(1, 254),
-                    'user_agent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-                    'visited_at' => $date
-                ]);
+        // 6. Default Gallery Items
+        if (class_exists(\App\Models\Gallery::class)) {
+            $galleries = [
+                [
+                    'title' => 'Seminar Teknologi Masa Depan 2024',
+                    'category' => 'Education',
+                    'type' => 'photo',
+                    'image_url' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuBrLZGkAjJrjdoHbLfPIzS7u8xtdIgRNJwbsWVHBrJuOGqYhFcZxCwCwSx9ypOpxHLoo1P30zHKBJ96J2B-eXUvEmVPVBczIV3cT9LJgYGjwuX8MbdVc6A1VPGXGNmoKDKzQnTZYHF3Sjm7nBonPhG6X3dLApQZoUFgwo3tWUy-NHrYxVYphEbLq7kpHfj0cFlBmAhQ0iVLzmGRmwwxqkyR6IFgisWWUu54tFDHUqA47qoWWufT5B0DhA',
+                    'uploader' => 'Admin Utama',
+                    'is_featured' => true
+                ],
+                [
+                    'title' => 'Lab Sains Terpadu - Gedung B',
+                    'category' => 'Sains',
+                    'type' => 'photo',
+                    'image_url' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuCYvgcFEUloa2Kwn-ysc7V9nmoVMTomgPg8LE6L1JeNMnjPRxvWKLB1MLk8cQJ8ULoQDKfKo_wRe8SvnjCVKODBWWlwYjIiJoED5e4bbkSL2GpQ8RoRD_zLa-s3rISfotRASPXeKikZHwL_HpIhO_zxrC0RCm7Syw3XjV8j9e3sifYzI7zdRGARZP5wzREnl6KIX4cDTV0JqFY4q2Ju_FO4WGpKX03kG1mo5gaBH07GEZtgkzZOKLGCig',
+                    'uploader' => 'Dr. Ahmad',
+                    'is_featured' => false
+                ],
+                [
+                    'title' => 'Tutorial SIM Akademik',
+                    'category' => 'Education',
+                    'type' => 'video',
+                    'image_url' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuBaH-vRkmQYqx1v6YH4NwaAZspWpu7T0IbyrVcmB43aKTuIEm2srZB6uw6-tSzcwwh4Wr-RtE4_v-6tiwjn72DEjKklOpQBjdjIcGG2y9UL5BnwAdhjhf4xFjpbWOV1Njq4tsfOREPrdE2rDPD4R4FhVgSTDmczCVoUbbKAjbhYbJfyK0oKl0CJjDFarBguMWq_2le2WjEBLFh1hV_Pqrcw2u6AtBcmH8p2yMuwMaIP8A04xbCCqQsflg',
+                    'uploader' => 'IT Support',
+                    'is_featured' => false
+                ],
+                [
+                    'title' => 'Fasilitas Taman Kampus',
+                    'category' => 'Fasilitas',
+                    'type' => 'photo',
+                    'image_url' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuCm9VWZaj6agdSJSc2A73YTAb_to06vnzuyc5pksmoZJXN8A4-MTAc8MTjvT9nOA1rdZ3AEpGfJ7IdOpbNX0v0XNSoaJkoKTIkQTeZ2tnySqnZeARzlByQS-RF-oXHcIycplspkwdd4iEGnsdVxuJ4cyaQqfwBGpAvGFL5Px-MpKnbFUJ8S9-PJsqBlYNS5Q--B2oeutBGASQHvWyPDSBCJw-uj7RSZF9_DRtRNxFS_6ioLZttiM2Hx8A',
+                    'uploader' => 'Admin Fasilitas',
+                    'is_featured' => false
+                ],
+                [
+                    'title' => 'Modern Computer Center',
+                    'category' => 'Fasilitas',
+                    'type' => 'photo',
+                    'image_url' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuBmlThvsd-mRxCq3XPDVv0cItePmr9ptwGd_B0-QvXWkbtGcmJZT9xBhX9wBVEXYve4W8AZWVdEeYcYGAaAe8CboEo3U_-PxWVCA8_Ild14oM3vg0K-oksulIINzpBoXP_Vki20yuVzVufLoZdCn1dpY7Q9OECY2o4SPJrTF8EWSnVS3O1xGmX9wXNuUlw-SOPiCOwA1vA3IcLbLY6x8YkVyVrm_b3xADsAUAaz-4XGvhKMTXIDVN8FPQ',
+                    'uploader' => 'Admin IT',
+                    'is_featured' => false
+                ],
+                [
+                    'title' => 'Student Collaboration Hub',
+                    'category' => 'Kegiatan',
+                    'type' => 'photo',
+                    'image_url' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuDNONtqaIsF21St5Wd9osFDI4pVNSMhU2n-O0s48LkfSXgQUizavNTZqSJuNP5EgDR6itu7dam7os0CxIaVFRszOFiVvxSj3RDlmFIA1a9Qq6BAog5kMiOqON0Npipi7CYil-dlTZlnlWKEE_LUvzfXuACZ1KU85RwQXkoSG__0bC7LlB1G_2sjpfJ5wXZodeKg8z-vCtFdqWO0VY427DeLd2ine1PCmqlx08BPAAUHUjQKk53-u4r5Pg',
+                    'uploader' => 'Sarah Lee',
+                    'is_featured' => false
+                ],
+                [
+                    'title' => 'Perpustakaan Pusat',
+                    'category' => 'Fasilitas',
+                    'type' => 'photo',
+                    'image_url' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuChrp_vMnnOK1whljySagu7F0zdezeLmd8T3KYUvSvgXCXlwkXDmcpUInKon9sMGvErY4GvH6CFUXI6qz4emWONyTz7RDueE7z3Clid0xISk-rKdFU_f-iWcHcBpCO_f_WrINLnuSWqWDDcngz-iExWGsKWlqHtKfPSZBWqH30F6C15sN-fVVPNuCNxRjD-npVgb-1tMG3RGt1EeQwNKgALSJsluniGPpNbOcg9BtgTXEIFiddWh-RJNw',
+                    'uploader' => 'Librarian',
+                    'is_featured' => false
+                ]
+            ];
+            foreach ($galleries as $gal) {
+                \App\Models\Gallery::updateOrCreate(
+                    ['title' => $gal['title']],
+                    $gal
+                );
             }
         }
     }

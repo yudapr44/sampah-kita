@@ -128,7 +128,7 @@ class AdminController extends Controller
         return response()->json(['success' => true]);
     }
 
-    // Simpan Perubahan Akun Admin (via POST)
+    // Kelola Akun Admin (via POST)
     public function updateAkun(Request $request)
     {
         $admin = \App\Models\User::first();
@@ -150,5 +150,113 @@ class AdminController extends Controller
         $admin->save();
 
         return response()->json(['success' => true]);
+    }
+
+    // ── KELOLA GALERI (CRUD) ──
+    public function galeri()
+    {
+        $galleries = \App\Models\Gallery::orderBy('is_featured', 'desc')->orderBy('id', 'desc')->get();
+        return view('admin.galeri', compact('galleries'));
+    }
+
+    public function storeGaleri(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'category' => 'required|string',
+            'type' => 'required|string',
+            'uploader' => 'nullable|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
+            'image_url' => 'nullable|string'
+        ]);
+
+        $imageUrl = $request->image_url;
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $fileName = time() . '_' . Str::slug($request->title) . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('uploads/galeri'), $fileName);
+            $imageUrl = '/uploads/galeri/' . $fileName;
+        }
+
+        if (!$imageUrl) {
+            $imageUrl = '/images/hero_karawang.png';
+        }
+
+        if ($request->has('is_featured') && $request->is_featured) {
+            \App\Models\Gallery::query()->update(['is_featured' => false]);
+        }
+
+        $gallery = \App\Models\Gallery::create([
+            'title' => $request->title,
+            'category' => $request->category,
+            'type' => $request->type,
+            'image_url' => $imageUrl,
+            'uploader' => $request->uploader ?: (session('admin_name') ?? 'Admin Utama'),
+            'is_featured' => $request->has('is_featured') ? (bool)$request->is_featured : false
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'gallery' => $gallery
+        ]);
+    }
+
+    public function updateGaleri(Request $request, $id)
+    {
+        $gallery = \App\Models\Gallery::find($id);
+        if (!$gallery) {
+            return response()->json(['success' => false, 'message' => 'Media galeri tidak ditemukan'], 404);
+        }
+
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'category' => 'required|string',
+            'type' => 'required|string',
+            'uploader' => 'nullable|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
+            'image_url' => 'nullable|string'
+        ]);
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $fileName = time() . '_' . Str::slug($request->title) . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('uploads/galeri'), $fileName);
+            $gallery->image_url = '/uploads/galeri/' . $fileName;
+        } elseif ($request->filled('image_url')) {
+            $gallery->image_url = $request->image_url;
+        }
+
+        if ($request->has('is_featured') && $request->is_featured) {
+            \App\Models\Gallery::where('id', '!=', $id)->update(['is_featured' => false]);
+            $gallery->is_featured = true;
+        } elseif ($request->has('is_featured')) {
+            $gallery->is_featured = (bool)$request->is_featured;
+        }
+
+        $gallery->title = $request->title;
+        $gallery->category = $request->category;
+        $gallery->type = $request->type;
+        if ($request->filled('uploader')) {
+            $gallery->uploader = $request->uploader;
+        }
+        $gallery->save();
+
+        return response()->json([
+            'success' => true,
+            'gallery' => $gallery
+        ]);
+    }
+
+    public function deleteGaleri($id)
+    {
+        $gallery = \App\Models\Gallery::find($id);
+        if (!$gallery) {
+            return response()->json(['success' => false, 'message' => 'Media galeri tidak ditemukan'], 404);
+        }
+
+        $gallery->delete();
+
+        return response()->json(['success' => true, 'message' => 'Media galeri berhasil dihapus']);
     }
 }

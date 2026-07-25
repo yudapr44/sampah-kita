@@ -38,6 +38,7 @@ class AppController extends Controller
     // Galeri Page
     public function galeri()
     {
-        return view('user.galeri');
+        $galleries = \App\Models\Gallery::orderBy('is_featured', 'desc')->orderBy('id', 'desc')->get();
+        return view('user.galeri', compact('galleries'));
     }
 }

@@ -115,7 +115,7 @@
                 <span class="material-symbols-outlined">description</span>
                 <span class="font-label-bold">Artikel Edukasi</span>
             </a>
-            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-[#334d34] transition-all rounded-xl" href="/galeri">
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-[#334d34] transition-all rounded-xl" href="/admin/galeri">
                 <span class="material-symbols-outlined">photo_library</span>
                 <span class="font-label-bold">Galeri Kegiatan</span>
             </a>

@@ -35,6 +35,12 @@ Route::middleware(['admin.auth'])->group(function () {
     Route::post('/admin/kontak',         [AdminController::class, 'updateKontak']);
     Route::post('/admin/akun',           [AdminController::class, 'updateAkun']);
 
+    // ── ROUTE KELOLA GALERI ADMIN ──
+    Route::get('/admin/galeri',          [AdminController::class, 'galeri'])->name('admin.galeri');
+    Route::post('/admin/galeri',         [AdminController::class, 'storeGaleri'])->name('admin.galeri.store');
+    Route::post('/admin/galeri/{id}',    [AdminController::class, 'updateGaleri'])->name('admin.galeri.update');
+    Route::delete('/admin/galeri/{id}',  [AdminController::class, 'deleteGaleri'])->name('admin.galeri.delete');
+
     // ── ROUTE KHUSUS ADMIN / PENGELOLA BANK DIGITAL ──
     Route::get('/admin/bank-digital',           [BankDigitalController::class, 'index'])->name('bank.digital.admin');
     Route::post('/admin/bank-digital/nasabah',   [BankDigitalController::class, 'storeNasabah'])->name('nasabah.store');
