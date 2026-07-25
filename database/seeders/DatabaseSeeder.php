@@ -26,8 +26,29 @@ class DatabaseSeeder extends Seeder
         );
 
 
-        // 2. Create Default Article Data (Non-Dummy)
+        // 2. Create Default Article Data (Praktek Pengelolaan Sampah)
         $articles = [
+            [
+                'title' => 'Panduan Pembuatan Alat Pembakaran Sampah Minim Asap',
+                'category' => 'Pengelolaan',
+                'content' => "Alat pembakar sampah ramah lingkungan (Tungku Insinerator Sederhana) dirancang khusus untuk meminimalisir asap rokok dan polusi saat pemusnahan sampah residu kotor.\n\nBahan & Alat:\n1. Drum bekas ukuran 200 Liter (logam tebal).\n2. Pipa cerobong besi diameter 3-4 inci.\n3. Sarangan/grill besi untuk alas pembakaran.\n4. Kipas blower kecil (optional untuk pembakaran sempurna).\n\nLangkah Pembuatan & Pengoperasian:\n1. Lubangi bagian bawah drum sebagai pintu sirkulasi udara dan pembuangan abu.\n2. Pasang pipa cerobong di penutup bagian atas drum.\n3. Masukkan sampah kering yang sudah dipilah.\n4. Kunci utama pembakaran minim asap adalah suhu tinggi di ruang pembakaran dan sampah yang benar-benar kering.",
+                'status' => 'Aktif',
+                'views' => 1840
+            ],
+            [
+                'title' => 'Cara Membuat Lilin Aromaterapi dari Minyak Jelantah',
+                'category' => 'Tips',
+                'content' => "Minyak goreng bekas (jelantah) dapat diolah menjadi lilin aromaterapi yang cantik dan harum, mencegah pencemaran saluran air desa.\n\nBahan & Alat:\n1. Minyak jelantah 200 ml (yang sudah dijernihkan dengan arang/ampas kelapa).\n2. Soy wax / Sterin lilin 100 gram.\n3. Bibit parfum/essential oil (Lavender, Jeruk, atau Jasmine).\n4. Benang katun untuk sumbu lilin & wadah gelas kecil.\n\nLangkah Pembuatan:\n1. Panaskan minyak jelantah bersih bersama sterin/wax hingga meleleh sempurna.\n2. Matikan api, lalu tambahkan 15-20 tetes essential oil saat suhu agak hangat.\n3. Posisikan sumbu di tengah wadah gelas.\n4. Tuang adonan lilin perlahan dan biarkan memadat selama 4-6 jam.",
+                'status' => 'Aktif',
+                'views' => 2150
+            ],
+            [
+                'title' => 'Panduan Lengkap Pembuatan Kompos Organik Rumah Tangga',
+                'category' => 'Dasar',
+                'content' => "Kompos organik memanfaatkan sampah sisa dapur dan dedaunan menjadi pupuk bernilai tinggi bagi tanaman warga.\n\nBahan:\n1. Sampah Cokelat (daun kering, serbuk gergaji, kardus bekas).\n2. Sampah Hijau (sisa sayur, kulit buah, ampas teh/kopi).\n3. Larutan EM4 pertanian + air gula sebagai aktivator mikroba.\n\nLangkah Pengomposan:\n1. Potong kecil-kecil sisa sampah dapur.\n2. Masukkan ke dalam komposter dengan urutan berlapis (sampah cokelat - sampah hijau).\n3. Siram larutan EM4 secukupnya (kelembaban 40-50%).\n4. Aduk kompos 1x seminggu. Dalam 3-4 minggu, kompos matang ditandai dengan warna hitam renyah dan beraroma tanah alami.",
+                'status' => 'Aktif',
+                'views' => 1920
+            ],
             [
                 'title' => 'Cara Memilah Sampah dari Rumah',
                 'category' => 'Dasar',
@@ -41,20 +62,6 @@ class DatabaseSeeder extends Seeder
                 'content' => "Mulai dari kebiasaan kecil di rumah — setiap tindakan mengurangi sampah berdampak besar bagi lingkungan desa.\n\nTips:\n1. Bawa Tas Belanja Sendiri dari rumah saat belanja.\n2. Gunakan Botol Minum Isi Ulang.\n3. Kurangi Sisa Makanan dengan memasak secukupnya.\n4. Pilih Produk Ramah Lingkungan dengan kemasan minimal.\n5. Ajak Tetangga Berpartisipasi agar menjadi gerakan bersama.",
                 'status' => 'Aktif',
                 'views' => 980
-            ],
-            [
-                'title' => 'Apa Itu Bank Sampah dan Cara Kerjanya',
-                'category' => 'Pengelolaan',
-                'content' => "Bank sampah adalah sistem pengelolaan sampah berbasis komunitas di mana warga bertindak layaknya nasabah — menabung sampah dan mendapatkan nilai ekonomi dari setoran mereka.\n\nMekanisme kerjanya sederhana: warga memilah sampah di rumah masing-masing, kemudian menyetorkan ke titik pengumpulan bank sampah. Petugas menimbang, mencatat, lalu memberikan kredit tabungan sesuai jenis dan berat sampah.",
-                'status' => 'Aktif',
-                'views' => 1560
-            ],
-            [
-                'title' => 'Manfaat & Dampak Sosial Ekonomi Bank Sampah',
-                'category' => 'Manfaat',
-                'content' => "Bank sampah berdampak luas — bukan hanya soal lingkungan, tapi juga mendorong kemandirian ekonomi warga dan memperkuat kohesi sosial komunitas desa.\n\nManfaat Utama:\n1. Lingkungan Lebih Bersih (volume sampah TPA berkurang 30-40%).\n2. Tambahan Penghasilan bagi warga.\n3. Meningkatkan Gotong Royong.\n4. Membuka Lapangan Kerja Baru bagi pengelola.",
-                'status' => 'Draft',
-                'views' => 0
             ]
         ];
 

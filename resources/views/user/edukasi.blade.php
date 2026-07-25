@@ -258,6 +258,100 @@
             </div>
         </section>
 
+        <!-- PANDUAN PRAKTEK & INOVASI DAUR ULANG (GAMBAR & BACA PANDUAN) -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mb-12 md:mb-16 reveal">
+            <div class="mb-6">
+                <h3 class="text-xl sm:text-2xl font-bold text-[#012d1d]">Panduan Praktek & Inovasi Daur Ulang</h3>
+                <p class="text-xs sm:text-sm text-[#414844] mt-1">Panduan bergambar pembuatan pembakar sampah, lilin aromaterapi, dan pengolahan kompos</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Card 1: Pembakaran Sampah -->
+                <div class="bg-white rounded-3xl border border-[#c1c8c2]/60 shadow-sm overflow-hidden flex flex-col justify-between hover:shadow-md transition-all">
+                    <div>
+                        <div class="relative h-48 sm:h-52 w-full overflow-hidden bg-neutral-100">
+                            <img src="/images/pembakaran_sampah.jpg" alt="Alat Pembakaran Sampah Minim Asap" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"/>
+                            <span class="absolute top-3 left-3 px-3 py-1 bg-[#1b4332] text-white text-xs font-bold rounded-full shadow-md">
+                                Insinerator Minim Asap
+                            </span>
+                        </div>
+                        <div class="p-5 sm:p-6">
+                            <h4 class="text-base sm:text-lg font-bold text-[#012d1d] mb-2 leading-snug">Pembuatan Alat Pembakaran Sampah Minim Asap</h4>
+                            <p class="text-xs sm:text-sm text-[#414844] leading-relaxed mb-4">
+                                Tungku insinerator berbahan drum bekas dengan cerobong udara tinggi untuk memusnahkan sampah residu kotor tanpa mencemari udara lingkungan.
+                            </p>
+                            <div class="space-y-1 text-xs text-[#414844] bg-[#f8f9fa] p-3 rounded-xl border border-[#c1c8c2]/40 mb-2">
+                                <p class="font-semibold text-[#1b4332]">🛠️ Bahan Utama:</p>
+                                <p>Drum 200L, Pipa Cerobong Besi, Sarangan Pembakaran, Kipas Blower.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-5 sm:px-6 pb-6 pt-0">
+                        <button onclick="openArticle('pembakaran')" class="w-full py-2.5 bg-[#012d1d] hover:bg-[#163829] text-white text-xs sm:text-sm font-bold rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-sm">
+                            <span class="material-symbols-outlined text-[18px]">menu_book</span>
+                            Pelajari Panduan
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 2: Lilin Aromaterapi -->
+                <div class="bg-white rounded-3xl border border-[#c1c8c2]/60 shadow-sm overflow-hidden flex flex-col justify-between hover:shadow-md transition-all">
+                    <div>
+                        <div class="relative h-48 sm:h-52 w-full overflow-hidden bg-neutral-100">
+                            <img src="/images/lilin_aromaterapi.jpg" alt="Lilin Aromaterapi Minyak Jelantah" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"/>
+                            <span class="absolute top-3 left-3 px-3 py-1 bg-[#934b00] text-white text-xs font-bold rounded-full shadow-md">
+                                Olah Minyak Jelantah
+                            </span>
+                        </div>
+                        <div class="p-5 sm:p-6">
+                            <h4 class="text-base sm:text-lg font-bold text-[#012d1d] mb-2 leading-snug">Pembuatan Lilin Aromaterapi dari Minyak Jelantah</h4>
+                            <p class="text-xs sm:text-sm text-[#414844] leading-relaxed mb-4">
+                                Mengolah limbah minyak goreng bekas menjadi lilin hias aromaterapi yang harum, cantik, dan mencegah pencemaran saluran air desa.
+                            </p>
+                            <div class="space-y-1 text-xs text-[#414844] bg-[#fff8f0] p-3 rounded-xl border border-[#ffdcc4] mb-2">
+                                <p class="font-semibold text-[#934b00]">🕯️ Bahan Utama:</p>
+                                <p>Minyak jelantah jernih, Soy wax/sterin, Essential oil, Sumbu katun.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-5 sm:px-6 pb-6 pt-0">
+                        <button onclick="openArticle('lilin')" class="w-full py-2.5 bg-[#934b00] hover:bg-[#7a3e00] text-white text-xs sm:text-sm font-bold rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-sm">
+                            <span class="material-symbols-outlined text-[18px]">menu_book</span>
+                            Pelajari Panduan
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 3: Pembuatan Kompos -->
+                <div class="bg-white rounded-3xl border border-[#c1c8c2]/60 shadow-sm overflow-hidden flex flex-col justify-between hover:shadow-md transition-all">
+                    <div>
+                        <div class="relative h-48 sm:h-52 w-full overflow-hidden bg-neutral-100">
+                            <img src="/images/pembuatan_kompos.jpg" alt="Pembuatan Pupuk Kompos Organik" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"/>
+                            <span class="absolute top-3 left-3 px-3 py-1 bg-[#152b1c] text-white text-xs font-bold rounded-full shadow-md">
+                                Pupuk Kompos Organik
+                            </span>
+                        </div>
+                        <div class="p-5 sm:p-6">
+                            <h4 class="text-base sm:text-lg font-bold text-[#012d1d] mb-2 leading-snug">Pembuatan Kompos Organik Rumah Tangga</h4>
+                            <p class="text-xs sm:text-sm text-[#414844] leading-relaxed mb-4">
+                                Mengolah sampah sisa dapur (sayuran, buah) dan dedaunan menjadi pupuk kompos organik yang kaya nutrisi bagi tanaman warga.
+                            </p>
+                            <div class="space-y-1 text-xs text-[#414844] bg-[#f3f9f4] p-3 rounded-xl border border-[#cee9d3] mb-2">
+                                <p class="font-semibold text-[#152b1c]">🌱 Bahan Utama:</p>
+                                <p>Sampah hijau dapur, Daun kering, Larutan EM4 + Air Gula.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-5 sm:px-6 pb-6 pt-0">
+                        <button onclick="openArticle('kompos')" class="w-full py-2.5 bg-[#152b1c] hover:bg-[#2a4131] text-white text-xs sm:text-sm font-bold rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-sm">
+                            <span class="material-symbols-outlined text-[18px]">menu_book</span>
+                            Pelajari Panduan
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- PANDUAN PRAKTIS PENGELOLAAN -->
         <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full reveal">
             <h3 class="text-xl sm:text-2xl font-bold text-[#012d1d] mb-6">Panduan Praktis Pengelolaan Sampah</h3>
@@ -698,6 +792,219 @@
 
             <button onclick="closeArticle()" class="w-full py-4 bg-[#152b1c] text-white font-bold text-[15px] rounded-2xl hover:bg-[#2a4131] transition-colors">
                 Yuk, Mulai Recycle! ♻️
+            </button>
+        </div>
+    </div>
+
+    <!-- ═══ MODAL PEMBAKARAN SAMPAH MINIM ASAP ═══ -->
+    <div id="modal-pembakaran"
+         class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[540px] md:max-w-2xl z-[60] bg-white rounded-t-3xl shadow-2xl translate-y-full transition-transform duration-500 ease-out max-h-[90vh] overflow-y-auto">
+        <div class="sticky top-0 bg-white/95 backdrop-blur-sm z-10 rounded-t-3xl">
+            <div class="flex justify-center pt-3 pb-1">
+                <div class="w-10 h-1 bg-[#c1c8c2] rounded-full"></div>
+            </div>
+            <div class="flex items-center justify-between px-5 pb-4 pt-2 border-b border-[#edeeef]">
+                <div class="flex items-center gap-3">
+                    <div class="w-11 h-11 rounded-2xl bg-[#c1ecd4] flex items-center justify-center">
+                        <span class="material-symbols-outlined text-[#012d1d] fill-icon text-[22px]">fire_hydrant</span>
+                    </div>
+                    <div>
+                        <h2 class="text-[18px] font-extrabold text-[#012d1d] leading-tight">Pembakaran Sampah Minim Asap</h2>
+                        <p class="text-[12px] text-[#717973]">Insinerator Drum Sederhana</p>
+                    </div>
+                </div>
+                <button onclick="closeArticle()" class="w-9 h-9 rounded-full bg-[#f3f4f5] flex items-center justify-center hover:bg-[#e7e8e9] transition-colors">
+                    <span class="material-symbols-outlined text-[#414844] text-[20px]">close</span>
+                </button>
+            </div>
+        </div>
+        <div class="px-5 pt-5 pb-10 space-y-5">
+            <div class="rounded-2xl overflow-hidden shadow-sm">
+                <img src="/images/pembakaran_sampah.jpg" alt="Pembakaran Sampah Minim Asap" class="w-full h-48 sm:h-56 object-cover"/>
+            </div>
+
+            <div class="bg-[#c1ecd4]/30 rounded-2xl p-4 border-l-4 border-[#012d1d]">
+                <p class="text-[14px] text-[#191c1d] leading-relaxed">
+                    Tungku pembakar sampah ramah lingkungan dirancang untuk memusnahkan sampah residu yang tak bisa didaur ulang dengan suhu pembakaran tinggi sehingga asap yang dihasilkan sangat minim.
+                </p>
+            </div>
+
+            <div>
+                <h3 class="text-[15px] font-bold text-[#012d1d] mb-2">Bahan & Alat yang Dibutuhkan</h3>
+                <ul class="list-disc list-inside text-[13px] text-[#414844] space-y-1 bg-[#f8f9fa] p-4 rounded-xl border border-[#c1c8c2]/40">
+                    <li>Drum bekas berbahan besi 200 Liter.</li>
+                    <li>Pipa besi cerobong asap diameter 3-4 inci (tinggi 1.5 - 2 meter).</li>
+                    <li>Plat besi berlubang / sarangan alas pembakaran.</li>
+                    <li>Blower angin kecil (optional untuk pasokan oksigen masif).</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-[15px] font-bold text-[#012d1d] mb-3">Langkah Pembuatan & Pengoperasian</h3>
+                <div class="space-y-2.5 text-[13px] text-[#414844]">
+                    <div class="flex items-start gap-3 bg-[#f8f9fa] p-3 rounded-xl">
+                        <span class="w-6 h-6 rounded-full bg-[#012d1d] text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">1</span>
+                        <p>Lubangi bagian bawah drum untuk pintu masuk udara & pembersihan abu pembakaran.</p>
+                    </div>
+                    <div class="flex items-start gap-3 bg-[#f8f9fa] p-3 rounded-xl">
+                        <span class="w-6 h-6 rounded-full bg-[#012d1d] text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">2</span>
+                        <p>Pasang sarangan alas besi di dalam drum sekitar 15 cm di atas dasar drum.</p>
+                    </div>
+                    <div class="flex items-start gap-3 bg-[#f8f9fa] p-3 rounded-xl">
+                        <span class="w-6 h-6 rounded-full bg-[#012d1d] text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">3</span>
+                        <p>Pasang pipa cerobong asap di atas penutup drum secara presisi rapat udara.</p>
+                    </div>
+                    <div class="flex items-start gap-3 bg-[#f8f9fa] p-3 rounded-xl">
+                        <span class="w-6 h-6 rounded-full bg-[#012d1d] text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">4</span>
+                        <p>Masukkan sampah yang benar-benar KERING. Kunci minim asap adalah api panas tinggi dan sampah tanpa kelembaban basah.</p>
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="closeArticle()" class="w-full py-4 bg-[#012d1d] text-white font-bold text-[15px] rounded-2xl hover:bg-[#163829] transition-colors">
+                Tutup Panduan 🛑
+            </button>
+        </div>
+    </div>
+
+    <!-- ═══ MODAL LILIN AROMATERAPI ═══ -->
+    <div id="modal-lilin"
+         class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[540px] md:max-w-2xl z-[60] bg-white rounded-t-3xl shadow-2xl translate-y-full transition-transform duration-500 ease-out max-h-[90vh] overflow-y-auto">
+        <div class="sticky top-0 bg-white/95 backdrop-blur-sm z-10 rounded-t-3xl">
+            <div class="flex justify-center pt-3 pb-1">
+                <div class="w-10 h-1 bg-[#c1c8c2] rounded-full"></div>
+            </div>
+            <div class="flex items-center justify-between px-5 pb-4 pt-2 border-b border-[#edeeef]">
+                <div class="flex items-center gap-3">
+                    <div class="w-11 h-11 rounded-2xl bg-[#ffdcc4] flex items-center justify-center">
+                        <span class="material-symbols-outlined text-[#934b00] fill-icon text-[22px]">local_cafe</span>
+                    </div>
+                    <div>
+                        <h2 class="text-[18px] font-extrabold text-[#934b00] leading-tight">Lilin Aromaterapi Jelantah</h2>
+                        <p class="text-[12px] text-[#717973]">Kreasi Kerajinan Ramah Lingkungan</p>
+                    </div>
+                </div>
+                <button onclick="closeArticle()" class="w-9 h-9 rounded-full bg-[#f3f4f5] flex items-center justify-center hover:bg-[#e7e8e9] transition-colors">
+                    <span class="material-symbols-outlined text-[#414844] text-[20px]">close</span>
+                </button>
+            </div>
+        </div>
+        <div class="px-5 pt-5 pb-10 space-y-5">
+            <div class="rounded-2xl overflow-hidden shadow-sm">
+                <img src="/images/lilin_aromaterapi.jpg" alt="Lilin Aromaterapi Minyak Jelantah" class="w-full h-48 sm:h-56 object-cover"/>
+            </div>
+
+            <div class="bg-[#ffdcc4]/30 rounded-2xl p-4 border-l-4 border-[#934b00]">
+                <p class="text-[14px] text-[#191c1d] leading-relaxed">
+                    Minyak goreng bekas (jelantah) yang sering dibuang ke saluran air dapat merusak tanah dan air. Mengolahnya menjadi lilin aromaterapi adalah langkah inovasi daur ulang yang harum dan bermanfaat.
+                </p>
+            </div>
+
+            <div>
+                <h3 class="text-[15px] font-bold text-[#934b00] mb-2">Bahan & Alat</h3>
+                <ul class="list-disc list-inside text-[13px] text-[#414844] space-y-1 bg-[#fff8f0] p-4 rounded-xl border border-[#ffdcc4]">
+                    <li>200 ml minyak jelantah (sudah dibersihkan dengan arang aktif/ampas kelapa).</li>
+                    <li>100 gram Stearin / Soy Wax / Parafin lilin.</li>
+                    <li>Essential oil / Bibit Parfum (Lavender, Lemon, Jasmine).</li>
+                    <li>Sumbu katun lilin & wadah gelas hias.</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-[15px] font-bold text-[#934b00] mb-3">Langkah Pembuatan</h3>
+                <div class="space-y-2.5 text-[13px] text-[#414844]">
+                    <div class="flex items-start gap-3 bg-[#fff8f0] p-3 rounded-xl">
+                        <span class="w-6 h-6 rounded-full bg-[#934b00] text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">1</span>
+                        <p>Rendam minyak jelantah dengan arang aktif selama 24 jam untuk menghilangkan bau gorengan, lalu saring bersih.</p>
+                    </div>
+                    <div class="flex items-start gap-3 bg-[#fff8f0] p-3 rounded-xl">
+                        <span class="w-6 h-6 rounded-full bg-[#934b00] text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">2</span>
+                        <p>Panaskan minyak bersama stearin/parafin di atas kompor dengan api kecil hingga mencair rata.</p>
+                    </div>
+                    <div class="flex items-start gap-3 bg-[#fff8f0] p-3 rounded-xl">
+                        <span class="w-6 h-6 rounded-full bg-[#934b00] text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">3</span>
+                        <p>Matikan kompor, tunggu 2-3 menit hingga tidak terlalu panas, lalu campurkan 15-20 tetes essential oil pilihan.</p>
+                    </div>
+                    <div class="flex items-start gap-3 bg-[#fff8f0] p-3 rounded-xl">
+                        <span class="w-6 h-6 rounded-full bg-[#934b00] text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">4</span>
+                        <p>Pasang sumbu di dasar gelas, tuang cairan lilin perlahan, dan diamkan hingga mengeras sempurna.</p>
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="closeArticle()" class="w-full py-4 bg-[#934b00] text-white font-bold text-[15px] rounded-2xl hover:bg-[#7a3e00] transition-colors">
+                Tutup Panduan 🕯️
+            </button>
+        </div>
+    </div>
+
+    <!-- ═══ MODAL PEMBUATAN KOMPOS ORGANIK ═══ -->
+    <div id="modal-kompos"
+         class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[540px] md:max-w-2xl z-[60] bg-white rounded-t-3xl shadow-2xl translate-y-full transition-transform duration-500 ease-out max-h-[90vh] overflow-y-auto">
+        <div class="sticky top-0 bg-white/95 backdrop-blur-sm z-10 rounded-t-3xl">
+            <div class="flex justify-center pt-3 pb-1">
+                <div class="w-10 h-1 bg-[#c1c8c2] rounded-full"></div>
+            </div>
+            <div class="flex items-center justify-between px-5 pb-4 pt-2 border-b border-[#edeeef]">
+                <div class="flex items-center gap-3">
+                    <div class="w-11 h-11 rounded-2xl bg-[#cee9d3] flex items-center justify-center">
+                        <span class="material-symbols-outlined text-[#152b1c] fill-icon text-[22px]">eco</span>
+                    </div>
+                    <div>
+                        <h2 class="text-[18px] font-extrabold text-[#152b1c] leading-tight">Pembuatan Pupuk Kompos</h2>
+                        <p class="text-[12px] text-[#717973]">Pengolahan Sampah Organik Rumah Tangga</p>
+                    </div>
+                </div>
+                <button onclick="closeArticle()" class="w-9 h-9 rounded-full bg-[#f3f4f5] flex items-center justify-center hover:bg-[#e7e8e9] transition-colors">
+                    <span class="material-symbols-outlined text-[#414844] text-[20px]">close</span>
+                </button>
+            </div>
+        </div>
+        <div class="px-5 pt-5 pb-10 space-y-5">
+            <div class="rounded-2xl overflow-hidden shadow-sm">
+                <img src="/images/pembuatan_kompos.jpg" alt="Pembuatan Kompos Organik" class="w-full h-48 sm:h-56 object-cover"/>
+            </div>
+
+            <div class="bg-[#cee9d3]/30 rounded-2xl p-4 border-l-4 border-[#152b1c]">
+                <p class="text-[14px] text-[#191c1d] leading-relaxed">
+                    Lebih dari 50% sampah rumah tangga adalah sampah organik. Dengan membuat pupuk kompos, kita mengurangi sampah yang dibuang ke TPA sekaligus menghasilkan nutrisi terbaik bagi tanah pertanian dan kebun warga.
+                </p>
+            </div>
+
+            <div>
+                <h3 class="text-[15px] font-bold text-[#152b1c] mb-2">Bahan & Peralatan</h3>
+                <ul class="list-disc list-inside text-[13px] text-[#414844] space-y-1 bg-[#f3f9f4] p-4 rounded-xl border border-[#cee9d3]">
+                    <li>Sampah Hijau: sisa sayuran, sisa buah, kulit telur, ampas teh/kopi.</li>
+                    <li>Sampah Cokelat: daun kering, sekam padi, serbuk kayu, potongan kardus.</li>
+                    <li>Aktivator EM4 Pertanian & larutan air gula merah.</li>
+                    <li>Wadah komposter / ember berlubang.</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-[15px] font-bold text-[#152b1c] mb-3">Langkah Pengomposan</h3>
+                <div class="space-y-2.5 text-[13px] text-[#414844]">
+                    <div class="flex items-start gap-3 bg-[#f3f9f4] p-3 rounded-xl">
+                        <span class="w-6 h-6 rounded-full bg-[#152b1c] text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">1</span>
+                        <p>Cacah sisa sampah dapur menjadi ukuran kecil agar mikroba pembusuk lebih cepat bekerja.</p>
+                    </div>
+                    <div class="flex items-start gap-3 bg-[#f3f9f4] p-3 rounded-xl">
+                        <span class="w-6 h-6 rounded-full bg-[#152b1c] text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">2</span>
+                        <p>Masukkan ke dalam ember komposter selang-seling: lapisan sampah cokelat di bawah, diikuti sampah hijau.</p>
+                    </div>
+                    <div class="flex items-start gap-3 bg-[#f3f9f4] p-3 rounded-xl">
+                        <span class="w-6 h-6 rounded-full bg-[#152b1c] text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">3</span>
+                        <p>Percikkan larutan campuran EM4 dan air gula hingga lembap (seperti busa basah yang diperas).</p>
+                    </div>
+                    <div class="flex items-start gap-3 bg-[#f3f9f4] p-3 rounded-xl">
+                        <span class="w-6 h-6 rounded-full bg-[#152b1c] text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">4</span>
+                        <p>Tutup komposter, aduk 1-2 kali seminggu. Kompos matang siap pakai dalam 3-4 minggu dengan ciri warna kehitaman beraroma segar tanah.</p>
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="closeArticle()" class="w-full py-4 bg-[#152b1c] text-white font-bold text-[15px] rounded-2xl hover:bg-[#2a4131] transition-colors">
+                Tutup Panduan 🌱
             </button>
         </div>
     </div>
