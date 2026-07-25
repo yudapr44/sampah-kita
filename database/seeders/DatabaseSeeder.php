@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use App\Models\Article;
 use App\Models\Setting;
+use App\Models\KategoriSampah;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 
@@ -25,8 +26,7 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
-
-        // 2. Create Default Article Data (Praktek Pengelolaan Sampah)
+        // 2. Create Default Article Data
         $articles = [
             [
                 'title' => 'Panduan Pembuatan Alat Pembakaran Sampah Minim Asap',
@@ -69,12 +69,12 @@ class DatabaseSeeder extends Seeder
             Article::updateOrCreate(
                 ['slug' => Str::slug($art['title'])],
                 [
-                    'user_id' => $admin->id,
-                    'title' => $art['title'],
+                    'user_id'  => $admin->id,
+                    'title'    => $art['title'],
                     'category' => $art['category'],
-                    'content' => $art['content'],
-                    'status' => $art['status'],
-                    'views' => $art['views']
+                    'content'  => $art['content'],
+                    'status'   => $art['status'],
+                    'views'    => $art['views']
                 ]
             );
         }
@@ -83,18 +83,34 @@ class DatabaseSeeder extends Seeder
         Setting::updateOrCreate(
             ['id' => 1],
             [
-                'whatsapp' => '+62 812 3456 7890',
-                'email' => 'admin@balonggandu.desa.id',
-                'address' => 'Jl. Raya Balonggandu No. 12, Kec. Jatisari, Kab. Karawang, Jawa Barat 41374',
+                'whatsapp'  => '+62 812 3456 7890',
+                'email'     => 'admin@balonggandu.desa.id',
+                'address'   => 'Jl. Raya Balonggandu No. 12, Kec. Jatisari, Kab. Karawang, Jawa Barat 41374',
                 'instagram' => 'desa_balonggandu',
-                'tiktok' => 'desa_balonggandu'
+                'tiktok'    => 'desa_balonggandu'
             ]
         );
 
-        // 4. Create Dynamic Visitor logs for last 7 days
+        // 4. Default Kategori Sampah untuk Bank Digital (jika model KategoriSampah ada)
+        if (class_exists(KategoriSampah::class)) {
+            $kategoriList = [
+                ['nama_kategori' => 'Plastik PET (Botol Bening)', 'harga_per_kg' => 3000],
+                ['nama_kategori' => 'Kardus & Kertas Bekas', 'harga_per_kg' => 1500],
+                ['nama_kategori' => 'Kaleng / Logam', 'harga_per_kg' => 4500],
+                ['nama_kategori' => 'Minyak Jelantah', 'harga_per_kg' => 6000],
+            ];
+            foreach ($kategoriList as $kat) {
+                KategoriSampah::updateOrCreate(
+                    ['nama_kategori' => $kat['nama_kategori']],
+                    ['harga_per_kg' => $kat['harga_per_kg']]
+                );
+            }
+        }
+
+        // 5. Create Dynamic Visitor logs for last 7 days
         for ($i = 6; $i >= 0; $i--) {
             $date = date('Y-m-d', strtotime("-$i days"));
-            $randomVisitorCount = rand(80, 260); // Real representation of dynamic daily visits
+            $randomVisitorCount = rand(80, 260);
 
             for ($j = 0; $j < $randomVisitorCount; $j++) {
                 \App\Models\Visitor::create([

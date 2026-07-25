@@ -137,6 +137,10 @@
                 <span class="material-symbols-outlined">dashboard</span>
                 <span class="font-body-md text-body-md font-semibold">Dashboard</span>
             </a>
+            <a class="flex items-center gap-3 p-3 text-on-primary-fixed-variant hover:bg-primary-fixed transition-all rounded-lg" href="/admin/bank-digital">
+                <span class="material-symbols-outlined text-[#fd8603]">equalizer</span>
+                <span class="font-body-md text-body-md font-semibold">Bank Sampah Digital</span>
+            </a>
             <a class="flex items-center gap-3 p-3 bg-on-background text-surface rounded-lg neubrutalism-shadow-sm transition-all" href="/admin/artikel">
                 <span class="material-symbols-outlined">description</span>
                 <span class="font-body-md text-body-md font-semibold">Artikel</span>
@@ -172,7 +176,6 @@
             </form>
         </div>
     </aside>
-
 
     <!-- TopNavBar Shell -->
     <header class="fixed top-0 right-0 w-full h-14 bg-surface border-b-2 border-on-background flex justify-between items-center px-4 md:px-8 z-40">

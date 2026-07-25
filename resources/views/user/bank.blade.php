@@ -280,20 +280,25 @@
             <section class="px-5 mt-8 reveal">
                 <h3 class="text-[16px] font-bold text-[#012d1d] mb-4">📎 Referensi &amp; Regulasi Resmi</h3>
                 <div class="flex flex-col gap-3">
-                    <a href="#" class="flex items-center justify-between p-4 bg-white rounded-xl border border-[#c1c8c2]/50 shadow-sm hover:bg-[#c1ecd4]/30 hover:border-[#012d1d] transition-all group">
+                    <!-- Link 1: PP No. 81 Tahun 2012 -->
+                    <a href="https://peraturan.bpk.go.id/Details/5295/pp-no-81-tahun-2012" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-4 bg-white rounded-xl border border-[#c1c8c2]/50 shadow-sm hover:bg-[#c1ecd4]/30 hover:border-[#012d1d] transition-all group">
                         <div class="flex items-center gap-3">
                             <span class="material-symbols-outlined text-[#012d1d] fill-icon text-[20px]">gavel</span>
                             <span class="text-[13px] font-semibold text-[#012d1d]">PP No. 81 Tahun 2012 – Pengelolaan Sampah</span>
                         </div>
                         <span class="material-symbols-outlined text-[#414844] group-hover:translate-x-1 transition-transform text-[18px]">open_in_new</span>
                     </a>
-                    <a href="#" class="flex items-center justify-between p-4 bg-white rounded-xl border border-[#c1c8c2]/50 shadow-sm hover:bg-[#c1ecd4]/30 hover:border-[#012d1d] transition-all group">
+
+                    <!-- Link 2: SIPSN KLHK -->
+                    <a href="https://sampahnasional.kemenlh.go.id/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-4 bg-white rounded-xl border border-[#c1c8c2]/50 shadow-sm hover:bg-[#c1ecd4]/30 hover:border-[#012d1d] transition-all group">
                         <div class="flex items-center gap-3">
                             <span class="material-symbols-outlined text-[#012d1d] fill-icon text-[20px]">public</span>
                             <span class="text-[13px] font-semibold text-[#012d1d]">SIPSN – Sistem Info Pengelolaan Sampah Nasional</span>
                         </div>
                         <span class="material-symbols-outlined text-[#414844] group-hover:translate-x-1 transition-transform text-[18px]">open_in_new</span>
                     </a>
+
+                    <!-- Link 3: Panduan Bank Sampah -->
                     <a href="#" class="flex items-center justify-between p-4 bg-white rounded-xl border border-[#c1c8c2]/50 shadow-sm hover:bg-[#c1ecd4]/30 hover:border-[#012d1d] transition-all group">
                         <div class="flex items-center gap-3">
                             <span class="material-symbols-outlined text-[#012d1d] fill-icon text-[20px]">menu_book</span>
@@ -302,20 +307,22 @@
                         <span class="material-symbols-outlined text-[#414844] group-hover:translate-x-1 transition-transform text-[18px]">open_in_new</span>
                     </a>
                 </div>
+            </section>
         </div><!-- /max-w-7xl -->
 
-        <!-- CTA -->
+        <!-- CTA KELOLA DATA DIGITAL 3R -->
         <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-10 mb-8 reveal">
             <div class="bg-gradient-to-br from-[#012d1d] to-[#1b4332] rounded-3xl p-8 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6 relative overflow-hidden">
                 <div class="absolute -top-6 -right-6 w-36 h-36 rounded-full bg-white/5"></div>
                 <div class="relative z-10 max-w-xl text-center sm:text-left">
-                    <span class="material-symbols-outlined text-[#c1ecd4] fill-icon text-[40px] mb-2">how_to_reg</span>
-                    <h4 class="text-xl sm:text-2xl font-bold text-white mb-2">Siap Jadi Nasabah Bank Sampah?</h4>
-                    <p class="text-xs sm:text-sm text-[#c1ecd4]/90 leading-relaxed">Mulai pilah sampah dari rumah dan bergabunglah bersama warga Desa Balonggandu dalam menjaga lingkungan.</p>
+                    <span class="material-symbols-outlined text-[#c1ecd4] fill-icon text-[40px] mb-2">analytics</span>
+                    <h4 class="text-xl sm:text-2xl font-bold text-white mb-2">Ingin Melihat Data Digital 3R Desa?</h4>
+                    <p class="text-xs sm:text-sm text-[#c1ecd4]/90 leading-relaxed">Lihat transparansi data pemilahan sampah warga, cek kategori daur ulang 3R, dan pantau perkembangan program lingkungan Desa Balonggandu.</p>
                 </div>
-                <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $setting->whatsapp ?? '6281234567890') }}" target="_blank" class="bg-[#fd8603] hover:bg-[#e07800] active:scale-95 text-white font-bold text-sm sm:text-base px-8 py-4 rounded-full shadow-lg transition-all flex items-center gap-2.5 flex-shrink-0">
-                    <span class="material-symbols-outlined text-[20px]">add_circle</span>
-                    Hubungi Pengelola
+                
+                <a href="/bank-digital" class="bg-[#fd8603] hover:bg-[#e07800] active:scale-95 text-white font-bold text-sm sm:text-base px-8 py-4 rounded-full shadow-lg transition-all flex items-center gap-2.5 flex-shrink-0">
+                    <span class="material-symbols-outlined text-[20px]">equalizer</span>
+                    Lihat Data Digital 3R ↗
                 </a>
             </div>
         </section>

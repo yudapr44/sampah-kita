@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BankDigitalController;
 
 // ── PUBLIC ROUTES (with Visitor Tracking Middleware) ──
 Route::middleware(['track.visitors'])->group(function () {
@@ -16,6 +17,9 @@ Route::middleware(['track.visitors'])->group(function () {
     Route::get('/syarat',  [AppController::class, 'syarat']);
 });
 
+// ── ROUTE KHUSUS WARGA (Public - Tanpa Login) ──
+Route::get('/bank-digital', [BankDigitalController::class, 'publicUser'])->name('bank.digital.user');
+
 // ── ADMIN AUTH ROUTES (Login / Logout — tidak perlu middleware) ──
 Route::get('/admin/login',  [AuthController::class, 'showLogin'])->name('admin.login');
 Route::post('/admin/login', [AuthController::class, 'login'])->name('admin.login.post');
@@ -23,11 +27,16 @@ Route::post('/admin/logout',[AuthController::class, 'logout'])->name('admin.logo
 
 // ── ADMIN PROTECTED ROUTES ──
 Route::middleware(['admin.auth'])->group(function () {
-    Route::get('/admin',             [AdminController::class, 'index']);
-    Route::get('/admin/artikel',     [AdminController::class, 'artikel']);
-    Route::post('/admin/artikel',    [AdminController::class, 'storeArtikel']);
+    Route::get('/admin',                 [AdminController::class, 'index']);
+    Route::get('/admin/artikel',         [AdminController::class, 'artikel']);
+    Route::post('/admin/artikel',        [AdminController::class, 'storeArtikel']);
     Route::delete('/admin/artikel/{id}', [AdminController::class, 'deleteArtikel']);
-    Route::get('/admin/kontak',      [AdminController::class, 'kontak']);
-    Route::post('/admin/kontak',     [AdminController::class, 'updateKontak']);
-    Route::post('/admin/akun',       [AdminController::class, 'updateAkun']);
+    Route::get('/admin/kontak',          [AdminController::class, 'kontak']);
+    Route::post('/admin/kontak',         [AdminController::class, 'updateKontak']);
+    Route::post('/admin/akun',           [AdminController::class, 'updateAkun']);
+
+    // ── ROUTE KHUSUS ADMIN / PENGELOLA BANK DIGITAL ──
+    Route::get('/admin/bank-digital',           [BankDigitalController::class, 'index'])->name('bank.digital.admin');
+    Route::post('/admin/bank-digital/nasabah',   [BankDigitalController::class, 'storeNasabah'])->name('nasabah.store');
+    Route::post('/admin/bank-digital/transaksi', [BankDigitalController::class, 'storeTransaksi'])->name('transaksi.store');
 });

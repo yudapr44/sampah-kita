@@ -351,7 +351,6 @@
                 </div>
             </div>
         </section>
-
         <!-- PANDUAN PRAKTIS PENGELOLAAN -->
         <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full reveal">
             <h3 class="text-xl sm:text-2xl font-bold text-[#012d1d] mb-6">Panduan Praktis Pengelolaan Sampah</h3>
@@ -794,8 +793,6 @@
                 Yuk, Mulai Recycle! ♻️
             </button>
         </div>
-    </div>
-
     <!-- ═══ MODAL PEMBAKARAN SAMPAH MINIM ASAP ═══ -->
     <div id="modal-pembakaran"
          class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[540px] md:max-w-2xl z-[60] bg-white rounded-t-3xl shadow-2xl translate-y-full transition-transform duration-500 ease-out max-h-[90vh] overflow-y-auto">
@@ -1009,6 +1006,8 @@
         </div>
     </div>
 
+=======
+>>>>>>> dbe8aa19801710075f08635ae251ef6c73d93cf3
 <script>
     // ── Article Modal Logic ──
     let currentModal = null;
