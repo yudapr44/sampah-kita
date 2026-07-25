@@ -206,103 +206,68 @@
         <!-- PHOTO GALLERY SECTION -->
         <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-8 reveal">
             <div class="flex items-center justify-between mb-6">
-                <h3 class="text-lg sm:text-xl font-bold text-[#012d1d]">Aktivitas Komunitas</h3>
+                <h3 class="text-lg sm:text-xl font-bold text-[#012d1d]">Aktivitas &amp; Galeri Media</h3>
                 <div class="h-0.5 flex-1 max-w-[200px] bg-[#c1c8c2]/50 ml-4 hidden sm:block"></div>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Card 1 -->
-                <div onclick="openLightbox(this)" class="gallery-card bg-white rounded-xl shadow-sm overflow-hidden border border-[#c1c8c2]/60 cursor-pointer">
-                    <div class="h-44 overflow-hidden relative">
-                        <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdnaUWDeFUCTqu123V2NTVHrjJX6wtD41ZEqVcykZjWcFMjF9avERsOjM9vex9t-SIx0tw4DdDzWehTnhU1RfSuqSweQGWvXMcX3Lb-yDDgDoo85L4IW_XuLvqcKvPgzlLCU8DYTa26TH8Q0rrh6lv1aQlaKFGZymH6QE8j72JNHTu6Fu6K3sUnC2-aMiiS-r_YMlh71P6P5AHVF1qA8azqZFgEbB43snmQZ-Ygh_TIXNxaZhwjY2MUw" alt="Diskusi Warga"/>
+                @forelse ($galleries as $item)
+                    <div onclick="openLightbox(this)" 
+                         data-img="{{ $item->image_url }}"
+                         data-title="{{ $item->title }}"
+                         data-desc="Kategori: {{ $item->category }} • Oleh: {{ $item->uploader }} ({{ $item->created_at->format('d M Y') }})"
+                         class="gallery-card bg-white rounded-xl shadow-sm overflow-hidden border border-[#c1c8c2]/60 cursor-pointer group">
+                        <div class="h-48 overflow-hidden relative bg-neutral-100">
+                            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                                 src="{{ $item->image_url }}" 
+                                 alt="{{ $item->title }}"
+                                 onerror="this.src='/images/hero_karawang.png'"/>
+                            
+                            @if(strtolower($item->type) === 'video')
+                                <div class="absolute top-3 left-3 bg-[#fd8603] text-white px-2.5 py-0.5 rounded-full text-[10px] font-bold shadow flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-[14px]">videocam</span>
+                                    <span>Video</span>
+                                </div>
+                                <div class="absolute inset-0 flex items-center justify-center bg-black/20">
+                                    <div class="w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-[#012d1d] shadow-lg">
+                                        <span class="material-symbols-outlined text-[24px]">play_arrow</span>
+                                    </div>
+                                </div>
+                            @else
+                                <div class="absolute top-3 left-3 bg-[#012d1d] text-white px-2.5 py-0.5 rounded-full text-[10px] font-bold shadow">
+                                    {{ $item->category }}
+                                </div>
+                            @endif
+                        </div>
+                        <div class="p-4">
+                            <p class="text-[12px] font-bold text-[#934b00] mb-0.5">{{ $item->category }}</p>
+                            <h4 class="text-[14px] font-bold text-[#191c1d] leading-snug truncate mb-1">{{ $item->title }}</h4>
+                            <p class="text-[11px] text-[#717973] flex items-center gap-1">
+                                <span class="material-symbols-outlined text-[14px]">person</span> {{ $item->uploader }}
+                            </p>
+                        </div>
                     </div>
-                    <div class="p-4">
-                        <p class="text-[12px] font-bold text-[#934b00] mb-0.5">Diskusi Warga</p>
-                        <p class="text-[13px] text-[#191c1d] leading-normal">Musyawarah bersama Ketua RT untuk sistem jemput sampah.</p>
+                @empty
+                    <div class="col-span-full py-12 text-center text-[#717973]">
+                        <span class="material-symbols-outlined text-4xl mb-2">collections</span>
+                        <p class="font-bold">Belum ada foto/video galeri yang diunggah.</p>
                     </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div onclick="openLightbox(this)" class="gallery-card bg-white rounded-xl shadow-sm overflow-hidden border border-[#c1c8c2]/60 cursor-pointer">
-                    <div class="h-44 overflow-hidden relative">
-                        <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjtc7kiC6jdpBncb05Grfix2avP-AsKV6eGpPU6fq2N3amLi6F7rGsO0tk1JgulNbjL6KzDIpI1pGpONQCI3sap0m3PFnCxs4n0EQXvyak6HczrukNsHbqhjmca_ZLYNXuSIxvtXEDtHjpXIoUKi-3iiMqZakjwPON86t-N5Uf8TkN3I7yfyYibXXLtKdINy_qo7qLO1xJ_d6_ADijTFkuwpO_9KvOAdfya0hRQFtlZU0BhbQfGw8-kg" alt="Workshop Kompos"/>
-                    </div>
-                    <div class="p-4">
-                        <p class="text-[12px] font-bold text-[#934b00] mb-0.5">Workshop Kompos</p>
-                        <p class="text-[13px] text-[#191c1d] leading-normal">Pelatihan pengolahan sampah organik menjadi pupuk cair.</p>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div onclick="openLightbox(this)" class="gallery-card bg-white rounded-xl shadow-sm overflow-hidden border border-[#c1c8c2]/60 cursor-pointer">
-                    <div class="h-44 overflow-hidden relative">
-                        <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaBlUM-jijUOEOEB84jZ3QQBGwCs-wXuoDWZ4ycWZ2SNuICab7blaNoH_T_S1Pbxf2A7YJbaK-6lPitGx8Q9SdA3XEg6mZcMFG3oVIwABePcZ8DtH1KGjdiIeyt2D69hRGiAmo9DE36Lm7fCOEh8DX2FaRjnfjhf97QYURxCiEkOrK2bAhxR_mQFQDahvkAEaGOxBjX9nnQeede4njbqO-iyaicWt9xvg5AHAd3NNoWNEWlcaSxkgwJg" alt="Aksi Bersih"/>
-                    </div>
-                    <div class="p-4">
-                        <p class="text-[12px] font-bold text-[#934b00] mb-0.5">Aksi Bersih</p>
-                        <p class="text-[13px] text-[#191c1d] leading-normal">Gotong royong membersihkan area irigasi desa.</p>
-                    </div>
-                </div>
-
-                <!-- Card 4 -->
-                <div onclick="openLightbox(this)" class="gallery-card bg-white rounded-xl shadow-sm overflow-hidden border border-[#c1c8c2]/60 cursor-pointer">
-                    <div class="h-44 overflow-hidden relative">
-                        <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbhRqH5iqREFqAiY1vH1AelAnuQ66r9OedV5jIifq1RpS6FKup7RLUGAOHAyQ8K9JRfqkJ557opsCpiAyS2BmDj-VZyzsLgzAMGa8_nWP2aKIIaZ9q7DhGYeRtdlb2bGL0GKDrOd2xewEYNSZFBtWeLotEWhcJZNOV6lu5P9WpKJD2QGPfKHhIyh2WGokarGMg-ZjzI2pHXL4VPyH81zNgvTKBMDueZlhziyoYaYaT7s8BeY0Ka89DgQ" alt="Bank Sampah"/>
-                    </div>
-                    <div class="p-4">
-                        <p class="text-[12px] font-bold text-[#934b00] mb-0.5">Bank Sampah</p>
-                        <p class="text-[13px] text-[#191c1d] leading-normal">Penyortiran perdana sampah plastik di posko utama.</p>
-                    </div>
-                </div>
-
-                <!-- Card 5 -->
-                <div onclick="openLightbox(this)" class="gallery-card bg-white rounded-xl shadow-sm overflow-hidden border border-[#c1c8c2]/60 cursor-pointer">
-                    <div class="h-44 overflow-hidden relative">
-                        <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIpXYVtpoJKsWYNPaVxkxJlt-xIl92kYUMcZPU4vAYUUx4A9zRGDpPw8NzmQ5ZUowehB8qbo02Z2Daz51y39s0KE1AJJLTGb_K8RSq0iixNLwiLNV8xxhjxjVAJ95fVn2XAvHq04L5af5sHKnO4FBryYanthqXPYUk6pMktERgRnYAUQGrGGxyyiorUFJFehs-aA670G_cx3x_nk1NoM21yYYGZlS5XMaGmuqk-DoqVwXkgj0JbfAYlQ" alt="Edukasi Sekolah"/>
-                    </div>
-                    <div class="p-4">
-                        <p class="text-[12px] font-bold text-[#934b00] mb-0.5">Edukasi Sekolah</p>
-                        <p class="text-[13px] text-[#191c1d] leading-normal">Sesi belajar memilah sampah bersama adik-adik SDN Balonggandu.</p>
-                    </div>
-                </div>
-
-                <!-- Card 6 -->
-                <div onclick="openLightbox(this)" class="gallery-card bg-white rounded-xl shadow-sm overflow-hidden border border-[#c1c8c2]/60 cursor-pointer">
-                    <div class="h-44 overflow-hidden relative">
-                        <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBdZfXc2CpDtxZtHWJmjvvEsJ1z6lI0L1ItnTCp44F7ywxTB0JoBBC_PKnM8NB5JDUmTY_AXV5GOhncC-xQBsOq9IPyR9QXQVdhumBsdLtMgsq4IEUhNn7zLXpMCy9VKew27-FcZHKBqt1gM3xElApG1t0p8XRy_e1LdrY5vop6-90lwup2jEG1ZNWVtzunu1CIWcSjeZ0Dzm4iDF5EVSBP1QlmE44CjqA9INagpuj-5m_PK6S0-Ob_w" alt="Hasil Nyata"/>
-                    </div>
-                    <div class="p-4">
-                        <p class="text-[12px] font-bold text-[#934b00] mb-0.5">Hasil Nyata</p>
-                        <p class="text-[13px] text-[#191c1d] leading-normal">Panen perdana kebun warga yang menggunakan pupuk organik.</p>
-                    </div>
-                </div>
+                @endforelse
             </div>
         </section>
 
         <!-- VIDEO SECTION -->
-        <section class="mt-8 mb-8 reveal">
-            <div class="flex items-center justify-between mb-4">
-                <h3 class="text-[16px] font-bold text-[#012d1d]">Dokumentasi Video</h3>
-                <div class="h-0.5 w-24 bg-[#c1c8c2]/50"></div>
-            </div>
-            <div onclick="playVideo()" class="relative group cursor-pointer overflow-hidden rounded-2xl shadow-md aspect-video bg-black">
-                <img src="/images/video_thumbnail.png" alt="Video dokumentasi KKN" class="absolute inset-0 w-full h-full object-cover opacity-70 transition-transform duration-700 group-hover:scale-105"/>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent flex flex-col justify-end p-5">
-                    <h4 class="text-[14px] font-bold text-white mb-1">Perjalanan KKN Pemberdayaan Sampah Desa Balonggandu</h4>
-                    <p class="text-[11px] text-white/80 leading-normal">Satu bulan penuh makna, merajut asa demi lingkungan yang lebih baik.</p>
-                </div>
-        <!-- VIDEO SECTION -->
         <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mt-10 mb-8 reveal">
             <div class="flex items-center justify-between mb-4">
-                <h3 class="text-lg sm:text-xl font-bold text-[#012d1d]">Video Liputan KKN</h3>
+                <h3 class="text-lg sm:text-xl font-bold text-[#012d1d]">Video Liputan KKN &amp; Lingkungan</h3>
                 <div class="h-0.5 flex-1 max-w-[200px] bg-[#c1c8c2]/50 ml-4 hidden sm:block"></div>
             </div>
             <div onclick="playVideo()" class="relative rounded-3xl overflow-hidden shadow-md cursor-pointer group h-64 sm:h-80 md:h-96 w-full">
                 <img src="/images/video_thumbnail.png" alt="Video KKN" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
                 <div class="absolute bottom-6 left-6 right-6 text-white">
-                    <span class="px-3 py-1 bg-[#fd8603] text-white rounded-full text-xs font-bold mb-2 inline-block">Video Dokumentasi</span>
-                    <h4 class="text-lg sm:text-xl font-bold">Aksi Pengelolaan Sampah Balonggandu</h4>
+                    <span class="px-3 py-1 bg-[#fd8603] text-white rounded-full text-xs font-bold mb-2 inline-block">Video Dokumen Utama</span>
+                    <h4 class="text-lg sm:text-xl font-bold">Aksi Pengelolaan Sampah &amp; Pemberdayaan Desa Balonggandu</h4>
                 </div>
                 <div class="absolute inset-0 flex items-center justify-center">
                     <div class="w-16 h-16 sm:w-20 sm:h-20 bg-[#fd8603] rounded-full flex items-center justify-center text-white shadow-xl transform transition-all group-hover:scale-110 active:scale-95">
@@ -373,13 +338,13 @@
     const lightboxDesc = document.getElementById('lightbox-desc');
 
     function openLightbox(card) {
-        const img = card.querySelector('img');
-        const title = card.querySelector('p:nth-child(1)');
-        const desc = card.querySelector('p:nth-child(2)');
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-        lightboxTitle.textContent = title.textContent;
-        lightboxDesc.textContent = desc.textContent;
+        const imgSrc = card.getAttribute('data-img') || card.querySelector('img')?.src;
+        const titleText = card.getAttribute('data-title') || card.querySelector('h4')?.textContent || '';
+        const descText = card.getAttribute('data-desc') || '';
+        lightboxImg.src = imgSrc;
+        lightboxImg.alt = titleText;
+        lightboxTitle.textContent = titleText;
+        lightboxDesc.textContent = descText;
         lightbox.classList.remove('opacity-0', 'pointer-events-none');
     }
     function closeLightbox() {
