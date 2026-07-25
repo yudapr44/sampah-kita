@@ -94,15 +94,15 @@ class DatabaseSeeder extends Seeder
         // 4. Default Kategori Sampah untuk Bank Digital (jika model KategoriSampah ada)
         if (class_exists(KategoriSampah::class)) {
             $kategoriList = [
-                ['nama_kategori' => 'Plastik PET (Botol Bening)', 'harga_per_kg' => 3000],
-                ['nama_kategori' => 'Kardus & Kertas Bekas', 'harga_per_kg' => 1500],
-                ['nama_kategori' => 'Kaleng / Logam', 'harga_per_kg' => 4500],
-                ['nama_kategori' => 'Minyak Jelantah', 'harga_per_kg' => 6000],
+                ['nama_kategori' => 'Plastik PET (Botol Bening)', 'harga_per_satuan' => 3000],
+                ['nama_kategori' => 'Kardus & Kertas Bekas', 'harga_per_satuan' => 1500],
+                ['nama_kategori' => 'Kaleng / Logam', 'harga_per_satuan' => 4500],
+                ['nama_kategori' => 'Minyak Jelantah', 'harga_per_satuan' => 6000],
             ];
             foreach ($kategoriList as $kat) {
                 KategoriSampah::updateOrCreate(
                     ['nama_kategori' => $kat['nama_kategori']],
-                    ['harga_per_kg' => $kat['harga_per_kg']]
+                    ['harga_per_satuan' => $kat['harga_per_satuan']]
                 );
             }
         }
