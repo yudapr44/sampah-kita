@@ -275,23 +275,69 @@
             </div>
         </section>
 
-        <!-- TARGET KOMUNITAS -->
+        <!-- PROFIL & LOKASI DESA BALONGGANDU -->
         <section class="mt-10 md:mt-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full reveal">
             <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-[#c1c8c2]/60">
-                <div class="flex items-center gap-3 mb-4">
-                    <span class="material-symbols-outlined text-[#934b00] text-[24px]">trending_up</span>
-                    <h3 class="text-lg sm:text-xl font-bold text-[#1b4332]">Target Komunitas Desa Balonggandu</h3>
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 rounded-2xl bg-[#c1ecd4] flex items-center justify-center">
+                        <span class="material-symbols-outlined text-[#1b4332] text-[24px]">location_on</span>
+                    </div>
+                    <div>
+                        <h3 class="text-lg sm:text-xl font-bold text-[#1b4332]">Profil & Lokasi Desa Balonggandu</h3>
+                        <p class="text-xs sm:text-sm text-[#414844]">Pusat Informasi dan Peta Wilayah Pengelolaan Sampah Desa</p>
+                    </div>
                 </div>
-                <div class="flex justify-between items-center mb-2">
-                    <span class="text-sm font-semibold text-[#414844]">Pupuk Kompos Terkumpul Bulan Ini</span>
-                    <span class="text-sm font-bold text-[#934b00]">750 / 1000 Kg</span>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
+                    <!-- Left: Profile Data -->
+                    <div class="lg:col-span-5 flex flex-col justify-between space-y-4">
+                        <div class="space-y-3">
+                            <div class="p-4 bg-[#f8f9fa] rounded-2xl border border-[#c1c8c2]/40">
+                                <span class="text-xs font-bold text-[#934b00] uppercase tracking-wider">Wilayah Administrasi</span>
+                                <h4 class="text-base font-bold text-[#1b4332] mt-0.5">Desa Balonggandu</h4>
+                                <p class="text-xs sm:text-sm text-[#414844] mt-1 leading-relaxed">
+                                    Kecamatan Jatisari, Kabupaten Karawang, Jawa Barat (Kode Pos: 41374)
+                                </p>
+                            </div>
+
+                            <div class="p-4 bg-[#f8f9fa] rounded-2xl border border-[#c1c8c2]/40">
+                                <span class="text-xs font-bold text-[#1b4332] uppercase tracking-wider">Fokus Program Utama</span>
+                                <p class="text-xs sm:text-sm text-[#414844] mt-1 leading-relaxed">
+                                    Pemberdayaan masyarakat dalam pemilahan sampah 3R (Reduce, Reuse, Recycle), pembuatan kompos organik rumah tangga, dan pengelolaan Bank Sampah Desa.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-3 pt-2">
+                            <div class="bg-[#c1ecd4]/40 p-3 rounded-2xl text-center border border-[#c1ecd4]">
+                                <span class="material-symbols-outlined text-[#1b4332] text-[22px]">map</span>
+                                <p class="text-xs font-bold text-[#1b4332] mt-1">Jatisari</p>
+                                <p class="text-[11px] text-[#414844]">Kecamatan</p>
+                            </div>
+                            <div class="bg-[#ffdcc4]/40 p-3 rounded-2xl text-center border border-[#ffdcc4]">
+                                <span class="material-symbols-outlined text-[#934b00] text-[22px]">location_city</span>
+                                <p class="text-xs font-bold text-[#934b00] mt-1">Karawang</p>
+                                <p class="text-[11px] text-[#414844]">Kabupaten</p>
+                            </div>
+                            <div class="bg-[#cee9d3]/40 p-3 rounded-2xl text-center border border-[#b3cdb7]">
+                                <span class="material-symbols-outlined text-[#092012] text-[22px]">recycling</span>
+                                <p class="text-xs font-bold text-[#092012] mt-1">Balonggandu</p>
+                                <p class="text-[11px] text-[#414844]">Desa Hijau</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Google Maps Embed -->
+                    <div class="lg:col-span-7 h-[280px] sm:h-[320px] lg:h-full min-h-[260px] rounded-2xl overflow-hidden border border-[#c1c8c2]/60 shadow-inner relative">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.5037286461947!2d107.51478147499126!3d-6.328678293660907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69742e97ff017b%3A0xb36ef8df9df24996!2sBalonggandu%2C%20Kec.%20Jatisari%2C%20Karawang%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1710000000000!5m2!1sid!2sid" 
+                            class="w-full h-full border-0" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
                 </div>
-                <div class="w-full bg-[#edeeef] rounded-full h-4 overflow-hidden shadow-inner">
-                    <div class="prog-fill bg-gradient-to-r from-[#934b00] to-[#fd8603] h-full rounded-full" data-target="75"></div>
-                </div>
-                <p class="mt-4 text-xs sm:text-sm text-[#414844] italic leading-relaxed">
-                    "Sedikit demi sedikit, lama-lama menjadi hijau. Ayo warga Balonggandu, capai target bulan ini!"
-                </p>
             </div>
         </section>
 
