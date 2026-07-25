@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Dashboard Utama 3R - Admin SampahKita</title>
+    <title>Dashboard Admin - SampahKita</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -14,58 +14,76 @@
         theme: {
           extend: {
             "colors": {
-                "background": "#fbf9f5",
-                "surface-bright": "#fbf9f5",
-                "error": "#ba1a1a",
-                "outline": "#737971",
-                "on-tertiary-fixed-variant": "#4b4166",
-                "secondary-fixed-dim": "#abcbdf",
-                "on-primary-container": "#243d25",
-                "error-container": "#ffdad6",
-                "surface-container-high": "#eae8e4",
-                "on-tertiary-fixed": "#1e1638",
-                "surface-container-highest": "#e4e2de",
-                "primary-fixed": "#ccebc8",
-                "on-secondary-fixed-variant": "#2b4a5b",
-                "secondary-container": "#c4e4f9",
-                "secondary": "#436274",
-                "on-secondary-container": "#486778",
-                "on-background": "#1b1c1a",
-                "tertiary": "#63597f",
-                "on-primary-fixed": "#07200b",
-                "primary": "#4a654a",
-                "surface-container-lowest": "#ffffff",
-                "surface-container": "#efeeea",
-                "tertiary-fixed": "#e8ddff",
-                "surface-container-low": "#f5f3ef",
-                "surface-dim": "#dbdad6",
-                "on-tertiary": "#ffffff",
+                "neubrutal-yellow": "#ffd23f",
+                "neubrutal-black": "#1b1c1a",
+                "neubrutal-bg": "#f5f3ef",
+                "on-secondary-fixed": "#071e2b",
+                "tertiary": "#705370",
                 "outline-variant": "#c3c8bf",
-                "tertiary-container": "#a69ac4",
+                "tertiary-fixed": "#fbd7fb",
+                "surface": "#fbf9f5",
+                "surface-container": "#efeeea",
+                "surface-container-high": "#eae8e4",
+                "outline": "#737971",
+                "inverse-primary": "#b0ceae",
+                "primary-fixed-dim": "#b0ceae",
+                "secondary": "#476171",
+                "surface-container-lowest": "#ffffff",
+                "secondary-fixed": "#cae6f9",
+                "surface-container-low": "#f5f3ef",
+                "background": "#fbf9f5",
+                "on-primary-fixed-variant": "#334d34",
+                "secondary-container": "#cae6f9",
+                "on-primary-fixed": "#07200b",
+                "on-tertiary-container": "#573c57",
+                "primary-container": "#8ba889",
+                "surface-bright": "#fbf9f5",
+                "primary-fixed": "#ccebc8",
+                "on-primary": "#ffffff",
+                "on-tertiary-fixed-variant": "#573c57",
+                "surface-dim": "#dbdad6",
                 "surface-variant": "#e4e2de",
                 "inverse-on-surface": "#f2f0ed",
-                "secondary-fixed": "#c7e7fc",
-                "on-error": "#ffffff",
-                "primary-container": "#8ba889",
-                "on-secondary-fixed": "#001e2c",
-                "surface-tint": "#4a654a",
-                "inverse-primary": "#b0ceae",
-                "surface": "#fbf9f5",
-                "on-surface": "#1b1c1a",
-                "on-primary": "#ffffff",
-                "on-tertiary-container": "#3b3255",
-                "inverse-surface": "#30312e",
                 "on-error-container": "#93000a",
+                "on-secondary-container": "#2f4958",
+                "tertiary-container": "#d6b5d6",
+                "error": "#ba1a1a",
                 "on-secondary": "#ffffff",
+                "on-background": "#1b1c1a",
+                "on-surface": "#1b1c1a",
+                "surface-tint": "#4a654a",
+                "error-container": "#ffdad6",
+                "on-tertiary": "#ffffff",
+                "secondary-fixed-dim": "#aebcca",
+                "on-[#ffffff]": "#1b1c1a",
+                "primary": "#2d4a2e",
+                "on-primary-container": "#243d25",
+                "on-tertiary-fixed": "#28112a",
                 "on-surface-variant": "#434841",
-                "tertiary-fixed-dim": "#cdc0ec",
-                "on-primary-fixed-variant": "#334d34",
-                "primary-fixed-dim": "#b0ceae",
-                "neubrutal-black": "#1b1c1a"
+                "tertiary-fixed-dim": "#dec0de",
+                "on-error": "#ffffff",
+                "inverse-surface": "#30312e",
+                "on-secondary-fixed-variant": "#2f4958",
+                "surface-container-highest": "#e4e2de"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "spacing": {
+                "base": "8px",
+                "margin-desktop": "64px",
+                "gutter": "24px",
+                "margin-mobile": "16px"
             },
             "fontFamily": {
                 "body-md": ["Plus Jakarta Sans"],
+                "display-lg": ["Plus Jakarta Sans"],
                 "headline-lg": ["Plus Jakarta Sans"],
+                "display-lg-mobile": ["Plus Jakarta Sans"],
+                "body-lg": ["Plus Jakarta Sans"],
                 "headline-md": ["Plus Jakarta Sans"],
                 "label-bold": ["Plus Jakarta Sans"]
             }
@@ -183,113 +201,82 @@
                 </div>
             </div>
 
-            <!-- Pengunjung Bulan Ini -->
+            <!-- Total Nasabah Bank Sampah -->
+            <div class="bg-secondary-container p-6 rounded-xl neubrutal-card flex flex-col justify-between min-h-[140px]">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="p-3 bg-white border-2 border-neubrutal-black rounded-lg">
+                        <span class="material-symbols-outlined text-[#fd8603] text-[24px]">group</span>
+                    </div>
+                    <span class="text-xs font-label-bold text-on-secondary-container bg-white border border-neubrutal-black px-2 py-1 rounded-full">Nasabah</span>
+                </div>
+                <div>
+                    <p class="font-label-bold text-on-secondary-container opacity-80 text-[13px]">Nasabah Bank Sampah</p>
+                    <h3 class="font-headline-lg text-headline-lg text-on-secondary-container leading-none mt-1">{{ $totalNasabah ?? 0 }}</h3>
+                </div>
+            </div>
+
+            <!-- Total Transaksi Sampah -->
             <div class="bg-tertiary-fixed p-6 rounded-xl neubrutal-card flex flex-col justify-between min-h-[140px]">
                 <div class="flex justify-between items-start mb-4">
                     <div class="p-3 bg-white border-2 border-neubrutal-black rounded-lg">
-                        <span class="material-symbols-outlined text-tertiary text-[24px]">trending_up</span>
+                        <span class="material-symbols-outlined text-tertiary text-[24px]">receipt_long</span>
                     </div>
-                    <span class="text-xs font-label-bold text-on-background bg-white border border-neubrutal-black px-2 py-1 rounded-full">Bulan Ini</span>
+                    <span class="text-xs font-label-bold text-on-tertiary-fixed-variant bg-white border border-neubrutal-black px-2 py-1 rounded-full">Setoran</span>
                 </div>
                 <div>
-                    <p class="font-label-bold text-on-background opacity-70 text-[13px]">Pengunjung Website</p>
-                    <h3 class="font-headline-lg text-headline-lg text-on-background leading-none mt-1">{{ number_format($monthlyVisitors, 0, ',', '.') }}</h3>
+                    <p class="font-label-bold text-on-tertiary-fixed-variant opacity-80 text-[13px]">Total Transaksi</p>
+                    <h3 class="font-headline-lg text-headline-lg text-on-tertiary-fixed-variant leading-none mt-1">{{ $totalTransaksi ?? 0 }}</h3>
                 </div>
             </div>
 
-            <!-- Bank Digital: Nasabah -->
-            <div class="bg-secondary-fixed p-6 rounded-xl neubrutal-card flex flex-col justify-between min-h-[140px]">
+            <!-- Total Saldo Terkumpul -->
+            <div class="bg-[#ffd23f] p-6 rounded-xl neubrutal-card flex flex-col justify-between min-h-[140px]">
                 <div class="flex justify-between items-start mb-4">
                     <div class="p-3 bg-white border-2 border-neubrutal-black rounded-lg">
-                        <span class="material-symbols-outlined text-secondary text-[24px]">badge</span>
+                        <span class="material-symbols-outlined text-neubrutal-black text-[24px]">payments</span>
                     </div>
-                    <span class="text-xs font-label-bold text-on-background bg-white border border-neubrutal-black px-2 py-1 rounded-full">Partisipan</span>
+                    <span class="text-xs font-label-bold text-neubrutal-black bg-white border border-neubrutal-black px-2 py-1 rounded-full">Rupiah</span>
                 </div>
                 <div>
-                    <p class="font-label-bold text-on-background opacity-70 text-[13px]">Nasabah Bank Sampah</p>
-                    <h3 class="font-headline-lg text-headline-lg text-on-background leading-none mt-1">{{ class_exists(\App\Models\Nasabah::class) ? \App\Models\Nasabah::count() : 0 }}</h3>
-                </div>
-            </div>
-
-            <!-- Bank Digital: Nilai Ekonomis -->
-            <div class="bg-[#ffdcc4] p-6 rounded-xl neubrutal-card flex flex-col justify-between min-h-[140px]">
-                <div class="flex justify-between items-start mb-4">
-                    <div class="p-3 bg-white border-2 border-neubrutal-black rounded-lg">
-                        <span class="material-symbols-outlined text-[#934b00] text-[24px]">payments</span>
-                    </div>
-                    <span class="text-xs font-label-bold text-on-background bg-white border border-neubrutal-black px-2 py-1 rounded-full">Nilai 3R</span>
-                </div>
-                <div>
-                    <p class="font-label-bold text-on-background opacity-70 text-[13px]">Total Saldo Warga</p>
-                    <h3 class="font-headline-lg text-xl font-bold text-[#934b00] leading-none mt-1">Rp {{ class_exists(\App\Models\Nasabah::class) ? number_format(\App\Models\Nasabah::sum('saldo'), 0, ',', '.') : 0 }}</h3>
+                    <p class="font-label-bold text-neubrutal-black opacity-80 text-[13px]">Total Saldo Warga</p>
+                    <h3 class="font-headline-md text-headline-md text-neubrutal-black leading-none mt-1 font-bold">
+                        Rp {{ number_format($totalSaldo ?? 0, 0, ',', '.') }}
+                    </h3>
                 </div>
             </div>
         </div>
 
-        <!-- Visitor Traffic Graph -->
-        <section class="bg-white p-8 rounded-xl neubrutal-card mb-10">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
-                <div>
-                    <h4 class="font-headline-md text-headline-md text-on-background">Visitor Traffic</h4>
-                    <p class="text-xs font-body-md text-outline">Statistik Pengunjung Website (7 Hari Terakhir)</p>
-                </div>
-                <div class="flex items-center gap-2">
-                    <span class="w-3 h-3 rounded-full bg-primary inline-block"></span>
-                    <span class="font-label-bold text-xs">Real Visitors</span>
-                </div>
-            </div>
-
-            @php
-                $maxCount = max(array_column($trafficData, 'count'));
-                if ($maxCount == 0) $maxCount = 1;
-            @endphp
-
-            <div class="h-64 flex items-end justify-between gap-2 md:gap-6 pt-8 px-4 border-b-2 border-neubrutal-black pb-2">
-                @foreach ($trafficData as $data)
-                    @php
-                        $heightPercent = ($data['count'] / $maxCount) * 100;
-                        if ($heightPercent < 5 && $data['count'] > 0) $heightPercent = 5;
-                    @endphp
-                    <div class="flex-1 flex flex-col items-center gap-2 h-full justify-end group relative">
-                        <!-- Tooltip -->
-                        <div class="absolute -top-10 bg-neubrutal-black text-white text-[11px] font-bold py-1 px-2.5 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10">
-                            {{ $data['count'] }} Pengunjung ({{ $data['date'] }})
-                        </div>
-                        
-                        <div class="w-full bg-primary border-2 border-neubrutal-black rounded-t-md transition-all duration-500 hover:bg-primary-container"
-                             style="height: {{ $heightPercent }}%;">
-                        </div>
-                        <span class="text-xs font-label-bold text-on-background uppercase mt-2">{{ $data['day'] }}</span>
+        <!-- Portal Quick Links / Actions -->
+        <div class="bg-white p-6 md:p-8 rounded-xl neubrutal-card mb-10">
+            <h3 class="font-headline-md text-headline-md text-on-background mb-4">Akses Cepat Pengelolaan Desa</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                <a href="/admin/bank-digital" class="p-4 bg-secondary-container rounded-xl border-2 border-neubrutal-black shadow-[2px_2px_0px_0px_#1b1c1a] hover:translate-y-[-2px] transition-all flex items-center gap-3">
+                    <span class="material-symbols-outlined text-[#fd8603] text-[28px]">equalizer</span>
+                    <div>
+                        <h4 class="font-bold text-[14px]">Bank Sampah</h4>
+                        <p class="text-[11px] opacity-75">Kelola Nasabah & Setoran</p>
                     </div>
-                @endforeach
-            </div>
-        </section>
-
-        <!-- Quick Actions Row -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="bg-[#1b4332] text-white p-6 rounded-3xl shadow-sm flex flex-col justify-between">
-                <div>
-                    <div class="w-12 h-12 rounded-2xl bg-[#c1ecd4] flex items-center justify-center text-[#1b4332] mb-4">
-                        <span class="material-symbols-outlined text-[30px]">equalizer</span>
-                    </div>
-                    <h4 class="text-lg font-bold mb-1">Bank Sampah Digital 3R</h4>
-                    <p class="text-xs text-[#c1ecd4]/80 leading-relaxed mb-6">Input pendataan nasabah, catat transaksi penimbangan sampah warga, dan cek saldo tabungan.</p>
-                </div>
-                <a href="/admin/bank-digital" class="bg-[#fd8603] hover:bg-[#e07800] text-white font-bold text-xs px-5 py-3 rounded-xl transition-all flex items-center justify-center gap-2 shadow-sm">
-                    Buka Bank Sampah Digital ↗
                 </a>
-            </div>
-
-            <div class="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm flex flex-col justify-between">
-                <div>
-                    <div class="w-12 h-12 rounded-2xl bg-emerald-100 flex items-center justify-center text-[#012d1d] mb-4">
-                        <span class="material-symbols-outlined text-[30px]">school</span>
+                <a href="/admin/artikel" class="p-4 bg-primary-fixed rounded-xl border-2 border-neubrutal-black shadow-[2px_2px_0px_0px_#1b1c1a] hover:translate-y-[-2px] transition-all flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary text-[28px]">description</span>
+                    <div>
+                        <h4 class="font-bold text-[14px]">Artikel Edukasi</h4>
+                        <p class="text-[11px] opacity-75">Kelola Panduan 3R</p>
                     </div>
-                    <h4 class="text-lg font-bold text-[#012d1d] mb-1">Edukasi &amp; Artikel 3R</h4>
-                    <p class="text-xs text-gray-500 leading-relaxed mb-6">Tulis panduan Reduce, Reuse, Recycle untuk warga dan perbarui materi edukasi desa.</p>
-                </div>
-                <a href="/admin/artikel" class="bg-[#012d1d] hover:bg-[#1b4332] text-white font-bold text-xs px-5 py-3 rounded-xl transition-all flex items-center justify-center gap-2 shadow-sm">
-                    Kelola Artikel Edukasi ↗
+                </a>
+                <a href="/admin/galeri" class="p-4 bg-tertiary-fixed rounded-xl border-2 border-neubrutal-black shadow-[2px_2px_0px_0px_#1b1c1a] hover:translate-y-[-2px] transition-all flex items-center gap-3">
+                    <span class="material-symbols-outlined text-tertiary text-[28px]">photo_library</span>
+                    <div>
+                        <h4 class="font-bold text-[14px]">Galeri Kegiatan</h4>
+                        <p class="text-[11px] opacity-75">Kelola Dokumentasi</p>
+                    </div>
+                </a>
+                <a href="/admin/kontak" class="p-4 bg-[#ffd23f] rounded-xl border-2 border-neubrutal-black shadow-[2px_2px_0px_0px_#1b1c1a] hover:translate-y-[-2px] transition-all flex items-center gap-3">
+                    <span class="material-symbols-outlined text-neubrutal-black text-[28px]">contact_support</span>
+                    <div>
+                        <h4 class="font-bold text-[14px]">Kontak Desa</h4>
+                        <p class="text-[11px] opacity-75">Kelola Info Layanan</p>
+                    </div>
                 </a>
             </div>
         </div>

@@ -141,7 +141,7 @@
                 <span class="material-symbols-outlined text-[#fd8603]">equalizer</span>
                 <span class="font-body-md text-body-md font-semibold">Bank Sampah Digital</span>
             </a>
-            <a class="flex items-center gap-3 p-3 bg-on-background text-surface rounded-lg neubrutalism-shadow-sm transition-all" href="/admin/artikel">
+            <a class="flex items-center gap-3 p-3 text-on-primary-fixed-variant bg-primary-fixed transition-all rounded-lg font-bold" href="/admin/artikel">
                 <span class="material-symbols-outlined">description</span>
                 <span class="font-body-md text-body-md font-semibold">Artikel</span>
             </a>
@@ -153,19 +153,14 @@
                 <span class="material-symbols-outlined">contact_support</span>
                 <span class="font-body-md text-body-md font-semibold">Kontak</span>
             </a>
+            <a class="flex items-center gap-3 p-3 text-on-primary-fixed-variant hover:bg-primary-fixed transition-all rounded-lg" href="/">
+                <span class="material-symbols-outlined">open_in_new</span>
+                <span class="font-body-md text-body-md font-semibold">Lihat Website</span>
+            </a>
         </nav>
 
-        <!-- Profile/Footer + Logout -->
-        <div class="mt-auto space-y-2">
-            <div class="p-4 bg-surface-container-highest neubrutalism-border neubrutalism-shadow-sm rounded-xl flex items-center gap-3">
-                <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-on-background">
-                    <img class="w-full h-full object-cover" src="{{ asset('images/admin_avatar.jpg') }}">
-                </div>
-                <div>
-                    <p class="font-label-bold text-label-bold text-on-surface">{{ session('admin_name', 'Admin') }}</p>
-                    <p class="text-[10px] text-on-surface-variant font-medium">{{ session('admin_email', '') }}</p>
-                </div>
-            </div>
+        <!-- Logout Form -->
+        <div class="pt-4 border-t-2 border-on-background">
             <form method="POST" action="{{ route('admin.logout') }}">
                 @csrf
                 <button type="submit"
@@ -184,7 +179,6 @@
             <button onclick="toggleAdminDrawer()" class="hover:bg-surface-container-high neubrutalism-border rounded-lg p-2 transition-all flex items-center justify-center">
                 <span class="material-symbols-outlined text-on-surface">menu</span>
             </button>
-
             <span class="font-bold text-[15px] text-on-background md:hidden">Kelola Artikel</span>
 
             <!-- Search input (md+) -->
@@ -227,7 +221,7 @@
                     <p class="font-label-bold text-label-bold text-on-surface-variant uppercase tracking-wider">Total Artikel</p>
                     <h3 class="font-headline-lg text-headline-lg mt-1 text-on-background">{{ $publishedCount + $draftCount }}</h3>
                 </div>
-                <div class="bg-primary-fixed p-6 rounded-lg neubrutal-border neubrutalism-border neubrutalism-shadow-sm">
+                <div class="bg-primary-fixed p-6 rounded-lg neubrutalism-border neubrutalism-shadow-sm">
                     <p class="font-label-bold text-label-bold text-on-primary-fixed-variant uppercase tracking-wider">Published</p>
                     <h3 class="font-headline-lg text-headline-lg mt-1 text-on-primary-fixed">{{ $publishedCount }}</h3>
                 </div>
@@ -248,73 +242,54 @@
                 <div class="overflow-x-auto">
                     <table class="w-full text-left border-collapse">
                         <thead>
-                            <tr class="bg-surface-container border-b-2 border-on-background">
-                                <th class="px-6 py-5 font-label-bold text-label-bold text-on-background uppercase tracking-tight">Judul Artikel</th>
-                                <th class="px-6 py-5 font-label-bold text-label-bold text-on-background uppercase tracking-tight">Kategori</th>
-                                <th class="px-6 py-5 font-label-bold text-label-bold text-on-background uppercase tracking-tight">Status</th>
-                                <th class="px-6 py-5 font-label-bold text-label-bold text-on-background uppercase tracking-tight">Terakhir Update</th>
-                                <th class="px-6 py-5 font-label-bold text-label-bold text-on-background uppercase tracking-tight text-center">Aksi</th>
+                            <tr class="bg-surface-container-high border-b-2 border-on-background text-on-surface font-label-bold text-label-bold">
+                                <th class="p-4">STATUS</th>
+                                <th class="p-4">JUDUL ARTIKEL</th>
+                                <th class="p-4">KATEGORI</th>
+                                <th class="p-4">VIEWS</th>
+                                <th class="p-4">TANGGAL</th>
+                                <th class="p-4 text-right">AKSI</th>
                             </tr>
                         </thead>
-                        <tbody id="article-rows" class="divide-y-2 divide-on-background/10">
-                            @forelse ($articles as $article)
-                                <tr id="article-row-{{ $article->id }}" class="hover:bg-surface-container-low transition-colors article-row">
-                                    <td class="px-6 py-6">
-                                        <div class="flex flex-col">
-                                            <span class="font-headline-md text-[18px] text-on-background leading-tight">{{ $article->title }}</span>
-                                            <span class="font-body-md text-body-md text-outline mt-1">Oleh: {{ $article->user->name ?? 'Admin Balonggandu' }}</span>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-6">
-                                        @php
-                                            $badgeColor = "bg-secondary-container text-on-secondary-container";
-                                            if ($article->category === 'Tips') $badgeColor = "bg-primary-fixed text-on-primary-fixed-variant";
-                                            if ($article->category === 'Pengelolaan') $badgeColor = "bg-tertiary-fixed text-on-tertiary-fixed-variant";
-                                            if ($article->category === 'Manfaat') $badgeColor = "bg-surface-container-high text-on-surface-variant";
-                                        @endphp
-                                        <span class="px-4 py-1.5 {{ $badgeColor }} neubrutalism-border rounded-lg font-label-bold text-[12px]">{{ $article->category }}</span>
-                                    </td>
-                                    <td class="px-6 py-6">
-                                        @if ($article->status === 'Aktif')
-                                            <div class="flex items-center gap-2 px-4 py-1.5 bg-primary-fixed neubrutalism-border w-fit rounded-lg font-label-bold text-[12px] text-on-primary-fixed">
-                                                <span class="w-2 h-2 rounded-full bg-on-primary-fixed"></span>
-                                                Published
-                                            </div>
-                                        @else
-                                            <div class="flex items-center gap-2 px-4 py-1.5 bg-surface-container-highest neubrutalism-border w-fit rounded-lg font-label-bold text-[12px] text-on-surface-variant">
-                                                <span class="w-2 h-2 rounded-full bg-outline"></span>
-                                                Draft
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <td class="px-6 py-6 font-body-md text-body-md text-on-background font-medium">
-                                        {{ $article->updated_at ? $article->updated_at->format('d M Y') : '-' }}
-                                    </td>
-                                    <td class="px-6 py-6">
-                                        <div class="flex justify-center gap-4">
-                                            <button class="p-2 neubrutalism-border rounded-lg bg-white hover:bg-surface-container-high transition-all active:scale-90" title="Edit Artikel">
-                                                <span class="material-symbols-outlined text-[20px]">edit</span>
-                                            </button>
-                                            <button onclick="deleteArticle({{ $article->id }}, this)" class="p-2 neubrutalism-border rounded-lg bg-error-container hover:bg-error text-on-error-container hover:text-white transition-all active:scale-90" title="Hapus Artikel">
-                                                <span class="material-symbols-outlined text-[20px]">delete</span>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
+                        <tbody id="article-tbody" class="divide-y-2 divide-on-background font-body-md text-body-md">
+                            @forelse($articles as $a)
+                            <tr class="hover:bg-surface-container-low transition-all article-row" data-title="{{ strtolower($a->title) }}" data-category="{{ strtolower($a->category) }}">
+                                <td class="p-4">
+                                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[12px] font-bold border border-on-background shadow-[1px_1px_0px_0px_#1b1c1a] bg-primary-fixed text-on-primary-fixed">
+                                        <span class="w-2 h-2 rounded-full bg-primary"></span> Published
+                                    </span>
+                                </td>
+                                <td class="p-4 font-bold text-on-background">{{ $a->title }}</td>
+                                <td class="p-4">
+                                    <span class="px-3 py-1 bg-surface-container rounded-lg border border-on-background text-[12px] font-semibold">{{ $a->category }}</span>
+                                </td>
+                                <td class="p-4 font-bold text-on-surface-variant">124</td>
+                                <td class="p-4 text-outline font-label-sm text-label-sm">{{ $a->created_at ? $a->created_at->format('M d, Y') : '-' }}</td>
+                                <td class="p-4 text-right">
+                                    <div class="flex items-center justify-end gap-2">
+                                        <button onclick="deleteArticle({{ $a->id }}, this)" class="p-2 bg-error-container text-on-error-container neubrutalism-border rounded-lg hover:bg-error hover:text-on-error transition-all active-neubrutalism" title="Hapus Artikel">
+                                            <span class="material-symbols-outlined text-[18px]">delete</span>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
                             @empty
-                                <tr>
-                                    <td colspan="5" class="px-6 py-8 text-center text-on-surface-variant font-body-md">Belum ada artikel edukasi di database.</td>
-                                </tr>
+                            <tr id="empty-row">
+                                <td colspan="6" class="p-8 text-center text-outline">
+                                    <span class="material-symbols-outlined text-4xl mb-2">article</span>
+                                    <p class="font-bold">Belum ada artikel edukasi yang dibuat.</p>
+                                </td>
+                            </tr>
                             @endforelse
                         </tbody>
                     </table>
                 </div>
 
-                <!-- Pagination -->
-                <div class="flex items-center justify-between px-8 py-6 bg-surface-container border-t-2 border-on-background">
-                    <p class="font-body-md text-body-md text-on-background font-medium">Showing 1 to {{ count($articles) }} of {{ count($articles) }} results</p>
-                    <div class="flex items-center gap-3">
-                        <button class="p-2 neubrutalism-border rounded-lg bg-white hover:bg-surface-container-high transition-all disabled:opacity-50 active-neubrutalism" disabled>
+                <!-- Table Footer Pagination -->
+                <div class="p-4 bg-surface-container-low border-t-2 border-on-background flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <p class="font-body-md text-body-md text-outline">Menampilkan <span class="font-bold text-on-background">{{ count($articles) }}</span> artikel</p>
+                    <div class="flex items-center gap-2">
+                        <button class="p-2 neubrutalism-border rounded-lg bg-white hover:bg-surface-container-high transition-all active-neubrutalism">
                             <span class="material-symbols-outlined text-[20px]">chevron_left</span>
                         </button>
                         <button class="w-10 h-10 neubrutalism-border rounded-lg bg-on-background text-surface font-label-bold text-label-bold shadow-sm">1</button>
@@ -410,7 +385,11 @@
             const title = document.getElementById('art-title').value.trim();
             const category = document.getElementById('art-cat').value;
             const content = document.getElementById('art-content').value.trim();
-            if (!title || !content) return alert("Harap isi judul dan konten artikel!");
+
+            if (!title || !content) {
+                alert('Judul dan Konten artikel wajib diisi!');
+                return;
+            }
 
             fetch('/admin/artikel', {
                 method: 'POST',
@@ -423,67 +402,20 @@
             .then(res => res.json())
             .then(data => {
                 if (data.success) {
-                    const tbody = document.getElementById('article-rows');
-                    
-                    // Clear empty state if any
-                    if (tbody.querySelector('td[colspan]')) {
-                        tbody.innerHTML = '';
-                    }
-
-                    const newRow = document.createElement('tr');
-                    newRow.className = "hover:bg-surface-container-low transition-colors article-row";
-                    
-                    let catColor = "bg-secondary-container text-on-secondary-container";
-                    if (category === "Tips") catColor = "bg-primary-fixed text-on-primary-fixed-variant";
-                    if (category === "Pengelolaan") catColor = "bg-tertiary-fixed text-on-tertiary-fixed-variant";
-                    if (category === "Manfaat") catColor = "bg-surface-container-high text-on-surface-variant";
-
-                    newRow.innerHTML = `
-                        <td class="px-6 py-6">
-                            <div class="flex flex-col">
-                                <span class="font-headline-md text-[18px] text-on-background leading-tight">${title}</span>
-                                <span class="font-body-md text-body-md text-outline mt-1">Oleh: Admin Balonggandu</span>
-                            </div>
-                        </td>
-                        <td class="px-6 py-6">
-                            <span class="px-4 py-1.5 ${catColor} neubrutalism-border rounded-lg font-label-bold text-[12px]">${category}</span>
-                        </td>
-                        <td class="px-6 py-6">
-                            <div class="flex items-center gap-2 px-4 py-1.5 bg-primary-fixed neubrutalism-border w-fit rounded-lg font-label-bold text-[12px] text-on-primary-fixed">
-                                <span class="w-2 h-2 rounded-full bg-on-primary-fixed"></span>
-                                Published
-                            </div>
-                        </td>
-                        <td class="px-6 py-6 font-body-md text-body-md text-on-background font-medium">Hari ini</td>
-                        <td class="px-6 py-6">
-                            <div class="flex justify-center gap-4">
-                                <button class="p-2 neubrutalism-border rounded-lg bg-white hover:bg-surface-container-high transition-all active:scale-90" title="Edit Artikel">
-                                    <span class="material-symbols-outlined text-[20px]">edit</span>
-                                </button>
-                                <button onclick="deleteArticle(${data.article.id}, this)" class="p-2 neubrutalism-border rounded-lg bg-error-container hover:bg-error text-on-error-container hover:text-white transition-all active:scale-90" title="Hapus Artikel">
-                                    <span class="material-symbols-outlined text-[20px]">delete</span>
-                                </button>
-                            </div>
-                        </td>
-                    `;
-                    tbody.prepend(newRow);
                     closeModal();
-
-                    // Trigger toast
-                    const toast = document.getElementById('toast');
-                    toast.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
-                    setTimeout(() => {
-                        toast.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
-                    }, 3000);
+                    showToast('Artikel Berhasil Disimpan');
+                    setTimeout(() => location.reload(), 800);
+                } else {
+                    alert('Gagal menyimpan artikel');
                 }
             })
             .catch(err => {
                 console.error(err);
-                alert("Terjadi kesalahan saat menyimpan artikel.");
+                alert('Terjadi kesalahan sistem.');
             });
         }
 
-        // Delete article logic (Fetch API DELETE)
+        // Delete article logic
         function deleteArticle(id, btn) {
             if (!confirm('Apakah Anda yakin ingin menghapus artikel ini?')) return;
 
@@ -498,66 +430,42 @@
             .then(data => {
                 if (data.success) {
                     const row = btn.closest('tr');
-                    if (row) {
-                        row.style.transition = 'all 0.3s ease';
-                        row.style.opacity = '0';
-                        row.style.transform = 'scale(0.95)';
-                        setTimeout(() => row.remove(), 300);
-                    }
-                    const toast = document.getElementById('toast');
-                    toast.querySelector('span:last-child').textContent = 'Artikel Berhasil Dihapus';
-                    toast.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
-                    setTimeout(() => {
-                        toast.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
-                    }, 3000);
+                    row.remove();
+                    showToast('Artikel Berhasil Dihapus');
                 } else {
-                    alert(data.message || 'Gagal menghapus artikel');
+                    alert('Gagal menghapus artikel');
                 }
             })
             .catch(err => {
                 console.error(err);
-                alert('Terjadi kesalahan saat menghapus artikel');
+                alert('Terjadi kesalahan sistem.');
             });
         }
 
-        // Live search filter
+        // Search Filter Logic
         document.getElementById('article-search').addEventListener('input', function(e) {
             const query = e.target.value.toLowerCase().trim();
             const rows = document.querySelectorAll('.article-row');
             rows.forEach(row => {
-                const titleElement = row.querySelector('td:first-child span');
-                if (titleElement) {
-                    const titleText = titleElement.textContent.toLowerCase();
-                    if (titleText.includes(query)) {
-                        row.style.display = "";
-                    } else {
-                        row.style.display = "none";
-                    }
+                const title = row.getAttribute('data-title') || '';
+                const category = row.getAttribute('data-category') || '';
+                if (title.includes(query) || category.includes(query)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
                 }
             });
         });
 
-        // Micro-interactions for buttons
-        document.querySelectorAll('button').forEach(el => {
-            if (!el.disabled) {
-                el.addEventListener('mousedown', () => {
-                    el.classList.add('translate-y-[2px]', 'translate-x-[2px]');
-                    if (el.classList.contains('neubrutalism-shadow')) {
-                        el.style.boxShadow = '0px 0px 0px 0px #1b1c1a';
-                    } else if (el.classList.contains('neubrutalism-shadow-sm')) {
-                        el.style.boxShadow = '0px 0px 0px 0px #1b1c1a';
-                    }
-                });
-                el.addEventListener('mouseup', () => {
-                    el.classList.remove('translate-y-[2px]', 'translate-x-[2px]');
-                    el.style.boxShadow = '';
-                });
-                el.addEventListener('mouseleave', () => {
-                    el.classList.remove('translate-y-[2px]', 'translate-x-[2px]');
-                    el.style.boxShadow = '';
-                });
-            }
-        });
+        // Toast Helper
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            if (msg) toast.querySelector('span:last-child').textContent = msg;
+            toast.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+            }, 3000);
+        }
     </script>
 </body>
 </html>

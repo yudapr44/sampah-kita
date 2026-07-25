@@ -1,115 +1,32 @@
 <!DOCTYPE html>
-<html class="light" lang="id">
+<html lang="id" class="light">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Galeri Kegiatan - SampahKita</title>
-<meta name="description" content="Dokumentasi kegiatan KKN dan pemberdayaan masyarakat Desa Balonggandu dalam pengelolaan sampah bersama SampahKita."/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet"/>
-<script>
-    try {
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "tertiary": "#152b1c",
-                        "on-background": "#191c1d",
-                        "tertiary-fixed-dim": "#b3cdb7",
-                        "tertiary-fixed": "#cee9d3",
-                        "on-primary-container": "#86af99",
-                        "on-tertiary-container": "#93ad98",
-                        "on-secondary-fixed": "#301400",
-                        "tertiary-container": "#2a4131",
-                        "surface": "#f8f9fa",
-                        "primary-fixed-dim": "#a5d0b9",
-                        "on-secondary-container": "#5f2f00",
-                        "surface-bright": "#f8f9fa",
-                        "outline-variant": "#c1c8c2",
-                        "secondary-container": "#fd8603",
-                        "on-tertiary-fixed-variant": "#354c3b",
-                        "surface-container-low": "#f3f4f5",
-                        "on-primary": "#ffffff",
-                        "on-tertiary-fixed": "#092012",
-                        "error-container": "#ffdad6",
-                        "surface-container-highest": "#e1e3e4",
-                        "surface-dim": "#d9dadb",
-                        "on-tertiary": "#ffffff",
-                        "error": "#ba1a1a",
-                        "on-surface-variant": "#414844",
-                        "on-secondary": "#ffffff",
-                        "secondary-fixed": "#ffdcc4",
-                        "on-error": "#ffffff",
-                        "primary-fixed": "#c1ecd4",
-                        "primary": "#012d1d",
-                        "inverse-surface": "#2e3132",
-                        "background": "#f8f9fa",
-                        "on-secondary-fixed-variant": "#703800",
-                        "surface-container-lowest": "#ffffff",
-                        "surface-container-high": "#e7e8e9",
-                        "on-surface": "#191c1d",
-                        "on-primary-fixed": "#002114",
-                        "primary-container": "#1b4332",
-                        "on-primary-fixed-variant": "#274e3d",
-                        "surface-container": "#edeeef",
-                        "outline": "#717973",
-                        "surface-variant": "#e1e3e4",
-                        "secondary": "#934b00",
-                        "secondary-fixed-dim": "#ffb781",
-                        "on-error-container": "#93000a",
-                        "surface-tint": "#3f6653",
-                        "inverse-primary": "#a5d0b9",
-                        "inverse-on-surface": "#f0f1f2"
-                    },
-                    borderRadius: { DEFAULT:"0.25rem", lg:"0.5rem", xl:"0.75rem", full:"9999px" },
-                    spacing: {
-                        "card-padding":"16px", gutter:"16px", base:"8px",
-                        "container-margin":"20px", "section-gap":"32px"
-                    },
-                    fontFamily: {
-                        "headline-md":       ["Plus Jakarta Sans"],
-                        "body-md":           ["Be Vietnam Pro"],
-                        "headline-lg-mobile":["Plus Jakarta Sans"],
-                        "headline-lg":       ["Plus Jakarta Sans"],
-                        "body-lg":           ["Be Vietnam Pro"],
-                        "label-md":          ["Plus Jakarta Sans"]
-                    },
-                    fontSize: {
-                        "headline-md":       ["20px", {lineHeight:"28px", fontWeight:"600"}],
-                        "body-md":           ["16px", {lineHeight:"24px", fontWeight:"400"}],
-                        "headline-lg-mobile":["24px", {lineHeight:"32px", letterSpacing:"-0.01em", fontWeight:"700"}],
-                        "headline-lg":       ["30px", {lineHeight:"38px", letterSpacing:"-0.02em", fontWeight:"700"}],
-                        "body-lg":           ["18px", {lineHeight:"28px", fontWeight:"400"}],
-                        "label-md":          ["14px", {lineHeight:"20px", fontWeight:"600"}]
-                    }
-                }
-            }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri Kegiatan — SampahKita Desa Balonggandu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0..1&display=block" rel="stylesheet">
+    <style>
+        body { font-family: 'Be Vietnam Pro', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .fill-icon { font-variation-settings: 'FILL' 1; }
+
+        .gallery-card {
+            transition: transform 0.25s ease,
+                        box-shadow 0.25s ease,
+                        border-color 0.2s ease;
         }
-    } catch(_e) {}
-</script>
-<style>
-    body { font-family: 'Be Vietnam Pro', sans-serif; }
-    h1,h2,h3,h4,h5 { font-family: 'Plus Jakarta Sans', sans-serif; }
-    .fill-icon { font-variation-settings: 'FILL' 1; }
+        .gallery-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(1,45,29,.12); border-color: #934b00; }
+        .gallery-card:hover img { transform: scale(1.04); }
+        .gallery-card img { transition: transform 0.4s ease; }
 
-    /* Card hover & lift */
-    .gallery-card {
-        transition: transform 0.25s cubic-bezier(.34,1.56,.64,1),
-                    box-shadow 0.25s ease,
-                    border-color 0.2s ease;
-    }
-    .gallery-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(1,45,29,.12); border-color: #934b00; }
-    .gallery-card:hover img { transform: scale(1.04); }
-    .gallery-card img { transition: transform 0.4s ease; }
+        /* Scroll animation */
+        .reveal { opacity: 1; transform: translateY(0); transition: opacity .4s ease, transform .4s ease; }
 
-    /* Scroll animation */
-    .reveal { opacity: 1; transform: translateY(0); transition: opacity .4s ease, transform .4s ease; }
-
-    /* Modal / lightbox */
-    .modal { transition: opacity 0.25s ease, visibility 0.25s ease; }
-</style>
+        /* Modal / lightbox */
+        .modal { transition: opacity 0.25s ease, visibility 0.25s ease; }
+    </style>
 </head>
 <body class="bg-[#f8f9fa] text-[#191c1d] min-h-screen flex flex-col">
 
@@ -320,8 +237,8 @@
         <div class="bg-white rounded-2xl overflow-hidden shadow-2xl">
             <img id="lightbox-img" class="w-full h-auto object-contain max-h-[60vh] mx-auto bg-neutral-900" src="" alt=""/>
             <div class="p-5 bg-white border-t border-neutral-100">
-                <p id="lightbox-title" class="text-[12px] font-bold text-[#934b00] mb-0.5"></p>
-                <p id="lightbox-desc" class="text-[14px] text-[#191c1d] leading-normal"></p>
+                <h3 id="lightbox-title" class="text-[16px] font-bold text-[#012d1d] mb-1"></h3>
+                <div id="lightbox-desc"></div>
             </div>
         </div>
     </div>
@@ -371,9 +288,11 @@
         `;
         lightbox.classList.remove('opacity-0', 'pointer-events-none');
     }
+
     function closeLightbox() {
         lightbox.classList.add('opacity-0', 'pointer-events-none');
     }
+
     lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) closeLightbox();
     });
