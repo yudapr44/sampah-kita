@@ -20,6 +20,10 @@ class AdminController extends Controller
         
         $categoriesCount = Article::distinct('category')->count('category');
 
+        $totalNasabah = class_exists(\App\Models\Nasabah::class) ? \App\Models\Nasabah::count() : 0;
+        $totalTransaksi = class_exists(\App\Models\Transaksi::class) ? \App\Models\Transaksi::count() : 0;
+        $totalSaldo = class_exists(\App\Models\Nasabah::class) ? \App\Models\Nasabah::sum('saldo') : 0;
+
         // 1. Get real unique visitors this month
         $monthlyVisitors = Visitor::whereMonth('visited_at', date('m'))
             ->whereYear('visited_at', date('Y'))
@@ -40,14 +44,22 @@ class AdminController extends Controller
             ];
         }
 
+        $latestArticles = Article::latest()->take(3)->get();
+        $latestGalleries = class_exists(\App\Models\Gallery::class) ? \App\Models\Gallery::latest()->take(3)->get() : collect();
+
         return view('admin.dashboard', compact(
             'totalArticles',
             'publishedCount',
             'draftCount',
             'totalViews',
             'categoriesCount',
+            'totalNasabah',
+            'totalTransaksi',
+            'totalSaldo',
             'monthlyVisitors',
-            'trafficData'
+            'trafficData',
+            'latestArticles',
+            'latestGalleries'
         ));
     }
 
