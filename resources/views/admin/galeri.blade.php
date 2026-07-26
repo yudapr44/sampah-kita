@@ -114,87 +114,19 @@
 </head>
 <body class="bg-background text-on-background min-h-screen flex flex-col font-body-md text-body-md overflow-x-hidden custom-scrollbar">
 
-<!-- Backdrop for Admin Drawer -->
-<div id="admin-backdrop" class="fixed inset-0 bg-black/50 z-40 hidden opacity-0 transition-opacity duration-300" onclick="toggleAdminDrawer()"></div>
-
-<!-- Drawer Sidebar -->
-<aside id="admin-drawer" class="fixed left-0 top-0 h-full w-[280px] bg-[#012d1d] text-white flex flex-col p-6 z-50 transition-transform duration-300 transform -translate-x-full shadow-2xl">
-    <div class="mb-8 flex justify-between items-center pb-4 border-b border-white/10">
-        <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-[#fd8603] flex items-center justify-center text-white font-bold">
-                <span class="material-symbols-outlined text-[24px]">photo_library</span>
-            </div>
-            <div>
-                <h1 class="font-bold text-[16px] leading-tight">Admin Galeri</h1>
-                <p class="text-[11px] text-[#a5d0b9]">Desa Balonggandu</p>
-            </div>
-        </div>
-        <button onclick="toggleAdminDrawer()" class="p-1 rounded-full hover:bg-white/10 text-white flex items-center justify-center">
-            <span class="material-symbols-outlined text-[22px]">close</span>
-        </button>
-    </div>
-
-    <nav class="flex-1 space-y-2">
-        <a class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-300 hover:text-white hover:bg-white/10 font-semibold text-xs transition-all" href="/admin">
-            <span class="material-symbols-outlined text-[20px]">dashboard</span>
-            Dashboard Utama
-        </a>
-        <a class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-300 hover:text-white hover:bg-white/10 font-semibold text-xs transition-all" href="/admin/bank-digital">
-            <span class="material-symbols-outlined text-[20px] text-[#fd8603]">equalizer</span>
-            Bank Sampah Digital
-        </a>
-        <a class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-300 hover:text-white hover:bg-white/10 font-semibold text-xs transition-all" href="/admin/artikel">
-            <span class="material-symbols-outlined text-[20px]">description</span>
-            Artikel Edukasi
-        </a>
-        <a class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/15 text-white font-bold text-xs shadow-inner" href="/admin/galeri">
-            <span class="material-symbols-outlined text-[20px]">photo_library</span>
-            Galeri Kegiatan
-        </a>
-        <a class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-300 hover:text-white hover:bg-white/10 font-semibold text-xs transition-all" href="/admin/kontak">
-            <span class="material-symbols-outlined text-[20px]">contact_mail</span>
-            Pesan &amp; Kontak
-        </a>
-        <div class="pt-4 mt-4 border-t border-white/10">
-            <a href="/galeri" target="_blank" class="flex items-center justify-between px-4 py-2.5 rounded-xl bg-emerald-900/50 hover:bg-emerald-900 text-[#a5d0b9] font-bold text-xs transition-all border border-emerald-700/50">
-                <span class="flex items-center gap-2">
-                    <span class="material-symbols-outlined text-[18px]">public</span>
-                    Lihat Galeri Warga
-                </span>
-                <span class="material-symbols-outlined text-[14px]">open_in_new</span>
-            </a>
-        </div>
-    </nav>
-
-    <div class="pt-4 border-t border-white/10">
-        <form action="{{ route('admin.logout') }}" method="POST">
-            @csrf
-            <button type="submit" class="w-full bg-red-500/20 hover:bg-red-600 text-red-200 hover:text-white font-bold py-2.5 rounded-xl transition-all text-xs flex items-center justify-center gap-2 border border-red-500/30">
-                <span class="material-symbols-outlined text-[18px]">logout</span>
-                Keluar Sistem
-            </button>
-        </form>
-    </div>
-</aside>
-
 <!-- TopAppBar -->
-<header class="flex justify-between items-center h-16 px-md md:px-margin-desktop w-full z-30 bg-surface shadow-sm top-0 sticky">
-    <div class="flex items-center gap-sm">
-        <button onclick="toggleAdminDrawer()" class="p-2 rounded-full hover:bg-surface-container-high text-on-surface flex items-center justify-center" title="Menu Navigation">
-            <span class="material-symbols-outlined">menu</span>
-        </button>
-        <div class="flex items-center gap-sm cursor-pointer" onclick="location.href='/admin'">
-            <span class="material-symbols-outlined text-primary" data-icon="school">school</span>
-            <h1 class="font-headline-md text-headline-md font-bold text-primary">EduManage Admin</h1>
-        </div>
-    </div>
+<header class="flex justify-between items-center h-16 px-md md:px-margin-desktop w-full z-50 bg-surface shadow-sm top-0 sticky">
     <div class="flex items-center gap-md">
-        <div class="flex items-center gap-sm md:gap-md">
-            <span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container-high" data-icon="search" onclick="focusSearch()">search</span>
-            <span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors p-2 rounded-full hover:bg-surface-container-high" data-icon="notifications">notifications</span>
-            <div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-bold text-xs cursor-pointer active:scale-95 transition-transform" title="{{ session('admin_name', 'Admin') }}">
-                {{ strtoupper(substr(session('admin_name', 'Admin'), 0, 1)) }}
-            </div>
+        <button id="sidebar-toggle" class="cursor-pointer active:scale-95 duration-150 p-sm rounded-full hover:bg-surface-container-low" title="Menu Navigation">
+            <span class="material-symbols-outlined text-on-surface">menu</span>
+        </button>
+        <h1 class="font-headline-md text-headline-md font-bold text-primary">Manajemen Galeri</h1>
+    </div>
+    <div class="flex items-center gap-sm">
+        <button class="material-symbols-outlined p-2 rounded-full hover:bg-surface-container-low transition-colors cursor-pointer text-on-surface-variant" onclick="focusSearch()">search</button>
+        <button class="material-symbols-outlined p-2 rounded-full hover:bg-surface-container-low transition-colors cursor-pointer text-on-surface-variant">notifications</button>
+        <div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-bold text-xs cursor-pointer active:scale-95 transition-transform" title="{{ session('admin_name', 'Admin') }}">
+            {{ strtoupper(substr(session('admin_name', 'Admin'), 0, 1)) }}
         </div>
     </div>
 </header>
@@ -208,7 +140,7 @@
             <h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-xs">Manajemen Galeri</h2>
             <p class="text-on-surface-variant max-w-2xl font-body-md text-body-md">Pantau dan kelola aset visual institusi. Unggah foto kegiatan, video edukasi, dan dokumentasi fasilitas dalam satu tempat.</p>
         </div>
-        <button onclick="openUploadModal()" class="bg-primary text-on-primary px-lg h-10 md:h-12 rounded-xl flex items-center justify-center gap-sm font-label-sm text-label-sm shadow-sm hover:bg-primary-container transition-all active:scale-95">
+        <button onclick="openUploadModal()" class="bg-primary text-on-primary px-lg h-10 md:h-12 rounded-xl flex items-center justify-center gap-sm font-label-sm text-label-sm shadow-sm hover:bg-primary-container transition-all active:scale-95 cursor-pointer">
             <span class="material-symbols-outlined" data-icon="cloud_upload">cloud_upload</span>
             <span>Upload New</span>
         </button>
@@ -337,6 +269,75 @@
     </div>
 </nav>
 
+<!-- Drawer Overlay (Hidden by Default) -->
+<div class="fixed inset-0 bg-black/50 z-[60] opacity-0 pointer-events-none transition-opacity duration-300" id="drawer-overlay"></div>
+
+<!-- Sidebar Drawer (Menu Samping) -->
+<aside class="fixed left-0 top-0 bottom-0 w-[280px] bg-surface-container-lowest z-[70] -translate-x-full transition-transform duration-300 shadow-2xl flex flex-col" id="sidebar">
+    <div class="p-lg flex items-center justify-between border-b border-surface-variant">
+        <div class="flex items-center gap-md">
+            <span class="material-symbols-outlined text-primary text-display-lg-mobile" style="font-variation-settings: 'FILL' 1;">school</span>
+            <div class="flex flex-col">
+                <span class="font-headline-md text-headline-md font-bold text-primary">EduManage</span>
+                <span class="font-label-sm text-on-surface-variant">Admin Console</span>
+            </div>
+        </div>
+        <button id="sidebar-close" class="p-1 rounded-full hover:bg-surface-container-high text-on-surface">
+            <span class="material-symbols-outlined text-[22px]">close</span>
+        </button>
+    </div>
+
+    <!-- Menu Samping Navigasi -->
+    <nav class="flex-1 p-md space-y-sm overflow-y-auto mt-md">
+        <a class="flex items-center gap-md p-md rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors" href="/admin">
+            <span class="material-symbols-outlined">dashboard</span>
+            <span class="font-body-lg">Dashboard</span>
+        </a>
+        <a class="flex items-center gap-md p-md rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors" href="/admin/artikel">
+            <span class="material-symbols-outlined">article</span>
+            <span class="font-body-lg">Manajemen Artikel</span>
+        </a>
+        <a class="flex items-center gap-md p-md rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors" href="/admin/bank-digital">
+            <span class="material-symbols-outlined">equalizer</span>
+            <span class="font-body-lg">Bank Sampah Digital</span>
+        </a>
+        <a class="flex items-center gap-md p-md rounded-xl bg-secondary-container text-on-secondary-container shadow-sm font-semibold" href="/admin/galeri">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">collections</span>
+            <span class="font-body-lg">Galeri Kegiatan</span>
+        </a>
+        <a class="flex items-center gap-md p-md rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors" href="/admin/kontak">
+            <span class="material-symbols-outlined">contact_mail</span>
+            <span class="font-body-lg">Pesan &amp; Kontak</span>
+        </a>
+        <div class="h-px bg-surface-variant mx-md my-md"></div>
+        <a class="flex items-center gap-md p-md rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors" href="/" target="_blank">
+            <span class="material-symbols-outlined">open_in_new</span>
+            <span class="font-body-lg">Lihat Website Warga</span>
+        </a>
+    </nav>
+
+    <div class="p-lg bg-surface-container-low border-t border-surface-variant">
+        <div class="flex items-center justify-between gap-md mb-3">
+            <div class="flex items-center gap-md overflow-hidden">
+                <div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-bold shrink-0">
+                    {{ strtoupper(substr(session('admin_name', 'Admin'), 0, 1)) }}
+                </div>
+                <div class="flex flex-col overflow-hidden">
+                    <span class="font-body-md font-bold text-on-surface truncate">{{ session('admin_name', 'Admin Utama') }}</span>
+                    <span class="font-label-sm text-on-surface-variant truncate">admin@balonggandu.desa.id</span>
+                </div>
+            </div>
+        </div>
+        <form action="{{ route('admin.logout') }}" method="POST">
+            @csrf
+            <button type="submit" class="w-full flex items-center justify-center gap-2 p-2.5 rounded-xl bg-error-container text-on-error-container font-bold text-xs hover:bg-error hover:text-white transition-all">
+                <span class="material-symbols-outlined text-[18px]">logout</span>
+                <span>Keluar Sistem</span>
+            </button>
+        </form>
+    </div>
+</aside>
+
 <!-- Floating Action Button (Mobile Enhancement) -->
 <button onclick="openUploadModal()" class="md:hidden fixed bottom-24 right-6 w-14 h-14 bg-primary text-on-primary rounded-full shadow-xl flex items-center justify-center active:scale-90 transition-all z-40">
     <span class="material-symbols-outlined text-[28px]" data-icon="add">add</span>
@@ -415,28 +416,24 @@
 </div>
 
 <script>
-    // Toggle Admin Drawer
-    function toggleAdminDrawer() {
-        const drawer = document.getElementById('admin-drawer');
-        const backdrop = document.getElementById('admin-backdrop');
-        const isOpen = drawer.classList.contains('translate-x-0');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('drawer-overlay');
+    const toggle = document.getElementById('sidebar-toggle');
+    const closeBtn = document.getElementById('sidebar-close');
 
-        if (isOpen) {
-            drawer.classList.remove('translate-x-0');
-            drawer.classList.add('-translate-x-full');
-            backdrop.classList.remove('opacity-100');
-            backdrop.classList.add('opacity-0');
-            setTimeout(() => backdrop.classList.add('hidden'), 300);
-        } else {
-            backdrop.classList.remove('hidden');
-            setTimeout(() => {
-                drawer.classList.remove('-translate-x-full');
-                drawer.classList.add('translate-x-0');
-                backdrop.classList.remove('opacity-0');
-                backdrop.classList.add('opacity-100');
-            }, 10);
-        }
+    function openSidebar() {
+        sidebar.classList.remove('-translate-x-full');
+        overlay.classList.remove('opacity-0', 'pointer-events-none');
     }
+
+    function closeSidebar() {
+        sidebar.classList.add('-translate-x-full');
+        overlay.classList.add('opacity-0', 'pointer-events-none');
+    }
+
+    if (toggle) toggle.addEventListener('click', openSidebar);
+    if (overlay) overlay.addEventListener('click', closeSidebar);
+    if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
 
     function focusSearch() {
         document.getElementById('gallery-search-input').focus();

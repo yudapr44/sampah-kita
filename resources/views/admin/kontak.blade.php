@@ -123,68 +123,80 @@
 </head>
 <body class="bg-background text-on-surface min-h-screen">
 
-    <!-- Backdrop -->
-    <div id="admin-backdrop" class="fixed inset-0 bg-black/45 z-45 hidden opacity-0 transition-opacity duration-300" onclick="toggleAdminDrawer()"></div>
+    <!-- Drawer Overlay (Hidden by Default) -->
+    <div class="fixed inset-0 bg-black/50 z-[60] opacity-0 pointer-events-none transition-opacity duration-300" id="drawer-overlay"></div>
 
-    <!-- SideNavBar Shell (Collapsible Drawer) -->
-    <aside id="admin-drawer" class="fixed left-0 top-0 h-full w-[280px] bg-primary-container dark:bg-primary-container shadow-sm flex flex-col p-stack-md z-50 transition-transform duration-300 transform -translate-x-full border-r-2 border-on-background">
-        <div class="mb-stack-lg px-2 flex justify-between items-center">
-            <div>
-                <h1 class="font-headline-md text-headline-md text-on-primary-container font-bold">Village Admin</h1>
-                <p class="font-body-sm text-body-sm text-on-primary-container opacity-80">Local Government</p>
+    <!-- Sidebar Drawer (Menu Samping) -->
+    <aside class="fixed left-0 top-0 bottom-0 w-[280px] bg-surface-container-lowest z-[70] -translate-x-full transition-transform duration-300 shadow-2xl flex flex-col" id="sidebar">
+        <div class="p-lg flex items-center justify-between border-b border-surface-variant">
+            <div class="flex items-center gap-md">
+                <span class="material-symbols-outlined text-primary text-display-lg-mobile" style="font-variation-settings: 'FILL' 1;">school</span>
+                <div class="flex flex-col">
+                    <span class="font-headline-md text-headline-md font-bold text-primary">EduManage</span>
+                    <span class="font-label-sm text-on-surface-variant">Admin Console</span>
+                </div>
             </div>
-            <button onclick="toggleAdminDrawer()" class="p-1 rounded-full hover:bg-primary-fixed text-[#1b1c1a] flex items-center justify-center">
+            <button id="sidebar-close" class="p-1 rounded-full hover:bg-surface-container-high text-on-surface">
                 <span class="material-symbols-outlined text-[22px]">close</span>
             </button>
         </div>
-        <nav class="flex-1 space-y-2">
-            <!-- Dashboard -->
-            <a class="flex items-center gap-3 px-4 py-3 text-on-primary-container font-body-md text-body-md nav-item-transition hover:bg-surface-container rounded-lg group active:scale-95" href="/admin">
+
+        <!-- Menu Samping Navigasi -->
+        <nav class="flex-1 p-md space-y-sm overflow-y-auto mt-md">
+            <a class="flex items-center gap-md p-md rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors" href="/admin">
                 <span class="material-symbols-outlined">dashboard</span>
-                <span class="">Dashboard</span>
+                <span class="font-body-lg">Dashboard</span>
             </a>
-            <!-- Artikel -->
-            <a class="flex items-center gap-3 px-4 py-3 text-on-primary-container font-body-md text-body-md nav-item-transition hover:bg-surface-container rounded-lg group active:scale-95" href="/admin/artikel">
-                <span class="material-symbols-outlined">description</span>
-                <span class="">Artikel</span>
+            <a class="flex items-center gap-md p-md rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors" href="/admin/artikel">
+                <span class="material-symbols-outlined">article</span>
+                <span class="font-body-lg">Manajemen Artikel</span>
             </a>
-            <!-- Galeri -->
-            <a class="flex items-center gap-3 px-4 py-3 text-on-primary-container font-body-md text-body-md nav-item-transition hover:bg-surface-container rounded-lg group active:scale-95" href="/galeri">
-                <span class="material-symbols-outlined">image</span>
-                <span class="">Galeri</span>
+            <a class="flex items-center gap-md p-md rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors" href="/admin/bank-digital">
+                <span class="material-symbols-outlined">equalizer</span>
+                <span class="font-body-lg">Bank Sampah Digital</span>
             </a>
-            <!-- Kontak (Active) -->
-            <a class="flex items-center gap-3 px-4 py-3 bg-primary text-on-primary rounded-lg font-body-md text-body-md nav-item-transition active:scale-95" href="/admin/kontak">
-                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">contact_support</span>
-                <span class="">Kontak</span>
+            <a class="flex items-center gap-md p-md rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors" href="/admin/galeri">
+                <span class="material-symbols-outlined">collections</span>
+                <span class="font-body-lg">Galeri Kegiatan</span>
+            </a>
+            <a class="flex items-center gap-md p-md rounded-xl bg-secondary-container text-on-secondary-container shadow-sm font-semibold" href="/admin/kontak">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">contact_mail</span>
+                <span class="font-body-lg">Pesan &amp; Kontak</span>
+            </a>
+            <div class="h-px bg-surface-variant mx-md my-md"></div>
+            <a class="flex items-center gap-md p-md rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors" href="/" target="_blank">
+                <span class="material-symbols-outlined">open_in_new</span>
+                <span class="font-body-lg">Lihat Website Warga</span>
             </a>
         </nav>
-        <!-- Admin Profile Info + Logout -->
-        <div class="mt-auto space-y-2 pt-4 border-t border-on-primary-container/20">
-            <div class="px-2 flex items-center gap-3">
-                <img class="w-10 h-10 rounded-full object-cover neubrutal-border" src="{{ asset('images/admin_avatar.jpg') }}">
-                <div>
-                    <p class="font-label-bold text-label-bold text-on-primary-container">{{ session('admin_name', 'Admin') }}</p>
-                    <p class="text-[10px] text-on-primary-container/70 uppercase tracking-wider">{{ session('admin_email', '') }}</p>
+
+        <div class="p-lg bg-surface-container-low border-t border-surface-variant">
+            <div class="flex items-center justify-between gap-md mb-3">
+                <div class="flex items-center gap-md overflow-hidden">
+                    <div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-bold shrink-0">
+                        {{ strtoupper(substr(session('admin_name', 'Admin'), 0, 1)) }}
+                    </div>
+                    <div class="flex flex-col overflow-hidden">
+                        <span class="font-body-md font-bold text-on-surface truncate">{{ session('admin_name', 'Admin Utama') }}</span>
+                        <span class="font-label-sm text-on-surface-variant truncate">admin@balonggandu.desa.id</span>
+                    </div>
                 </div>
             </div>
-            <form method="POST" action="{{ route('admin.logout') }}">
+            <form action="{{ route('admin.logout') }}" method="POST">
                 @csrf
-                <button type="submit"
-                    class="w-full flex items-center gap-2 px-4 py-2.5 text-red-400 hover:bg-red-500/10 transition-all rounded-lg text-[13px] font-semibold">
+                <button type="submit" class="w-full flex items-center justify-center gap-2 p-2.5 rounded-xl bg-error-container text-on-error-container font-bold text-xs hover:bg-error hover:text-white transition-all">
                     <span class="material-symbols-outlined text-[18px]">logout</span>
-                    Logout
+                    <span>Keluar Sistem</span>
                 </button>
             </form>
         </div>
     </aside>
 
-
     <!-- TopNavBar Shell -->
     <header class="fixed top-0 right-0 w-full h-14 bg-surface dark:bg-surface-dim border-b neubrutal-border z-40 flex justify-between items-center px-4 md:px-6">
         <div class="flex items-center gap-3 flex-1">
             <!-- Hamburger Menu Toggle -->
-            <button onclick="toggleAdminDrawer()" class="p-2 neubrutal-border rounded-lg bg-[#f5f3ef] hover:scale-105 active:scale-95 transition-transform flex items-center justify-center">
+            <button id="sidebar-toggle" class="p-2 neubrutal-border rounded-lg bg-[#f5f3ef] hover:scale-105 active:scale-95 transition-transform flex items-center justify-center cursor-pointer">
                 <span class="material-symbols-outlined text-[#1b1c1a]">menu</span>
             </button>
 
@@ -200,7 +212,9 @@
             <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg hover:bg-surface-container transition-all cursor-pointer">
                 <span class="material-symbols-outlined text-primary">notifications</span>
                 <span class="hidden md:block font-label-bold text-label-bold text-primary">{{ session('admin_name', 'Admin') }}</span>
-                <img class="w-8 h-8 rounded-full object-cover neubrutal-border" src="{{ asset('images/admin_avatar.jpg') }}">
+                <div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-bold text-xs">
+                    {{ strtoupper(substr(session('admin_name', 'Admin'), 0, 1)) }}
+                </div>
             </div>
         </div>
     </header>
@@ -376,28 +390,24 @@
     </div>
 
     <script>
-        // Drawer toggle logic
-        function toggleAdminDrawer() {
-            const drawer = document.getElementById('admin-drawer');
-            const backdrop = document.getElementById('admin-backdrop');
-            const isOpen = drawer.classList.contains('translate-x-0');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('drawer-overlay');
+        const toggle = document.getElementById('sidebar-toggle');
+        const closeBtn = document.getElementById('sidebar-close');
 
-            if (isOpen) {
-                drawer.classList.remove('translate-x-0');
-                drawer.classList.add('-translate-x-full');
-                backdrop.classList.remove('opacity-100', 'pointer-events-auto');
-                backdrop.classList.add('opacity-0', 'pointer-events-none');
-                setTimeout(() => backdrop.classList.add('hidden'), 300);
-            } else {
-                backdrop.classList.remove('hidden');
-                setTimeout(() => {
-                    drawer.classList.remove('-translate-x-full');
-                    drawer.classList.add('translate-x-0');
-                    backdrop.classList.remove('opacity-0', 'pointer-events-none');
-                    backdrop.classList.add('opacity-100', 'pointer-events-auto');
-                }, 10);
-            }
+        function openSidebar() {
+            sidebar.classList.remove('-translate-x-full');
+            overlay.classList.remove('opacity-0', 'pointer-events-none');
         }
+
+        function closeSidebar() {
+            sidebar.classList.add('-translate-x-full');
+            overlay.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        if (toggle) toggle.addEventListener('click', openSidebar);
+        if (overlay) overlay.addEventListener('click', closeSidebar);
+        if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
 
         // Trigger Success Toast
         function showToast(text) {
