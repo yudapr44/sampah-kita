@@ -101,6 +101,34 @@ class AdminController extends Controller
         ]);
     }
 
+    // Update Artikel Existing (via POST)
+    public function updateArtikel(Request $request, $id)
+    {
+        $article = Article::find($id);
+        if (!$article) {
+            return response()->json(['success' => false, 'message' => 'Artikel tidak ditemukan'], 404);
+        }
+
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'category' => 'required|string',
+            'content' => 'required|string',
+        ]);
+
+        $article->title = $request->title;
+        $article->category = $request->category;
+        $article->content = $request->content;
+        if ($request->has('status')) {
+            $article->status = $request->status;
+        }
+        $article->save();
+
+        return response()->json([
+            'success' => true,
+            'article' => $article
+        ]);
+    }
+
     // Hapus Artikel (via DELETE)
     public function deleteArtikel($id)
     {

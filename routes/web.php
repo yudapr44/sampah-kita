@@ -30,6 +30,7 @@ Route::middleware(['admin.auth'])->group(function () {
     Route::get('/admin',                 [AdminController::class, 'index']);
     Route::get('/admin/artikel',         [AdminController::class, 'artikel']);
     Route::post('/admin/artikel',        [AdminController::class, 'storeArtikel']);
+    Route::post('/admin/artikel/{id}',   [AdminController::class, 'updateArtikel']);
     Route::delete('/admin/artikel/{id}', [AdminController::class, 'deleteArtikel']);
     Route::get('/admin/kontak',          [AdminController::class, 'kontak']);
     Route::post('/admin/kontak',         [AdminController::class, 'updateKontak']);
