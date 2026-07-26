@@ -305,10 +305,6 @@
             <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">collections</span>
             <span class="font-body-lg">Galeri Kegiatan</span>
         </a>
-        <a class="flex items-center gap-md p-md rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors" href="/admin/kontak">
-            <span class="material-symbols-outlined">contact_mail</span>
-            <span class="font-body-lg">Pesan &amp; Kontak</span>
-        </a>
         <div class="h-px bg-surface-variant mx-md my-md"></div>
         <a class="flex items-center gap-md p-md rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors" href="/" target="_blank">
             <span class="material-symbols-outlined">open_in_new</span>
