@@ -20,12 +20,17 @@ Route::middleware(['track.visitors'])->group(function () {
 // ── ROUTE KHUSUS WARGA (Public - Tanpa Login) ──
 Route::get('/bank-digital', [BankDigitalController::class, 'publicUser'])->name('bank.digital.user');
 
-// ── ADMIN AUTH ROUTES (Login / Logout — tidak perlu middleware) ──
+// ── ADMIN EDUKASI AUTH ROUTES ──
 Route::get('/admin/login',  [AuthController::class, 'showLogin'])->name('admin.login');
 Route::post('/admin/login', [AuthController::class, 'login'])->name('admin.login.post');
 Route::post('/admin/logout',[AuthController::class, 'logout'])->name('admin.logout');
 
-// ── ADMIN PROTECTED ROUTES ──
+// ── ADMIN 3R AUTH ROUTES (Login khusus panel Bank Digital 3R) ──
+Route::get('/admin/bank-digital/login', [AuthController::class, 'showLogin3R'])->name('admin.3r.login');
+Route::post('/admin/bank-digital/login', [AuthController::class, 'login3R'])->name('admin.3r.login.post');
+Route::post('/admin/bank-digital/logout', [AuthController::class, 'logout3R'])->name('admin.3r.logout');
+
+// ── ADMIN PROTECTED ROUTES (EDUKASI & UTAMA) ──
 Route::middleware(['admin.auth'])->group(function () {
     Route::get('/admin',                 [AdminController::class, 'index']);
     Route::get('/admin/artikel',         [AdminController::class, 'artikel']);
@@ -41,9 +46,12 @@ Route::middleware(['admin.auth'])->group(function () {
     Route::post('/admin/galeri',         [AdminController::class, 'storeGaleri'])->name('admin.galeri.store');
     Route::post('/admin/galeri/{id}',    [AdminController::class, 'updateGaleri'])->name('admin.galeri.update');
     Route::delete('/admin/galeri/{id}',  [AdminController::class, 'deleteGaleri'])->name('admin.galeri.delete');
+});
 
-    // ── ROUTE KHUSUS ADMIN / PENGELOLA BANK DIGITAL ──
-    Route::get('/admin/bank-digital',           [BankDigitalController::class, 'index'])->name('bank.digital.admin');
-    Route::post('/admin/bank-digital/nasabah',   [BankDigitalController::class, 'storeNasabah'])->name('nasabah.store');
-    Route::post('/admin/bank-digital/transaksi', [BankDigitalController::class, 'storeTransaksi'])->name('transaksi.store');
+// ── ROUTE KHUSUS PENGELOLA BANK DIGITAL 3R (TERISOLASI) ──
+Route::middleware(['admin.3r.auth'])->prefix('admin/bank-digital')->group(function () {
+    Route::get('/',             [BankDigitalController::class, 'index'])->name('bank.digital.admin');
+    Route::post('/nasabah',     [BankDigitalController::class, 'storeNasabah'])->name('nasabah.store');
+    Route::post('/transaksi',   [BankDigitalController::class, 'storeTransaksi'])->name('transaksi.store');
+
 });
