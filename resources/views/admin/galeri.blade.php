@@ -384,6 +384,11 @@
             </div>
 
             <div>
+                <label class="block font-label-sm text-label-sm font-semibold text-on-surface mb-1">Tanggal Kegiatan / Upload</label>
+                <input type="date" id="input-created-at" name="created_at" class="w-full px-3 py-2 bg-surface-container-low border border-outline-variant rounded-lg focus:border-primary focus:ring-1 focus:ring-primary outline-none text-xs">
+            </div>
+
+            <div>
                 <label class="block font-label-sm text-label-sm font-semibold text-on-surface mb-1">Artikel / Deskripsi Penjelasan Foto</label>
                 <textarea id="input-description" name="description" rows="3" placeholder="Tuliskan ringkasan artikel atau penjelasan kegiatan dari foto ini..." class="w-full px-3 py-2 bg-surface-container-low border border-outline-variant rounded-lg focus:border-primary focus:ring-1 focus:ring-primary outline-none text-xs"></textarea>
             </div>
@@ -441,6 +446,7 @@
         document.getElementById('modal-title-text').textContent = 'Upload New Media Asset';
         document.getElementById('btn-submit-form').textContent = 'Simpan Aset';
         document.getElementById('gallery-form').reset();
+        document.getElementById('input-created-at').value = new Date().toISOString().split('T')[0];
         document.getElementById('upload-modal').classList.remove('opacity-0', 'pointer-events-none');
     }
 
@@ -455,6 +461,16 @@
         document.getElementById('input-description').value = item.description || '';
         document.getElementById('input-image-url').value = item.image_url;
         document.getElementById('input-featured').checked = !!item.is_featured;
+        if (item.created_at) {
+            const d = new Date(item.created_at);
+            if (!isNaN(d.getTime())) {
+                document.getElementById('input-created-at').value = d.toISOString().split('T')[0];
+            } else {
+                document.getElementById('input-created-at').value = String(item.created_at).substring(0, 10);
+            }
+        } else {
+            document.getElementById('input-created-at').value = new Date().toISOString().split('T')[0];
+        }
         document.getElementById('upload-modal').classList.remove('opacity-0', 'pointer-events-none');
     }
 

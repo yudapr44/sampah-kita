@@ -296,7 +296,7 @@ class AdminController extends Controller
             \App\Models\Gallery::query()->update(['is_featured' => false]);
         }
 
-        $gallery = \App\Models\Gallery::create([
+        $galleryData = [
             'title' => $request->title,
             'category' => $request->category,
             'type' => $request->type,
@@ -304,7 +304,13 @@ class AdminController extends Controller
             'description' => $request->description,
             'uploader' => $request->uploader ?: (session('admin_name') ?? 'Admin Utama'),
             'is_featured' => $request->has('is_featured') ? (bool)$request->is_featured : false
-        ]);
+        ];
+
+        if ($request->filled('created_at')) {
+            $galleryData['created_at'] = $request->created_at;
+        }
+
+        $gallery = \App\Models\Gallery::create($galleryData);
 
         return response()->json([
             'success' => true,
@@ -335,6 +341,7 @@ class AdminController extends Controller
             'type' => 'required|string',
             'description' => 'nullable|string',
             'uploader' => 'nullable|string',
+            'created_at' => 'nullable|date',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
             'image_url' => 'nullable|string'
         ], $messages);
@@ -365,6 +372,9 @@ class AdminController extends Controller
         $gallery->description = $request->description;
         if ($request->filled('uploader')) {
             $gallery->uploader = $request->uploader;
+        }
+        if ($request->filled('created_at')) {
+            $gallery->created_at = $request->created_at;
         }
         $gallery->save();
 

@@ -17,6 +17,7 @@ class Gallery extends Model
         'description',
         'uploader',
         'is_featured',
+        'created_at',
     ];
 
     protected $casts = [
