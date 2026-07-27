@@ -208,7 +208,7 @@
                             @endif
 
                             <div class="flex items-center gap-2">
-                                <button onclick="openModalEdit({{ json_encode($a) }})" class="p-1.5 text-primary hover:bg-surface-container-high rounded-lg transition-colors flex items-center justify-center" title="Edit Artikel">
+                                <button onclick="openModalEditFromBtn(this)" data-article="{{ json_encode($a) }}" class="p-1.5 text-primary hover:bg-surface-container-high rounded-lg transition-colors flex items-center justify-center" title="Edit Artikel">
                                     <span class="material-symbols-outlined text-[18px]">edit</span>
                                 </button>
                                 <button onclick="deleteArticleItem({{ $a->id }})" class="p-1.5 text-error hover:bg-error-container rounded-lg transition-colors flex items-center justify-center" title="Hapus Artikel">
@@ -414,6 +414,16 @@
         document.getElementById('modal-article').classList.remove('opacity-0', 'pointer-events-none');
     }
 
+    function openModalEditFromBtn(btn) {
+        try {
+            const article = JSON.parse(btn.getAttribute('data-article'));
+            openModalEdit(article);
+        } catch (e) {
+            console.error('Error parsing article JSON:', e);
+            alert('Gagal membaca data artikel.');
+        }
+    }
+
     function openModalEdit(article) {
         document.getElementById('article-id').value = article.id;
         document.getElementById('modal-article-title').textContent = 'Edit Artikel Edukasi';
@@ -454,21 +464,26 @@
         fetch(url, {
             method: 'POST',
             headers: {
-                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                'Accept': 'application/json'
             },
             body: formData
         })
-        .then(res => res.json())
-        .then(data => {
-            if (data.success) {
+        .then(async res => {
+            const data = await res.json().catch(() => ({}));
+            if (res.ok && data.success) {
                 location.reload();
             } else {
-                alert(data.message || 'Gagal menyimpan artikel.');
+                let msg = data.message || 'Gagal menyimpan artikel.';
+                if (data.errors) {
+                    msg = Object.values(data.errors).flat().join('\n');
+                }
+                alert(msg);
             }
         })
         .catch(err => {
             console.error(err);
-            alert('Terjadi kesalahan sistem saat menyimpan artikel.');
+            alert('Terjadi kesalahan koneksi saat menyimpan artikel: ' + err.message);
         });
     }
 
