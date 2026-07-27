@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Gallery;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 
@@ -12,33 +13,32 @@ class AppController extends Controller
     public function home()
     {
         $setting = Setting::first();
-        return view('user.home', compact('setting'));
+        $articles = Article::where('status', 'Aktif')->latest()->take(3)->get();
+        $galleries = Gallery::orderBy('is_featured', 'desc')->orderBy('id', 'desc')->take(6)->get();
+        return view('user.home', compact('setting', 'articles', 'galleries'));
     }
 
     // Edukasi Page
     public function edukasi()
     {
-        // Get all active articles so user can view all published materials
-        $articles = Article::where('status', 'Aktif')
-            ->latest()
-            ->get();
-        return view('user.edukasi', compact('articles'));
+        $setting = Setting::first();
+        $articles = Article::where('status', 'Aktif')->latest()->get();
+        return view('user.edukasi', compact('setting', 'articles'));
     }
 
     // Pengelolaan Page
     public function bank()
     {
         $setting = Setting::first();
-        $articles = Article::where('status', 'Aktif')
-            ->latest()
-            ->get();
+        $articles = Article::where('status', 'Aktif')->latest()->get();
         return view('user.bank', compact('setting', 'articles'));
     }
 
     // Galeri Page
     public function galeri()
     {
-        $galleries = \App\Models\Gallery::orderBy('is_featured', 'desc')->orderBy('id', 'desc')->get();
-        return view('user.galeri', compact('galleries'));
+        $setting = Setting::first();
+        $galleries = Gallery::orderBy('is_featured', 'desc')->orderBy('id', 'desc')->get();
+        return view('user.galeri', compact('setting', 'galleries'));
     }
 }
