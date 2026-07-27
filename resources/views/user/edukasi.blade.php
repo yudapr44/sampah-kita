@@ -435,8 +435,13 @@
                         <span class="material-symbols-outlined chevron-icon text-[#414844] flex-shrink-0">expand_more</span>
                     </button>
                     <div class="accordion-content">
-                        <div class="px-4 pb-5 text-[13px] text-[#414844] leading-relaxed whitespace-pre-line bg-white p-4 rounded-lg m-4 border-l-4 @if($index % 2 === 0) border-[#934b00] @else border-[#012d1d] @endif">
-                            {{ $article->content }}
+                        <div class="px-4 pb-5 text-[13px] text-[#414844] leading-relaxed bg-white p-4 rounded-lg m-4 border-l-4 @if($index % 2 === 0) border-[#934b00] @else border-[#012d1d] @endif space-y-3">
+                            @if($article->image)
+                                <div class="rounded-xl overflow-hidden max-h-72 w-full bg-neutral-100 mb-3 border border-[#c1c8c2]/40 shadow-sm">
+                                    <img src="{{ asset($article->image) }}" alt="{{ $article->title }}" class="w-full h-full object-cover"/>
+                                </div>
+                            @endif
+                            <div class="whitespace-pre-line">{{ $article->content }}</div>
                         </div>
                     </div>
                 </div>

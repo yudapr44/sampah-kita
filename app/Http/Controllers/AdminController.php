@@ -81,7 +81,19 @@ class AdminController extends Controller
             'title' => 'required|string|max:255',
             'category' => 'required|string',
             'content' => 'required|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
+            'image_url' => 'nullable|string',
+            'status' => 'nullable|string'
         ]);
+
+        $imageUrl = $request->image_url;
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $fileName = time() . '_' . Str::slug($request->title) . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('uploads/artikel'), $fileName);
+            $imageUrl = '/uploads/artikel/' . $fileName;
+        }
 
         $adminId = session('admin_id') ?? \App\Models\User::first()?->id;
 
@@ -91,7 +103,8 @@ class AdminController extends Controller
             'slug' => Str::slug($request->title) . '-' . rand(100, 999),
             'category' => $request->category,
             'content' => $request->content,
-            'status' => 'Aktif',
+            'image' => $imageUrl,
+            'status' => $request->status ?? 'Aktif',
             'views' => 0
         ]);
 
@@ -113,14 +126,27 @@ class AdminController extends Controller
             'title' => 'required|string|max:255',
             'category' => 'required|string',
             'content' => 'required|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
+            'image_url' => 'nullable|string',
+            'status' => 'nullable|string'
         ]);
 
         $article->title = $request->title;
         $article->category = $request->category;
         $article->content = $request->content;
-        if ($request->has('status')) {
+        if ($request->has('status') && $request->status) {
             $article->status = $request->status;
         }
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $fileName = time() . '_' . Str::slug($request->title) . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('uploads/artikel'), $fileName);
+            $article->image = '/uploads/artikel/' . $fileName;
+        } elseif ($request->filled('image_url')) {
+            $article->image = $request->image_url;
+        }
+
         $article->save();
 
         return response()->json([

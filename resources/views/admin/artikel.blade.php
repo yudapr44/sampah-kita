@@ -189,7 +189,7 @@
                      data-status="{{ strtolower($a->status) }}">
                     
                     <div class="w-full sm:w-24 h-24 shrink-0 rounded-lg overflow-hidden bg-surface-variant">
-                        <div class="w-full h-full bg-cover bg-center" style="background-image: url('{{ asset('images/hero_edukasi.png') }}')"></div>
+                        <img src="{{ $a->image ? asset($a->image) : asset('images/hero_edukasi.png') }}" alt="{{ $a->title }}" class="w-full h-full object-cover"/>
                     </div>
                     
                     <div class="flex-1 flex flex-col justify-between min-w-0">
@@ -304,7 +304,7 @@
             </button>
         </div>
 
-        <form id="form-article" onsubmit="handleArticleSubmit(event)" class="space-y-4">
+        <form id="form-article" onsubmit="handleArticleSubmit(event)" enctype="multipart/form-data" class="space-y-4">
             @csrf
             <input type="hidden" id="article-id" name="id" value="">
 
@@ -335,8 +335,24 @@
             </div>
 
             <div>
+                <label class="block font-label-sm text-label-sm font-semibold text-on-surface mb-1">Gambar Header Artikel (Opsional)</label>
+                <div class="space-y-2">
+                    <input type="file" id="art-input-image" name="image" accept="image/*" onchange="previewArticleImage(this)" class="w-full text-xs text-on-surface-variant file:mr-3 file:py-2 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-primary-container file:text-on-primary-container hover:file:bg-primary cursor-pointer border border-outline-variant rounded-xl p-1">
+                    <input type="text" id="art-input-image-url" name="image_url" placeholder="Atau tempel URL gambar (https://...)" class="w-full px-3 py-2 bg-surface-container-low border border-outline-variant rounded-xl focus:border-primary focus:ring-1 focus:ring-primary outline-none text-xs">
+                    
+                    <!-- Preview Box -->
+                    <div id="article-img-preview-box" class="hidden relative h-32 w-full rounded-xl overflow-hidden border border-outline-variant bg-surface-variant">
+                        <img id="article-img-preview" src="" alt="Preview Gambar Artikel" class="w-full h-full object-cover"/>
+                        <button type="button" onclick="removeArticleImagePreview()" class="absolute top-2 right-2 bg-black/60 text-white rounded-full p-1 hover:bg-black/80 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-[16px]">close</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div>
                 <label class="block font-label-sm text-label-sm font-semibold text-on-surface mb-1">Isi Konten Artikel</label>
-                <textarea id="art-input-content" name="content" rows="5" required placeholder="Tuliskan materi edukasi atau berita lengkap di sini..." class="w-full px-3 py-2 bg-surface-container-low border border-outline-variant rounded-xl focus:border-primary focus:ring-1 focus:ring-primary outline-none text-body-md"></textarea>
+                <textarea id="art-input-content" name="content" rows="4" required placeholder="Tuliskan materi edukasi atau berita lengkap di sini..." class="w-full px-3 py-2 bg-surface-container-low border border-outline-variant rounded-xl focus:border-primary focus:ring-1 focus:ring-primary outline-none text-body-md"></textarea>
             </div>
 
             <div class="flex justify-end gap-3 pt-3 border-t border-surface-variant">
@@ -367,12 +383,34 @@
     if (overlay) overlay.addEventListener('click', closeSidebar);
     if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
 
+    // Image Preview Handlers
+    function previewArticleImage(input) {
+        const previewBox = document.getElementById('article-img-preview-box');
+        const previewImg = document.getElementById('article-img-preview');
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                previewImg.src = e.target.result;
+                previewBox.classList.remove('hidden');
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    function removeArticleImagePreview() {
+        document.getElementById('art-input-image').value = '';
+        document.getElementById('art-input-image-url').value = '';
+        document.getElementById('article-img-preview').src = '';
+        document.getElementById('article-img-preview-box').classList.add('hidden');
+    }
+
     // Modal Control
     function openModalTambah() {
         document.getElementById('article-id').value = '';
         document.getElementById('modal-article-title').textContent = 'Tambah Artikel Edukasi Baru';
         document.getElementById('btn-submit-article').textContent = 'Simpan Artikel';
         document.getElementById('form-article').reset();
+        removeArticleImagePreview();
         document.getElementById('modal-article').classList.remove('opacity-0', 'pointer-events-none');
     }
 
@@ -384,6 +422,19 @@
         document.getElementById('art-input-category').value = article.category;
         document.getElementById('art-input-status').value = article.status || 'Aktif';
         document.getElementById('art-input-content').value = article.content;
+
+        const previewBox = document.getElementById('article-img-preview-box');
+        const previewImg = document.getElementById('article-img-preview');
+        document.getElementById('art-input-image').value = '';
+        if (article.image) {
+            document.getElementById('art-input-image-url').value = article.image;
+            previewImg.src = article.image.startsWith('http') || article.image.startsWith('/') ? article.image : '/' + article.image;
+            previewBox.classList.remove('hidden');
+        } else {
+            document.getElementById('art-input-image-url').value = '';
+            previewBox.classList.add('hidden');
+        }
+
         document.getElementById('modal-article').classList.remove('opacity-0', 'pointer-events-none');
     }
 
@@ -394,21 +445,18 @@
     // Handle Submit Add / Edit
     function handleArticleSubmit(e) {
         e.preventDefault();
+        const form = document.getElementById('form-article');
         const articleId = document.getElementById('article-id').value;
-        const title = document.getElementById('art-input-title').value.trim();
-        const category = document.getElementById('art-input-category').value;
-        const status = document.getElementById('art-input-status').value;
-        const content = document.getElementById('art-input-content').value.trim();
+        const formData = new FormData(form);
 
         const url = articleId ? `/admin/artikel/${articleId}` : '/admin/artikel';
 
         fetch(url, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
                 'X-CSRF-TOKEN': '{{ csrf_token() }}'
             },
-            body: JSON.stringify({ title, category, status, content })
+            body: formData
         })
         .then(res => res.json())
         .then(data => {
