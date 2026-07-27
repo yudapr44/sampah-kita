@@ -1006,8 +1006,6 @@
         </div>
     </div>
 
-=======
->>>>>>> dbe8aa19801710075f08635ae251ef6c73d93cf3
 <script>
     // ── Article Modal Logic ──
     let currentModal = null;
