@@ -290,19 +290,6 @@
                                 <p class="leading-relaxed text-justify">
                                     Pengolahan sampah residu non-daur ulang dengan metode <em>termo-oksidasi terfilter</em> menggunakan insinerator drum cerobong terbukti menurunkan volume limbah padat hingga 85–90% secara cepat. Menurut riset <em>Journal of Environmental Management</em>, kunci pembakaran bersih tanpa jelaga asap tebal terletak pada efisiensi pasokan oksigen (<em>draft air flow</em>) dan pencapaian suhu pembakaran di atas 600°C. Pipa cerobong udara yang tinggi menciptakan efek cerobong termal (<em>natural draft</em>) yang menarik oksigen dari dasar tungku melalui sarangan besi, sehingga pembakaran karbon terjadi secara sempurna ($C + O_2 \rightarrow CO_2$) tanpa menyisakan partikulat jelaga hitam ($PM_{2.5}$) di lingkungan warga.
                                 </p>
-                                <div class="space-y-1">
-                                    <p class="font-semibold text-[#1b4332]">🛠️ Bahan &amp; Alat Utama:</p>
-                                    <p class="leading-relaxed">• Drum bekas 200 Liter (logam tebal)<br>• Pipa cerobong besi diameter 3-4 inci (tinggi 1.5-2 m)<br>• Sarangan/grill besi alas pembakaran<br>• Kipas blower angin (opsional pasokan O2 masif)</p>
-                                </div>
-                                <div class="space-y-1 pt-1.5 border-t border-[#c1c8c2]/30">
-                                    <p class="font-semibold text-[#1b4332]">📋 Langkah Operasional Riset:</p>
-                                    <ol class="list-decimal list-inside space-y-1 leading-relaxed">
-                                        <li>Lubangi dasar drum untuk sirkulasi udara &amp; pembuangan abu.</li>
-                                        <li>Pasang sarangan besi 15 cm di atas dasar drum.</li>
-                                        <li>Pasang pipa cerobong asap pada tutup drum bagian atas.</li>
-                                        <li>Masukkan sampah residu yang benar-benar kering untuk pembakaran minim asap.</li>
-                                    </ol>
-                                </div>
                             </div>
                         </div>
                     </div>
