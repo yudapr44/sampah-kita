@@ -193,7 +193,7 @@
                     </div>
                     <!-- Overlay Actions -->
                     <div class="overlay-actions absolute top-md right-md flex gap-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10">
-                        <button onclick="openEditModal({{ json_encode($item) }})" class="w-10 h-10 rounded-full bg-white/90 text-primary flex items-center justify-center shadow-lg hover:bg-white active:scale-90 transition-all" title="Edit Item">
+                        <button onclick="openEditModalFromBtn(this)" data-item="{{ json_encode($item) }}" class="w-10 h-10 rounded-full bg-white/90 text-primary flex items-center justify-center shadow-lg hover:bg-white active:scale-90 transition-all" title="Edit Item">
                             <span class="material-symbols-outlined" data-icon="edit">edit</span>
                         </button>
                         <button onclick="deleteGalleryItem({{ $item->id }})" class="w-10 h-10 rounded-full bg-error-container text-on-error-container flex items-center justify-center shadow-lg hover:bg-error hover:text-on-error active:scale-90 transition-all" title="Hapus Item">
@@ -229,7 +229,7 @@
 
                     <!-- Overlay Actions -->
                     <div class="overlay-actions absolute top-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10">
-                        <button onclick="openEditModal({{ json_encode($item) }})" class="w-8 h-8 rounded-full bg-white/90 text-primary flex items-center justify-center shadow-lg hover:bg-white active:scale-90 transition-all" title="Edit Item">
+                        <button onclick="openEditModalFromBtn(this)" data-item="{{ json_encode($item) }}" class="w-8 h-8 rounded-full bg-white/90 text-primary flex items-center justify-center shadow-lg hover:bg-white active:scale-90 transition-all" title="Edit Item">
                             <span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
                         </button>
                         <button onclick="deleteGalleryItem({{ $item->id }})" class="w-8 h-8 rounded-full bg-error-container text-on-error-container flex items-center justify-center shadow-lg hover:bg-error hover:text-on-error active:scale-90 transition-all" title="Hapus Item">
@@ -462,6 +462,17 @@
         document.getElementById('upload-modal').classList.add('opacity-0', 'pointer-events-none');
     }
 
+    // Helper: open edit modal from button with data-item attribute
+    function openEditModalFromBtn(btn) {
+        try {
+            const item = JSON.parse(btn.getAttribute('data-item'));
+            openEditModal(item);
+        } catch (e) {
+            console.error('Error parsing gallery item JSON:', e);
+            alert('Gagal membaca data galeri.');
+        }
+    }
+
     // Handle Add / Edit Submit
     function handleFormSubmit(e) {
         e.preventDefault();
@@ -473,21 +484,26 @@
         fetch(url, {
             method: 'POST',
             headers: {
-                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                'Accept': 'application/json'
             },
             body: formData
         })
-        .then(res => res.json())
-        .then(data => {
-            if (data.success) {
+        .then(async res => {
+            const data = await res.json().catch(() => ({}));
+            if (res.ok && data.success) {
                 location.reload();
             } else {
-                alert(data.message || 'Gagal menyimpan aset galeri.');
+                let msg = data.message || 'Gagal menyimpan aset galeri.';
+                if (data.errors) {
+                    msg = Object.values(data.errors).flat().join('\n');
+                }
+                alert(msg);
             }
         })
         .catch(err => {
             console.error(err);
-            alert('Terjadi kesalahan saat mengunggah aset media.');
+            alert('Terjadi kesalahan koneksi saat mengunggah aset media: ' + err.message);
         });
     }
 
