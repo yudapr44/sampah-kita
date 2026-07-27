@@ -77,6 +77,16 @@ class AdminController extends Controller
     // Simpan Artikel Baru (via POST)
     public function storeArtikel(Request $request)
     {
+        $messages = [
+            'title.required' => 'Judul artikel wajib diisi.',
+            'category.required' => 'Kategori artikel wajib dipilih.',
+            'content.required' => 'Konten artikel wajib diisi.',
+            'image.uploaded' => 'File gambar melebihi batas upload server (Maksimal 2MB). Silakan gunakan gambar berkuran < 2MB atau gunakan kolom Link URL Gambar.',
+            'image.max' => 'Ukuran file gambar maksimal adalah 5MB.',
+            'image.mimes' => 'Format file harus berupa gambar (jpeg, png, jpg, gif, webp).',
+            'image.image' => 'File yang diunggah harus berupa gambar valid.'
+        ];
+
         $request->validate([
             'title' => 'required|string|max:255',
             'category' => 'required|string',
@@ -84,7 +94,7 @@ class AdminController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
             'image_url' => 'nullable|string',
             'status' => 'nullable|string'
-        ]);
+        ], $messages);
 
         $imageUrl = $request->image_url;
 
@@ -126,6 +136,16 @@ class AdminController extends Controller
             return response()->json(['success' => false, 'message' => 'Artikel tidak ditemukan'], 404);
         }
 
+        $messages = [
+            'title.required' => 'Judul artikel wajib diisi.',
+            'category.required' => 'Kategori artikel wajib dipilih.',
+            'content.required' => 'Konten artikel wajib diisi.',
+            'image.uploaded' => 'File gambar melebihi batas upload server (Maksimal 2MB). Silakan gunakan gambar berkuran < 2MB atau gunakan kolom Link URL Gambar.',
+            'image.max' => 'Ukuran file gambar maksimal adalah 5MB.',
+            'image.mimes' => 'Format file harus berupa gambar (jpeg, png, jpg, gif, webp).',
+            'image.image' => 'File yang diunggah harus berupa gambar valid.'
+        ];
+
         $request->validate([
             'title' => 'required|string|max:255',
             'category' => 'required|string',
@@ -133,7 +153,7 @@ class AdminController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
             'image_url' => 'nullable|string',
             'status' => 'nullable|string'
-        ]);
+        ], $messages);
 
         $article->title = $request->title;
         $article->category = $request->category;
@@ -235,6 +255,16 @@ class AdminController extends Controller
 
     public function storeGaleri(Request $request)
     {
+        $messages = [
+            'title.required' => 'Judul media galeri wajib diisi.',
+            'category.required' => 'Kategori galeri wajib dipilih.',
+            'type.required' => 'Tipe media wajib dipilih.',
+            'image.uploaded' => 'File gambar melebihi batas upload server (Maksimal 2MB). Silakan gunakan foto < 2MB atau gunakan kolom Link URL Gambar.',
+            'image.max' => 'Ukuran gambar maksimal adalah 5MB.',
+            'image.mimes' => 'Format gambar harus jpeg, png, jpg, gif, atau webp.',
+            'image.image' => 'File yang diunggah harus berupa gambar valid.'
+        ];
+
         $request->validate([
             'title' => 'required|string|max:255',
             'category' => 'required|string',
@@ -243,7 +273,7 @@ class AdminController extends Controller
             'uploader' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
             'image_url' => 'nullable|string'
-        ]);
+        ], $messages);
 
         $imageUrl = $request->image_url;
 
@@ -289,6 +319,16 @@ class AdminController extends Controller
             return response()->json(['success' => false, 'message' => 'Media galeri tidak ditemukan'], 404);
         }
 
+        $messages = [
+            'title.required' => 'Judul media galeri wajib diisi.',
+            'category.required' => 'Kategori galeri wajib dipilih.',
+            'type.required' => 'Tipe media wajib dipilih.',
+            'image.uploaded' => 'File gambar melebihi batas upload server (Maksimal 2MB). Silakan gunakan foto < 2MB atau gunakan kolom Link URL Gambar.',
+            'image.max' => 'Ukuran gambar maksimal adalah 5MB.',
+            'image.mimes' => 'Format gambar harus jpeg, png, jpg, gif, atau webp.',
+            'image.image' => 'File yang diunggah harus berupa gambar valid.'
+        ];
+
         $request->validate([
             'title' => 'required|string|max:255',
             'category' => 'required|string',
@@ -297,7 +337,7 @@ class AdminController extends Controller
             'uploader' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
             'image_url' => 'nullable|string'
-        ]);
+        ], $messages);
 
         if ($request->hasFile('image')) {
             $uploadDir = public_path('uploads/galeri');

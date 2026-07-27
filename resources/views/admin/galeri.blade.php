@@ -389,7 +389,7 @@
             </div>
 
             <div>
-                <label class="block font-label-sm text-label-sm font-semibold text-on-surface mb-1">Upload File Gambar (Max 5MB)</label>
+                <label class="block font-label-sm text-label-sm font-semibold text-on-surface mb-1">Upload File Gambar (Maksimal 2MB per foto)</label>
                 <input type="file" id="input-image-file" name="image" accept="image/*" class="w-full text-xs bg-surface-container-low border border-outline-variant rounded-lg p-2 file:mr-3 file:py-1 file:px-3 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-primary file:text-on-primary">
             </div>
 
