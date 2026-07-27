@@ -330,19 +330,63 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-[#e1e3e4] py-10 text-center flex flex-col items-center gap-3 mt-auto">
-        <div class="max-w-7xl mx-auto px-4 w-full flex flex-col items-center">
-            <div class="flex items-center gap-2 mb-1">
-                <span class="material-symbols-outlined text-[#012d1d] fill-icon text-[26px]">recycling</span>
-                <span class="text-xl font-bold text-[#012d1d]">SampahKita</span>
+    <footer class="bg-[#1b4332] py-12 flex flex-col items-center gap-3 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left mb-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="material-symbols-outlined text-[#c1ecd4] fill-icon text-[28px]">recycling</span>
+                        <span class="text-xl font-bold text-white">SampahKita</span>
+                    </div>
+                    <p class="text-xs text-[#a5d0b9] leading-relaxed">Portal edukasi dan pengelolaan sampah digital Desa Balonggandu, Kecamatan Jatisari, Karawang.</p>
+                    <div class="flex gap-3 mt-4">
+                        @if(isset($setting) && $setting && $setting->instagram)
+                        <a href="https://instagram.com/{{ ltrim($setting->instagram, '@') }}" target="_blank" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#934b00] transition-colors">
+                            <span class="material-symbols-outlined text-white text-[18px]">photo_camera</span>
+                        </a>
+                        @endif
+                        @if(isset($setting) && $setting && $setting->whatsapp)
+                        <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $setting->whatsapp) }}" target="_blank" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#934b00] transition-colors">
+                            <span class="material-symbols-outlined text-white text-[18px]">chat</span>
+                        </a>
+                        @endif
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-sm font-bold text-white mb-3 uppercase tracking-wider">Menu</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/" class="text-sm text-[#a5d0b9] hover:text-white transition-colors">Beranda</a></li>
+                        <li><a href="/edukasi" class="text-sm text-[#a5d0b9] hover:text-white transition-colors">Edukasi 3R</a></li>
+                        <li><a href="/bank" class="text-sm text-white font-semibold">Pengelolaan Sampah</a></li>
+                        <li><a href="/galeri" class="text-sm text-[#a5d0b9] hover:text-white transition-colors">Galeri Kegiatan</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-sm font-bold text-white mb-3 uppercase tracking-wider">Hubungi Kami</h4>
+                    <ul class="space-y-2">
+                        @if(isset($setting) && $setting && $setting->whatsapp)
+                        <li class="flex items-center gap-2 text-sm text-[#a5d0b9]">
+                            <span class="material-symbols-outlined text-[16px]">chat</span>
+                            <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $setting->whatsapp) }}" target="_blank" class="hover:text-white transition-colors">{{ $setting->whatsapp }}</a>
+                        </li>
+                        @endif
+                        @if(isset($setting) && $setting && $setting->email)
+                        <li class="flex items-center gap-2 text-sm text-[#a5d0b9]">
+                            <span class="material-symbols-outlined text-[16px]">mail</span>
+                            <a href="mailto:{{ $setting->email }}" class="hover:text-white transition-colors">{{ $setting->email }}</a>
+                        </li>
+                        @endif
+                        <li class="flex items-start gap-2 text-sm text-[#a5d0b9]">
+                            <span class="material-symbols-outlined text-[16px] mt-0.5">location_on</span>
+                            <span>{{ (isset($setting) && $setting && $setting->address) ? $setting->address : 'Desa Balonggandu, Kec. Jatisari, Karawang' }}</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <p class="text-xs sm:text-sm text-[#414844] max-w-md leading-relaxed">Berdaya mengelola sampah, berkontribusi untuk bumi dari desa Balonggandu, Karawang.</p>
-            <div class="flex gap-6 mt-4">
-                <a href="/kontak" class="text-xs sm:text-sm font-medium text-[#414844] hover:text-[#934b00] transition-colors">Kontak</a>
-                <a href="/privasi" class="text-xs sm:text-sm font-medium text-[#414844] hover:text-[#934b00] transition-colors">Privasi</a>
-                <a href="/syarat" class="text-xs sm:text-sm font-medium text-[#414844] hover:text-[#934b00] transition-colors">Syarat</a>
+            <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-2">
+                <p class="text-xs text-[#a5d0b9]/70">© {{ date('Y') }} SampahKita Community. Bersama menjaga bumi.</p>
+                <a href="/admin/login" class="text-xs text-[#a5d0b9]/50 hover:text-white transition-colors">Admin Panel</a>
             </div>
-            <p class="mt-6 text-xs text-[#414844]/60">© {{ date('Y') }} SampahKita Community. Bersama menjaga bumi.</p>
         </div>
     </footer>
 
