@@ -853,6 +853,8 @@
                 Yuk, Mulai Recycle! ♻️
             </button>
         </div>
+    </div>
+
     <!-- ═══ MODAL PEMBAKARAN SAMPAH MINIM ASAP ═══ -->
     <div id="modal-pembakaran"
          class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[540px] md:max-w-2xl z-[60] bg-white rounded-t-3xl shadow-2xl translate-y-full transition-transform duration-500 ease-out max-h-[90vh] overflow-y-auto">
