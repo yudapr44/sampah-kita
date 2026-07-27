@@ -325,19 +325,6 @@
                                 <p class="leading-relaxed text-justify">
                                     Pemanfaatan minyak goreng bekas (<em>waste cooking oil</em>) menjadi lilin aromaterapi merupakan penerapan prinsip <em>green chemistry</em> dan <em>zero waste valorization</em>. Penelitian <em>Journal of Cleaner Production</em> mencatat pembuangan 1 liter jelantah ke selokan dapat mencemari 1 juta liter air bersih. Melalui pemurnian adsorpsi menggunakan karbon aktif/ampas kelapa, kadar asam lemak bebas (<em>Free Fatty Acid/FFA</em>) dan peroksida penyebab bau tengik diturunkan hingga 78%. Pencampuran matriks pengeras <em>stearin/soy wax</em> (rasio 2:1) memberikan titik leleh optimal (55–60°C) yang mengikat molekul <em>essential oil</em> aromatik secara stabil.
                                 </p>
-                                <div class="space-y-1">
-                                    <p class="font-semibold text-[#934b00]">🕯️ Bahan Utama:</p>
-                                    <p class="leading-relaxed">• Minyak jelantah 200 ml (jernih arang/ampas kelapa)<br>• Soy wax / Sterin 100 gram<br>• Bibit parfum / Essential Oil (Lavender/Jeruk)<br>• Benang katun sumbu &amp; wadah gelas hias</p>
-                                </div>
-                                <div class="space-y-1 pt-1.5 border-t border-[#ffdcc4]">
-                                    <p class="font-semibold text-[#934b00]">📋 Langkah Pembuatan Ringkas:</p>
-                                    <ol class="list-decimal list-inside space-y-1 leading-relaxed">
-                                        <li>Panaskan minyak jelantah bersih bersama stearin hingga meleleh sempurna.</li>
-                                        <li>Matikan api, masukkan 15-20 tetes essential oil saat hangat.</li>
-                                        <li>Pasang sumbu di tengah gelas hias.</li>
-                                        <li>Tuang adonan lilin dan biarkan memadat selama 4-6 jam.</li>
-                                    </ol>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -373,19 +360,6 @@
                                 <p class="leading-relaxed text-justify">
                                     Daur ulang sampah organik dapur memanfaatkan bioprofil fermentasi aerobik oleh konsorsium mikroorganisme pengurai. Berdasarkan studi <em>Bioresource Technology</em>, keberhasilan dekomposisi organik ditentukan rasio Karbon terhadap Nitrogen (<em>C/N ratio</em>) optimal antara 25:1 hingga 30:1 (kombinasi sampah hijau N &amp; sampah cokelat C). Inokulasi starter <em>Effective Microorganisms</em> (EM4) yang mengandung <em>Lactobacillus</em> dan <em>Actinomycetes</em> mempercepat fase termofilik (50–65°C) untuk memusnahkan patogen, menghasilkan humus NPK alami yang menyuburkan tanah pekarangan warga.
                                 </p>
-                                <div class="space-y-1">
-                                    <p class="font-semibold text-[#152b1c]">🌱 Bahan Utama:</p>
-                                    <p class="leading-relaxed">• Sampah Cokelat (daun kering, sekam, serbuk gergaji)<br>• Sampah Hijau (sisa sayur, sisa buah, ampas teh/kopi)<br>• Larutan aktivator mikroba EM4 + air gula</p>
-                                </div>
-                                <div class="space-y-1 pt-1.5 border-t border-[#cee9d3]">
-                                    <p class="font-semibold text-[#152b1c]">📋 Langkah Pembuatan Ringkas:</p>
-                                    <ol class="list-decimal list-inside space-y-1 leading-relaxed">
-                                        <li>Cacah kecil-kecil sampah sisa dapur.</li>
-                                        <li>Masukkan ke dalam wadah komposter selang-seling (berlapis).</li>
-                                        <li>Percikkan larutan EM4 hingga lembap basah.</li>
-                                        <li>Aduk 1-2 kali seminggu. Kompos matang dalam 3-4 minggu.</li>
-                                    </ol>
-                                </div>
                             </div>
                         </div>
                     </div>
