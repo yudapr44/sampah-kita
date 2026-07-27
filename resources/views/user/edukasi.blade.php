@@ -275,21 +275,41 @@
                                 Insinerator Minim Asap
                             </span>
                         </div>
-                        <div class="p-5 sm:p-6">
-                            <h4 class="text-base sm:text-lg font-bold text-[#012d1d] mb-2 leading-snug">Pembuatan Alat Pembakaran Sampah Minim Asap</h4>
-                            <p class="text-xs sm:text-sm text-[#414844] leading-relaxed mb-4">
+                        <div class="p-5 sm:p-6 space-y-3">
+                            <h4 class="text-base sm:text-lg font-bold text-[#012d1d] leading-snug">Pembuatan Alat Pembakaran Sampah Minim Asap</h4>
+                            
+                            <p class="text-xs sm:text-sm text-[#414844] leading-relaxed">
                                 Tungku insinerator berbahan drum bekas dengan cerobong udara tinggi untuk memusnahkan sampah residu kotor tanpa mencemari udara lingkungan.
                             </p>
-                            <div class="space-y-1 text-xs text-[#414844] bg-[#f8f9fa] p-3 rounded-xl border border-[#c1c8c2]/40 mb-2">
-                                <p class="font-semibold text-[#1b4332]">🛠️ Bahan Utama:</p>
-                                <p>Drum 200L, Pipa Cerobong Besi, Sarangan Pembakaran, Kipas Blower.</p>
+
+                            <!-- Artikel Penjelasan Lengkap (On-Page Display) -->
+                            <div class="bg-[#f8f9fa] p-4 rounded-2xl border border-[#c1c8c2]/40 space-y-2.5 text-xs text-[#414844]">
+                                <p class="font-bold text-[#1b4332] flex items-center gap-1.5 text-xs">
+                                    <span class="material-symbols-outlined text-[16px]">menu_book</span> Artikel Penjelasan & Cara Kerja:
+                                </p>
+                                <p class="leading-relaxed">
+                                    Alat pembakar sampah ramah lingkungan (Tungku Insinerator Sederhana) dirancang khusus untuk meminimalisir asap dan polusi udara saat pemusnahan sampah residu kotor. Kunci pembakaran minim asap terletak pada sirkulasi udara bebas dan penggunaan suhu pembakaran tinggi.
+                                </p>
+                                <div class="space-y-1">
+                                    <p class="font-semibold text-[#1b4332]">🛠️ Bahan & Alat:</p>
+                                    <p class="leading-relaxed">• Drum bekas 200 Liter (logam tebal)<br>• Pipa cerobong besi diameter 3-4 inci (1.5-2 meter)<br>• Sarangan/grill besi alas pembakaran<br>• Kipas blower angin (opsional pasokan O2 masif)</p>
+                                </div>
+                                <div class="space-y-1 pt-1.5 border-t border-[#c1c8c2]/30">
+                                    <p class="font-semibold text-[#1b4332]">📋 Langkah Pembuatan Ringkas:</p>
+                                    <ol class="list-decimal list-inside space-y-1 leading-relaxed">
+                                        <li>Lubangi dasar drum untuk pintu sirkulasi udara & pembersihan abu.</li>
+                                        <li>Pasang sarangan besi 15 cm di atas dasar drum.</li>
+                                        <li>Pasang pipa cerobong asap pada tutup drum bagian atas.</li>
+                                        <li>Masukkan sampah residu yang benar-benar kering untuk pembakaran minim asap.</li>
+                                    </ol>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="px-5 sm:px-6 pb-6 pt-0">
-                        <button onclick="openArticle('pembakaran')" class="w-full py-2.5 bg-[#012d1d] hover:bg-[#163829] text-white text-xs sm:text-sm font-bold rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-sm">
+                    <div class="px-5 sm:px-6 pb-6 pt-2">
+                        <button onclick="openArticle('pembakaran')" class="w-full py-2.5 bg-[#012d1d] hover:bg-[#163829] text-white text-xs sm:text-sm font-bold rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-sm cursor-pointer">
                             <span class="material-symbols-outlined text-[18px]">menu_book</span>
-                            Pelajari Panduan
+                            Pelajari Panduan Lengkap (Popup)
                         </button>
                     </div>
                 </div>
@@ -303,21 +323,41 @@
                                 Olah Minyak Jelantah
                             </span>
                         </div>
-                        <div class="p-5 sm:p-6">
-                            <h4 class="text-base sm:text-lg font-bold text-[#012d1d] mb-2 leading-snug">Pembuatan Lilin Aromaterapi dari Minyak Jelantah</h4>
-                            <p class="text-xs sm:text-sm text-[#414844] leading-relaxed mb-4">
+                        <div class="p-5 sm:p-6 space-y-3">
+                            <h4 class="text-base sm:text-lg font-bold text-[#012d1d] leading-snug">Pembuatan Lilin Aromaterapi dari Minyak Jelantah</h4>
+                            
+                            <p class="text-xs sm:text-sm text-[#414844] leading-relaxed">
                                 Mengolah limbah minyak goreng bekas menjadi lilin hias aromaterapi yang harum, cantik, dan mencegah pencemaran saluran air desa.
                             </p>
-                            <div class="space-y-1 text-xs text-[#414844] bg-[#fff8f0] p-3 rounded-xl border border-[#ffdcc4] mb-2">
-                                <p class="font-semibold text-[#934b00]">🕯️ Bahan Utama:</p>
-                                <p>Minyak jelantah jernih, Soy wax/sterin, Essential oil, Sumbu katun.</p>
+
+                            <!-- Artikel Penjelasan Lengkap (On-Page Display) -->
+                            <div class="bg-[#fff8f0] p-4 rounded-2xl border border-[#ffdcc4] space-y-2.5 text-xs text-[#414844]">
+                                <p class="font-bold text-[#934b00] flex items-center gap-1.5 text-xs">
+                                    <span class="material-symbols-outlined text-[16px]">menu_book</span> Artikel Penjelasan & Cara Kerja:
+                                </p>
+                                <p class="leading-relaxed">
+                                    Limbah minyak jelantah rumah tangga yang dibuang sembarangan dapat menyumbat saluran air dan merusak ekosistem tanah. Dengan proses pemurnian sederhana dan pencampuran bahan pengeras (stearin/soy wax), jelantah dapat diubah menjadi lilin aromaterapi bernilai ekonomi tinggi.
+                                </p>
+                                <div class="space-y-1">
+                                    <p class="font-semibold text-[#934b00]">🕯️ Bahan Utama:</p>
+                                    <p class="leading-relaxed">• Minyak jelantah 200 ml (jernih arang/ampas kelapa)<br>• Soy wax / Sterin 100 gram<br>• Bibit parfum / Essential Oil (Lavender/Jeruk)<br>• Benang katun sumbu & wadah gelas hias</p>
+                                </div>
+                                <div class="space-y-1 pt-1.5 border-t border-[#ffdcc4]">
+                                    <p class="font-semibold text-[#934b00]">📋 Langkah Pembuatan Ringkas:</p>
+                                    <ol class="list-decimal list-inside space-y-1 leading-relaxed">
+                                        <li>Panaskan minyak jelantah bersih bersama stearin hingga meleleh sempurna.</li>
+                                        <li>Matikan api, masukkan 15-20 tetes essential oil saat hangat.</li>
+                                        <li>Pasang sumbu di tengah gelas hias.</li>
+                                        <li>Tuang adonan lilin dan biarkan memadat selama 4-6 jam.</li>
+                                    </ol>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="px-5 sm:px-6 pb-6 pt-0">
-                        <button onclick="openArticle('lilin')" class="w-full py-2.5 bg-[#934b00] hover:bg-[#7a3e00] text-white text-xs sm:text-sm font-bold rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-sm">
+                    <div class="px-5 sm:px-6 pb-6 pt-2">
+                        <button onclick="openArticle('lilin')" class="w-full py-2.5 bg-[#934b00] hover:bg-[#7a3e00] text-white text-xs sm:text-sm font-bold rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-sm cursor-pointer">
                             <span class="material-symbols-outlined text-[18px]">menu_book</span>
-                            Pelajari Panduan
+                            Pelajari Panduan Lengkap (Popup)
                         </button>
                     </div>
                 </div>
@@ -331,21 +371,41 @@
                                 Pupuk Kompos Organik
                             </span>
                         </div>
-                        <div class="p-5 sm:p-6">
-                            <h4 class="text-base sm:text-lg font-bold text-[#012d1d] mb-2 leading-snug">Pembuatan Kompos Organik Rumah Tangga</h4>
-                            <p class="text-xs sm:text-sm text-[#414844] leading-relaxed mb-4">
+                        <div class="p-5 sm:p-6 space-y-3">
+                            <h4 class="text-base sm:text-lg font-bold text-[#012d1d] leading-snug">Pembuatan Kompos Organik Rumah Tangga</h4>
+                            
+                            <p class="text-xs sm:text-sm text-[#414844] leading-relaxed">
                                 Mengolah sampah sisa dapur (sayuran, buah) dan dedaunan menjadi pupuk kompos organik yang kaya nutrisi bagi tanaman warga.
                             </p>
-                            <div class="space-y-1 text-xs text-[#414844] bg-[#f3f9f4] p-3 rounded-xl border border-[#cee9d3] mb-2">
-                                <p class="font-semibold text-[#152b1c]">🌱 Bahan Utama:</p>
-                                <p>Sampah hijau dapur, Daun kering, Larutan EM4 + Air Gula.</p>
+
+                            <!-- Artikel Penjelasan Lengkap (On-Page Display) -->
+                            <div class="bg-[#f3f9f4] p-4 rounded-2xl border border-[#cee9d3] space-y-2.5 text-xs text-[#414844]">
+                                <p class="font-bold text-[#152b1c] flex items-center gap-1.5 text-xs">
+                                    <span class="material-symbols-outlined text-[16px]">menu_book</span> Artikel Penjelasan & Cara Kerja:
+                                </p>
+                                <p class="leading-relaxed">
+                                    Pengomposan memanfaatkan aktivitas mikroorganisme pengurai alami untuk mengubah sampah sisa makanan (organik hijau) dan bahan tinggi karbon (organik cokelat) menjadi pupuk kompos alami yang menyuburkan tanah pertanian dan pekarangan rumah warga.
+                                </p>
+                                <div class="space-y-1">
+                                    <p class="font-semibold text-[#152b1c]">🌱 Bahan Utama:</p>
+                                    <p class="leading-relaxed">• Sampah Cokelat (daun kering, sekam, serbuk gergaji)<br>• Sampah Hijau (sisa sayur, sisa buah, ampas teh/kopi)<br>• Larutan aktivator mikroba EM4 + air gula</p>
+                                </div>
+                                <div class="space-y-1 pt-1.5 border-t border-[#cee9d3]">
+                                    <p class="font-semibold text-[#152b1c]">📋 Langkah Pembuatan Ringkas:</p>
+                                    <ol class="list-decimal list-inside space-y-1 leading-relaxed">
+                                        <li>Cacah kecil-kecil sampah sisa dapur.</li>
+                                        <li>Masukkan ke dalam wadah komposter selang-seling (berlapis).</li>
+                                        <li>Percikkan larutan EM4 hingga lembap basah.</li>
+                                        <li>Aduk 1-2 kali seminggu. Kompos matang dalam 3-4 minggu.</li>
+                                    </ol>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="px-5 sm:px-6 pb-6 pt-0">
-                        <button onclick="openArticle('kompos')" class="w-full py-2.5 bg-[#152b1c] hover:bg-[#2a4131] text-white text-xs sm:text-sm font-bold rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-sm">
+                    <div class="px-5 sm:px-6 pb-6 pt-2">
+                        <button onclick="openArticle('kompos')" class="w-full py-2.5 bg-[#152b1c] hover:bg-[#2a4131] text-white text-xs sm:text-sm font-bold rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-sm cursor-pointer">
                             <span class="material-symbols-outlined text-[18px]">menu_book</span>
-                            Pelajari Panduan
+                            Pelajari Panduan Lengkap (Popup)
                         </button>
                     </div>
                 </div>
