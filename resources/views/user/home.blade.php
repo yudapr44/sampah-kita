@@ -328,7 +328,7 @@
                     </div>
 
                     <!-- Right: Google Maps Embed -->
-                    <div class="lg:col-span-7 h-[280px] sm:h-[320px] lg:h-full min-h-[260px] rounded-2xl overflow-hidden border border-[#c1c8c2]/60 shadow-inner relative">
+                    <div class="lg:col-span-7 h-[280px] sm:h-[320px] min-h-[260px] rounded-2xl overflow-hidden border border-[#c1c8c2]/60 shadow-inner relative">
                         <iframe 
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.5037286461947!2d107.51478147499126!3d-6.328678293660907!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69742e97ff017b%3A0xb36ef8df9df24996!2sBalonggandu%2C%20Kec.%20Jatisari%2C%20Karawang%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1710000000000!5m2!1sid!2sid" 
                             class="w-full h-full border-0" 
@@ -337,6 +337,9 @@
                             referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
                     </div>
+                </div>
+            </div>
+        </section>
         <!-- ARTIKEL EDUKASI TERBARU (TERHUBUNG DARI ADMIN) -->
         <section class="mt-10 md:mt-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full reveal">
             <div class="flex items-center justify-between mb-6">
