@@ -297,15 +297,6 @@
                         </div>
                         <span class="material-symbols-outlined text-[#414844] group-hover:translate-x-1 transition-transform text-[18px]">open_in_new</span>
                     </a>
-
-                    <!-- Link 3: Panduan Bank Sampah -->
-                    <a href="#" class="flex items-center justify-between p-4 bg-white rounded-xl border border-[#c1c8c2]/50 shadow-sm hover:bg-[#c1ecd4]/30 hover:border-[#012d1d] transition-all group">
-                        <div class="flex items-center gap-3">
-                            <span class="material-symbols-outlined text-[#012d1d] fill-icon text-[20px]">menu_book</span>
-                            <span class="text-[13px] font-semibold text-[#012d1d]">Panduan Bank Sampah – KLHK RI</span>
-                        </div>
-                        <span class="material-symbols-outlined text-[#414844] group-hover:translate-x-1 transition-transform text-[18px]">open_in_new</span>
-                    </a>
                 </div>
             </section>
         </div><!-- /max-w-7xl -->
