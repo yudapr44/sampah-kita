@@ -89,9 +89,13 @@ class AdminController extends Controller
         $imageUrl = $request->image_url;
 
         if ($request->hasFile('image')) {
+            $uploadDir = public_path('uploads/artikel');
+            if (!is_dir($uploadDir)) {
+                mkdir($uploadDir, 0775, true);
+            }
             $file = $request->file('image');
             $fileName = time() . '_' . Str::slug($request->title) . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('uploads/artikel'), $fileName);
+            $file->move($uploadDir, $fileName);
             $imageUrl = '/uploads/artikel/' . $fileName;
         }
 
@@ -139,9 +143,13 @@ class AdminController extends Controller
         }
 
         if ($request->hasFile('image')) {
+            $uploadDir = public_path('uploads/artikel');
+            if (!is_dir($uploadDir)) {
+                mkdir($uploadDir, 0775, true);
+            }
             $file = $request->file('image');
             $fileName = time() . '_' . Str::slug($request->title) . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('uploads/artikel'), $fileName);
+            $file->move($uploadDir, $fileName);
             $article->image = '/uploads/artikel/' . $fileName;
         } elseif ($request->filled('image_url')) {
             $article->image = $request->image_url;
@@ -240,9 +248,13 @@ class AdminController extends Controller
         $imageUrl = $request->image_url;
 
         if ($request->hasFile('image')) {
+            $uploadDir = public_path('uploads/galeri');
+            if (!is_dir($uploadDir)) {
+                mkdir($uploadDir, 0775, true);
+            }
             $file = $request->file('image');
             $fileName = time() . '_' . Str::slug($request->title) . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('uploads/galeri'), $fileName);
+            $file->move($uploadDir, $fileName);
             $imageUrl = '/uploads/galeri/' . $fileName;
         }
 
@@ -288,9 +300,13 @@ class AdminController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
+            $uploadDir = public_path('uploads/galeri');
+            if (!is_dir($uploadDir)) {
+                mkdir($uploadDir, 0775, true);
+            }
             $file = $request->file('image');
             $fileName = time() . '_' . Str::slug($request->title) . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('uploads/galeri'), $fileName);
+            $file->move($uploadDir, $fileName);
             $gallery->image_url = '/uploads/galeri/' . $fileName;
         } elseif ($request->filled('image_url')) {
             $gallery->image_url = $request->image_url;
