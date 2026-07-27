@@ -471,8 +471,8 @@
          class="fixed inset-0 bg-black/50 z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
 
     <!-- ═══ ARTIKEL REDUCE ═══ -->
-    <div id="modal-reduce"
-         class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[540px] md:max-w-2xl z-[60] bg-white rounded-t-3xl shadow-2xl translate-y-full transition-transform duration-500 ease-out max-h-[90vh] overflow-y-auto">
+    <div id="modal-reduce" style="transform: translate(-50%, 100%); transition: transform 0.4s ease-out;"
+         class="fixed bottom-0 left-1/2 w-full max-w-[540px] md:max-w-2xl z-[60] bg-white rounded-t-3xl shadow-2xl max-h-[90vh] overflow-y-auto">
         <!-- Handle Bar -->
         <div class="sticky top-0 bg-white/95 backdrop-blur-sm z-10 rounded-t-3xl">
             <div class="flex justify-center pt-3 pb-1">
@@ -593,8 +593,8 @@
     </div>
 
     <!-- ═══ ARTIKEL REUSE ═══ -->
-    <div id="modal-reuse"
-         class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[540px] md:max-w-2xl z-[60] bg-white rounded-t-3xl shadow-2xl translate-y-full transition-transform duration-500 ease-out max-h-[90vh] overflow-y-auto">
+    <div id="modal-reuse" style="transform: translate(-50%, 100%); transition: transform 0.4s ease-out;"
+         class="fixed bottom-0 left-1/2 w-full max-w-[540px] md:max-w-2xl z-[60] bg-white rounded-t-3xl shadow-2xl max-h-[90vh] overflow-y-auto">
         <div class="sticky top-0 bg-white/95 backdrop-blur-sm z-10 rounded-t-3xl">
             <div class="flex justify-center pt-3 pb-1">
                 <div class="w-10 h-1 bg-[#c1c8c2] rounded-full"></div>
@@ -713,8 +713,8 @@
     </div>
 
     <!-- ═══ ARTIKEL RECYCLE ═══ -->
-    <div id="modal-recycle"
-         class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[540px] md:max-w-2xl z-[60] bg-white rounded-t-3xl shadow-2xl translate-y-full transition-transform duration-500 ease-out max-h-[90vh] overflow-y-auto">
+    <div id="modal-recycle" style="transform: translate(-50%, 100%); transition: transform 0.4s ease-out;"
+         class="fixed bottom-0 left-1/2 w-full max-w-[540px] md:max-w-2xl z-[60] bg-white rounded-t-3xl shadow-2xl max-h-[90vh] overflow-y-auto">
         <div class="sticky top-0 bg-white/95 backdrop-blur-sm z-10 rounded-t-3xl">
             <div class="flex justify-center pt-3 pb-1">
                 <div class="w-10 h-1 bg-[#c1c8c2] rounded-full"></div>
@@ -856,8 +856,8 @@
     </div>
 
     <!-- ═══ MODAL PEMBAKARAN SAMPAH MINIM ASAP ═══ -->
-    <div id="modal-pembakaran"
-         class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[540px] md:max-w-2xl z-[60] bg-white rounded-t-3xl shadow-2xl translate-y-full transition-transform duration-500 ease-out max-h-[90vh] overflow-y-auto">
+    <div id="modal-pembakaran" style="transform: translate(-50%, 100%); transition: transform 0.4s ease-out;"
+         class="fixed bottom-0 left-1/2 w-full max-w-[540px] md:max-w-2xl z-[60] bg-white rounded-t-3xl shadow-2xl max-h-[90vh] overflow-y-auto">
         <div class="sticky top-0 bg-white/95 backdrop-blur-sm z-10 rounded-t-3xl">
             <div class="flex justify-center pt-3 pb-1">
                 <div class="w-10 h-1 bg-[#c1c8c2] rounded-full"></div>
@@ -927,8 +927,8 @@
     </div>
 
     <!-- ═══ MODAL LILIN AROMATERAPI ═══ -->
-    <div id="modal-lilin"
-         class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[540px] md:max-w-2xl z-[60] bg-white rounded-t-3xl shadow-2xl translate-y-full transition-transform duration-500 ease-out max-h-[90vh] overflow-y-auto">
+    <div id="modal-lilin" style="transform: translate(-50%, 100%); transition: transform 0.4s ease-out;"
+         class="fixed bottom-0 left-1/2 w-full max-w-[540px] md:max-w-2xl z-[60] bg-white rounded-t-3xl shadow-2xl max-h-[90vh] overflow-y-auto">
         <div class="sticky top-0 bg-white/95 backdrop-blur-sm z-10 rounded-t-3xl">
             <div class="flex justify-center pt-3 pb-1">
                 <div class="w-10 h-1 bg-[#c1c8c2] rounded-full"></div>
@@ -998,8 +998,8 @@
     </div>
 
     <!-- ═══ MODAL PEMBUATAN KOMPOS ORGANIK ═══ -->
-    <div id="modal-kompos"
-         class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[540px] md:max-w-2xl z-[60] bg-white rounded-t-3xl shadow-2xl translate-y-full transition-transform duration-500 ease-out max-h-[90vh] overflow-y-auto">
+    <div id="modal-kompos" style="transform: translate(-50%, 100%); transition: transform 0.4s ease-out;"
+         class="fixed bottom-0 left-1/2 w-full max-w-[540px] md:max-w-2xl z-[60] bg-white rounded-t-3xl shadow-2xl max-h-[90vh] overflow-y-auto">
         <div class="sticky top-0 bg-white/95 backdrop-blur-sm z-10 rounded-t-3xl">
             <div class="flex justify-center pt-3 pb-1">
                 <div class="w-10 h-1 bg-[#c1c8c2] rounded-full"></div>
@@ -1083,9 +1083,8 @@
         backdrop.classList.remove('opacity-0', 'pointer-events-none');
         backdrop.classList.add('opacity-100', 'pointer-events-auto');
 
-        // Slide modal up
-        modal.classList.remove('translate-y-full');
-        modal.classList.add('translate-y-0');
+        // Slide modal up explicitly
+        modal.style.transform = 'translate(-50%, 0%)';
 
         // Lock body scroll
         document.body.style.overflow = 'hidden';
@@ -1094,8 +1093,7 @@
     function closeArticle(unlock = true) {
         const backdrop = document.getElementById('article-backdrop');
         if (currentModal) {
-            currentModal.classList.remove('translate-y-0');
-            currentModal.classList.add('translate-y-full');
+            currentModal.style.transform = 'translate(-50%, 100%)';
             currentModal = null;
         }
         backdrop.classList.remove('opacity-100', 'pointer-events-auto');
