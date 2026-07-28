@@ -30,7 +30,12 @@ class AppController extends Controller
     public function bank()
     {
         $setting = Setting::first();
-        $articles = Article::where('status', 'Aktif')->latest()->get();
+        // Load only articles specifically for Bank Sampah & Pengelolaan (excluding Edukasi duplicates)
+        $articles = Article::where('status', 'Aktif')
+            ->whereIn('category', ['Pengelolaan', 'Manfaat'])
+            ->where('title', 'NOT LIKE', '%Pembakaran%')
+            ->orderBy('id', 'asc')
+            ->get();
         return view('user.bank', compact('setting', 'articles'));
     }
 
