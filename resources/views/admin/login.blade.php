@@ -141,6 +141,13 @@
                 </div>
             @endif
 
+            @if (session('error'))
+                <div class="flex items-start gap-3 bg-amber-500/15 border border-amber-400/30 rounded-2xl p-4 mb-6">
+                    <span class="material-symbols-outlined text-amber-400 fill-icon text-[20px] flex-shrink-0 mt-0.5">warning</span>
+                    <p class="text-[13px] text-amber-200 leading-relaxed">{{ session('error') }}</p>
+                </div>
+            @endif
+
             <!-- Success Toast (from logout) -->
             @if (session('success'))
                 <div class="flex items-start gap-3 bg-emerald-500/15 border border-emerald-400/30 rounded-2xl p-4 mb-6">
