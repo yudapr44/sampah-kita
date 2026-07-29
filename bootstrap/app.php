@@ -11,11 +11,13 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
+        $middleware->trustProxies(at: '*');
+
         // DAFTARKAN SEMUA ALIAS MIDDLEWARE DI SINI
         $middleware->alias([
             'admin.auth'     => \App\Http\Middleware\AdminAuth::class,
             'admin.3r.auth'  => \App\Http\Middleware\Admin3RAuth::class,
-            'track.visitors' => \App\Http\Middleware\TrackVisitors::class, // <-- Tambahkan ini (sesuaikan namespace class jika foldernya berbeda)
+            'track.visitors' => \App\Http\Middleware\TrackVisitors::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

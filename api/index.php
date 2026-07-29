@@ -4,6 +4,11 @@ if (!defined('LARAVEL_START')) {
     define('LARAVEL_START', microtime(true));
 }
 
+// Force HTTPS protocol detection for Vercel reverse proxy
+if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
+    $_SERVER['HTTPS'] = 'on';
+}
+
 // Prepare temporary storage directories for Vercel Serverless
 $dirs = [
     '/tmp/storage/app/public',

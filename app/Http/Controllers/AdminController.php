@@ -74,6 +74,35 @@ class AdminController extends Controller
         return view('admin.artikel', compact('articles', 'publishedCount', 'draftCount', 'totalViews'));
     }
 
+    /**
+     * Helper to process file upload safely (supports Vercel Read-Only filesystem fallback to Base64 Data URL)
+     */
+    private function processUpload(Request $request, string $folder, string $title): ?string
+    {
+        if (!$request->hasFile('image')) {
+            return null;
+        }
+
+        $file = $request->file('image');
+        if (!$file || !$file->isValid()) {
+            return null;
+        }
+
+        $uploadDir = public_path("uploads/{$folder}");
+
+        try {
+            if (!is_dir($uploadDir)) {
+                @mkdir($uploadDir, 0775, true);
+            }
+            $fileName = time() . '_' . Str::slug($title) . '.' . $file->getClientOriginalExtension();
+            $file->move($uploadDir, $fileName);
+            return "/uploads/{$folder}/" . $fileName;
+        } catch (\Throwable $e) {
+            // Fallback for Vercel Serverless read-only filesystem
+            return 'data:' . $file->getMimeType() . ';base64,' . base64_encode(file_get_contents($file->getRealPath()));
+        }
+    }
+
     // Simpan Artikel Baru (via POST)
     public function storeArtikel(Request $request)
     {
@@ -96,18 +125,7 @@ class AdminController extends Controller
             'status' => 'nullable|string'
         ], $messages);
 
-        $imageUrl = $request->image_url;
-
-        if ($request->hasFile('image')) {
-            $uploadDir = public_path('uploads/artikel');
-            if (!is_dir($uploadDir)) {
-                mkdir($uploadDir, 0775, true);
-            }
-            $file = $request->file('image');
-            $fileName = time() . '_' . Str::slug($request->title) . '.' . $file->getClientOriginalExtension();
-            $file->move($uploadDir, $fileName);
-            $imageUrl = '/uploads/artikel/' . $fileName;
-        }
+        $imageUrl = $this->processUpload($request, 'artikel', $request->title) ?? $request->image_url;
 
         $adminId = session('admin_id') ?? \App\Models\User::first()?->id;
 
@@ -162,15 +180,9 @@ class AdminController extends Controller
             $article->status = $request->status;
         }
 
-        if ($request->hasFile('image')) {
-            $uploadDir = public_path('uploads/artikel');
-            if (!is_dir($uploadDir)) {
-                mkdir($uploadDir, 0775, true);
-            }
-            $file = $request->file('image');
-            $fileName = time() . '_' . Str::slug($request->title) . '.' . $file->getClientOriginalExtension();
-            $file->move($uploadDir, $fileName);
-            $article->image = '/uploads/artikel/' . $fileName;
+        $uploaded = $this->processUpload($request, 'artikel', $request->title);
+        if ($uploaded) {
+            $article->image = $uploaded;
         } elseif ($request->filled('image_url')) {
             $article->image = $request->image_url;
         }
@@ -275,18 +287,7 @@ class AdminController extends Controller
             'image_url' => 'nullable|string'
         ], $messages);
 
-        $imageUrl = $request->image_url;
-
-        if ($request->hasFile('image')) {
-            $uploadDir = public_path('uploads/galeri');
-            if (!is_dir($uploadDir)) {
-                mkdir($uploadDir, 0775, true);
-            }
-            $file = $request->file('image');
-            $fileName = time() . '_' . Str::slug($request->title) . '.' . $file->getClientOriginalExtension();
-            $file->move($uploadDir, $fileName);
-            $imageUrl = '/uploads/galeri/' . $fileName;
-        }
+        $imageUrl = $this->processUpload($request, 'galeri', $request->title) ?? $request->image_url;
 
         if (!$imageUrl) {
             $imageUrl = '/images/hero_karawang.png';
@@ -346,15 +347,9 @@ class AdminController extends Controller
             'image_url' => 'nullable|string'
         ], $messages);
 
-        if ($request->hasFile('image')) {
-            $uploadDir = public_path('uploads/galeri');
-            if (!is_dir($uploadDir)) {
-                mkdir($uploadDir, 0775, true);
-            }
-            $file = $request->file('image');
-            $fileName = time() . '_' . Str::slug($request->title) . '.' . $file->getClientOriginalExtension();
-            $file->move($uploadDir, $fileName);
-            $gallery->image_url = '/uploads/galeri/' . $fileName;
+        $uploaded = $this->processUpload($request, 'galeri', $request->title);
+        if ($uploaded) {
+            $gallery->image_url = $uploaded;
         } elseif ($request->filled('image_url')) {
             $gallery->image_url = $request->image_url;
         }

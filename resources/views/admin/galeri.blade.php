@@ -506,6 +506,10 @@
             body: formData
         })
         .then(async res => {
+            if (res.status === 419) {
+                alert('Sesi telah berakhir (CSRF Expired). Silakan refresh halaman (F5) dan coba lagi.');
+                return;
+            }
             const data = await res.json().catch(() => ({}));
             if (res.ok && data.success) {
                 location.reload();

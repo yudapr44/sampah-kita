@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="id" class="light">
+<html class="light" lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Admin — SampahKita Desa Balonggandu</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Dashboard Admin - Sampah Kita</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script id="tailwind-config">
     try{
@@ -13,427 +14,296 @@
         theme: {
           extend: {
             "colors": {
-                "error-container": "#ffdad6",
-                "on-primary-container": "#ffffff",
-                "on-background": "#181c20",
-                "on-tertiary-fixed-variant": "#005320",
-                "inverse-surface": "#2d3135",
-                "on-tertiary-fixed": "#002108",
-                "on-secondary-fixed": "#001a41",
-                "primary-fixed": "#d8e2ff",
-                "inverse-primary": "#adc7ff",
-                "inverse-on-surface": "#eef1f7",
-                "surface-tint": "#005bc0",
-                "outline": "#727785",
-                "on-secondary-container": "#00285c",
-                "surface-container-high": "#e5e8ee",
-                "tertiary-container": "#008939",
-                "surface-variant": "#dfe3e8",
-                "on-primary-fixed": "#001a41",
-                "surface": "#f7f9ff",
-                "on-tertiary-container": "#ffffff",
-                "surface-bright": "#f7f9ff",
-                "primary": "#005bbf",
+                "neubrutal-yellow": "#ffd23f",
+                "neubrutal-black": "#1b1c1a",
+                "neubrutal-bg": "#f5f3ef",
+                "on-secondary-fixed": "#071e2b",
+                "tertiary": "#705370",
+                "outline-variant": "#c3c8bf",
+                "tertiary-fixed": "#fbd7fb",
+                "surface": "#fbf9f5",
+                "surface-container": "#efeeea",
+                "surface-container-high": "#eae8e4",
+                "outline": "#737971",
+                "inverse-primary": "#b0ceae",
+                "primary-fixed-dim": "#b0ceae",
+                "secondary": "#476171",
+                "surface-container-lowest": "#ffffff",
+                "secondary-fixed": "#cae6f9",
+                "surface-container-low": "#f5f3ef",
+                "background": "#fbf9f5",
+                "on-primary-fixed-variant": "#334d34",
+                "secondary-container": "#cae6f9",
+                "on-primary-fixed": "#07200b",
+                "on-tertiary-container": "#573c57",
+                "primary-container": "#8ba889",
+                "surface-bright": "#fbf9f5",
+                "primary-fixed": "#ccebc8",
+                "on-primary": "#ffffff",
+                "on-tertiary-fixed-variant": "#573c57",
+                "surface-dim": "#dbdad6",
+                "surface-variant": "#e4e2de",
+                "inverse-on-surface": "#f2f0ed",
                 "on-error-container": "#93000a",
+                "on-secondary-container": "#2f4958",
+                "tertiary-container": "#d6b5d6",
                 "error": "#ba1a1a",
                 "on-secondary": "#ffffff",
-                "surface-container-low": "#f1f4fa",
-                "on-primary-fixed-variant": "#004493",
-                "secondary-container": "#4d8efe",
-                "surface-dim": "#d7dae0",
-                "secondary-fixed-dim": "#adc6ff",
-                "tertiary-fixed": "#89fa9b",
-                "on-error": "#ffffff",
-                "on-secondary-fixed-variant": "#004494",
-                "tertiary-fixed-dim": "#6ddd81",
-                "surface-container-lowest": "#ffffff",
-                "on-primary": "#ffffff",
-                "on-surface": "#181c20",
+                "on-background": "#1b1c1a",
+                "on-surface": "#1b1c1a",
+                "surface-tint": "#4a654a",
+                "error-container": "#ffdad6",
                 "on-tertiary": "#ffffff",
-                "secondary-fixed": "#d8e2ff",
-                "surface-container-highest": "#dfe3e8",
-                "primary-fixed-dim": "#adc7ff",
-                "background": "#f7f9ff",
-                "surface-container": "#ebeef4",
-                "secondary": "#005ac1",
-                "on-surface-variant": "#414754",
-                "tertiary": "#006d2c",
-                "primary-container": "#1a73e8",
-                "outline-variant": "#c1c6d6"
+                "secondary-fixed-dim": "#aebcca",
+                "on-[#ffffff]": "#1b1c1a",
+                "primary": "#2d4a2e",
+                "on-primary-container": "#243d25",
+                "on-tertiary-fixed": "#28112a",
+                "on-surface-variant": "#434841",
+                "tertiary-fixed-dim": "#dec0de",
+                "on-error": "#ffffff",
+                "inverse-surface": "#30312e",
+                "on-secondary-fixed-variant": "#2f4958",
+                "surface-container-highest": "#e4e2de"
             },
             "borderRadius": {
-                "DEFAULT": "0.25rem",
-                "lg": "0.5rem",
-                "xl": "0.75rem",
-                "full": "9999px"
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
             },
             "spacing": {
-                "xs": "4px",
-                "sm": "8px",
-                "lg": "24px",
-                "xl": "32px",
-                "base": "4px",
-                "margin-desktop": "32px",
+                "base": "8px",
+                "margin-desktop": "64px",
                 "gutter": "24px",
-                "margin-mobile": "16px",
-                "md": "16px"
+                "margin-mobile": "16px"
             },
             "fontFamily": {
-                "mono-label": ["Inter"],
-                "label-sm": ["Inter"],
-                "display-lg": ["Inter"],
-                "body-lg": ["Inter"],
-                "headline-md": ["Inter"],
-                "display-lg-mobile": ["Inter"],
-                "body-md": ["Inter"]
-            },
-            "fontSize": {
-                "mono-label": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
-                "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
-                "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
-                "display-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
-                "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+                "body-md": ["Plus Jakarta Sans"],
+                "display-lg": ["Plus Jakarta Sans"],
+                "headline-lg": ["Plus Jakarta Sans"],
+                "display-lg-mobile": ["Plus Jakarta Sans"],
+                "body-lg": ["Plus Jakarta Sans"],
+                "headline-md": ["Plus Jakarta Sans"],
+                "label-bold": ["Plus Jakarta Sans"]
             }
-          },
-        },
+          }
+        }
       }
     }catch(_e){}</script>
     <style>
-        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #c1c6d6; border-radius: 4px; }
+        .neubrutal-card {
+            border: 2px solid #1b1c1a;
+            box-shadow: 4px 4px 0px 0px #1b1c1a;
+        }
+        .neubrutal-header {
+            border-bottom: 2px solid #1b1c1a;
+        }
     </style>
 </head>
-<body class="bg-background text-on-background min-h-screen pb-24 md:pb-0 overflow-x-hidden custom-scrollbar">
+<body class="bg-[#fbf9f5] text-[#1b1c1a] min-h-screen">
 
-<!-- TopAppBar Header -->
-<header class="flex justify-between items-center h-16 px-md md:px-margin-desktop w-full z-50 bg-surface dark:bg-on-background sticky top-0 shadow-sm">
-    <div class="flex items-center gap-sm">
-        <button id="sidebar-toggle" class="material-symbols-outlined p-2 rounded-full hover:bg-surface-container-low dark:hover:bg-inverse-surface transition-colors cursor-pointer text-on-surface-variant dark:text-outline-variant text-[26px]">
-            menu
-        </button>
-        <div class="flex items-center gap-sm cursor-pointer active:scale-95 duration-150" onclick="location.href='/admin'">
-            <span class="material-symbols-outlined text-primary dark:text-primary-fixed text-[28px]">school</span>
-            <h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">EduManage Admin</h1>
-        </div>
-    </div>
-    <div class="flex items-center gap-sm">
-        <button class="material-symbols-outlined p-2 rounded-full hover:bg-surface-container-low dark:hover:bg-inverse-surface transition-colors cursor-pointer text-on-surface-variant dark:text-outline-variant">search</button>
-        <button class="material-symbols-outlined p-2 rounded-full hover:bg-surface-container-low dark:hover:bg-inverse-surface transition-colors cursor-pointer text-on-surface-variant dark:text-outline-variant">notifications</button>
-        <div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container font-bold text-xs cursor-pointer active:scale-95 transition-transform" title="{{ session('admin_name', 'Admin') }}">
-            {{ strtoupper(substr(session('admin_name', 'Admin'), 0, 1)) }}
-        </div>
-    </div>
-</header>
+    <!-- Backdrop -->
+    <div id="admin-backdrop" class="fixed inset-0 bg-black/45 z-45 hidden opacity-0 transition-opacity duration-300" onclick="toggleAdminDrawer()"></div>
 
-<main class="max-w-7xl mx-auto px-md md:px-margin-desktop py-lg">
-    <!-- Dashboard Welcome Section -->
-    <section class="mb-xl">
-        <h2 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-xs">Welcome back, {{ session('admin_name', 'Admin Desa Balonggandu') }}</h2>
-        <p class="font-body-md text-body-md text-on-surface-variant">Berikut adalah ikhtisar performa portal edukasi dan bank sampah digital institusi desa Anda hari ini.</p>
-    </section>
-
-    <!-- Bento Stat Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-xl">
-        <!-- Stat Card 1: Total Articles / Artikel Edukasi -->
-        <div class="bg-surface-container-lowest p-lg rounded-xl border border-surface-variant shadow-sm hover:shadow-md transition-shadow group">
-            <div class="flex justify-between items-start mb-md">
-                <div class="p-3 rounded-lg bg-primary-container/10 text-primary">
-                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">description</span>
-                </div>
-                <span class="font-mono-label text-mono-label px-2 py-1 bg-tertiary-fixed text-on-tertiary-fixed rounded-full flex items-center gap-1">
-                    <span class="material-symbols-outlined text-[14px]">trending_up</span> Aktif
-                </span>
+    <!-- SideNavBar Shell -->
+    <aside id="admin-drawer" class="fixed left-0 top-0 h-full w-[280px] bg-primary-container border-r-2 border-neubrutal-black flex flex-col p-6 z-50 transition-transform duration-300 transform -translate-x-full">
+        <!-- Brand Identity -->
+        <div class="mb-8 px-2 flex justify-between items-center">
+            <div>
+                <h1 class="font-headline-md text-[20px] text-on-primary-fixed font-bold">Admin Balonggandu</h1>
+                <p class="text-xs text-on-primary-fixed-variant opacity-80">Portal Pengelolaan Desa</p>
             </div>
-            <h3 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-xs">Total Artikel Edukasi</h3>
-            <p class="font-display-lg text-display-lg text-on-surface">{{ $totalArticles }}</p>
-            <div class="mt-md h-1 w-full bg-surface-container-low rounded-full overflow-hidden">
-                <div class="h-full bg-primary w-[85%]"></div>
-            </div>
-        </div>
-
-        <!-- Stat Card 2: Nasabah Bank Sampah Digital -->
-        <div class="bg-surface-container-lowest p-lg rounded-xl border border-surface-variant shadow-sm hover:shadow-md transition-shadow">
-            <div class="flex justify-between items-start mb-md">
-                <div class="p-3 rounded-lg bg-secondary-container/10 text-secondary">
-                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">groups</span>
-                </div>
-                <span class="font-mono-label text-mono-label px-2 py-1 bg-surface-container-high text-on-surface-variant rounded-full flex items-center gap-1">
-                    <span class="material-symbols-outlined text-[14px]">horizontal_rule</span> Terdaftar
-                </span>
-            </div>
-            <h3 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-xs">Nasabah Bank Sampah</h3>
-            <p class="font-display-lg text-display-lg text-on-surface">{{ $totalNasabah ?? 0 }}</p>
-            <div class="mt-md flex -space-x-2">
-                <div class="w-8 h-8 rounded-full border-2 border-surface-container-lowest bg-surface-dim"></div>
-                <div class="w-8 h-8 rounded-full border-2 border-surface-container-lowest bg-primary-container"></div>
-                <div class="w-8 h-8 rounded-full border-2 border-surface-container-lowest bg-secondary-container"></div>
-                <div class="w-8 h-8 rounded-full border-2 border-surface-container-lowest bg-tertiary-container flex items-center justify-center text-[10px] text-white font-bold">+{{ max(0, ($totalNasabah ?? 0) - 3) }}</div>
-            </div>
-        </div>
-
-        <!-- Stat Card 3: Total Transaksi & Saldo Rupiah -->
-        <div class="bg-surface-container-lowest p-lg rounded-xl border border-surface-variant shadow-sm hover:shadow-md transition-shadow">
-            <div class="flex justify-between items-start mb-md">
-                <div class="p-3 rounded-lg bg-tertiary-container/10 text-tertiary">
-                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">payments</span>
-                </div>
-                <span class="font-mono-label text-mono-label px-2 py-1 bg-emerald-100 text-emerald-800 rounded-full flex items-center gap-1 font-bold">
-                    <span class="material-symbols-outlined text-[14px]">account_balance_wallet</span> Rupiah
-                </span>
-            </div>
-            <h3 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-xs">Total Saldo Terkumpul</h3>
-            <p class="font-headline-md text-headline-md text-on-surface font-bold">Rp {{ number_format($totalSaldo ?? 0, 0, ',', '.') }}</p>
-            <p class="font-body-md text-body-md text-on-surface-variant mt-md">{{ $totalTransaksi ?? 0 }} Total transaksi setoran sampah</p>
-        </div>
-    </div>
-
-    <!-- Two Column Layout: Activity & Schedule -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
-        <!-- Recent Activity Section -->
-        <div class="lg:col-span-2 space-y-lg">
-            <div class="bg-surface-container-lowest rounded-xl border border-surface-variant overflow-hidden shadow-sm">
-                <div class="p-lg border-b border-surface-variant flex justify-between items-center">
-                    <h3 class="font-headline-md text-headline-md text-on-surface">Aktivitas Terkini</h3>
-                    <a href="/admin/artikel" class="text-primary font-label-sm text-label-sm hover:underline">Lihat Semua</a>
-                </div>
-                <div class="divide-y divide-surface-variant">
-                    @forelse($latestArticles as $art)
-                        <div class="p-md flex items-start gap-md hover:bg-surface-container-low transition-colors">
-                            <div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center shrink-0">
-                                <span class="material-symbols-outlined text-primary">article</span>
-                            </div>
-                            <div class="flex-1">
-                                <p class="font-body-md text-body-md text-on-surface">
-                                    <span class="font-bold">Artikel Dipublikasikan:</span> {{ $art->title }} (Kategori: {{ $art->category }}).
-                                </p>
-                                <p class="font-mono-label text-mono-label text-on-surface-variant mt-xs">
-                                    {{ $art->created_at ? $art->created_at->diffForHumans() : 'Baru saja' }}
-                                </p>
-                            </div>
-                        </div>
-                    @empty
-                        <div class="p-md text-center text-on-surface-variant">Belum ada aktivitas artikel terkini.</div>
-                    @endforelse
-
-                    @if(isset($latestGalleries) && $latestGalleries->count())
-                        @foreach($latestGalleries as $gal)
-                            <div class="p-md flex items-start gap-md hover:bg-surface-container-low transition-colors">
-                                <div class="w-10 h-10 rounded-full bg-tertiary-container/20 flex items-center justify-center shrink-0">
-                                    <span class="material-symbols-outlined text-tertiary">photo_library</span>
-                                </div>
-                                <div class="flex-1">
-                                    <p class="font-body-md text-body-md text-on-surface">
-                                        <span class="font-bold">Galeri Media Baru:</span> {{ $gal->title }} (Oleh: {{ $gal->uploader }}).
-                                    </p>
-                                    <p class="font-mono-label text-mono-label text-on-surface-variant mt-xs">
-                                        {{ $gal->created_at ? $gal->created_at->diffForHumans() : 'Baru saja' }}
-                                    </p>
-                                </div>
-                            </div>
-                        @endforeach
-                    @endif
-                </div>
-            </div>
-
-            <!-- Featured Highlight Card (Glassmorphism effect) -->
-            <div class="relative rounded-xl overflow-hidden h-64 shadow-lg group">
-                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" 
-                     style="background-image: url('/images/hero_karawang.png')"></div>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
-                <div class="absolute bottom-0 left-0 p-lg text-white">
-                    <span class="px-2.5 py-1 bg-primary text-[10px] font-bold rounded uppercase mb-sm inline-block">Program Desa Balonggandu</span>
-                    <h4 class="font-headline-md text-headline-md">Inovasi Pengelolaan Sampah Mandiri 3R</h4>
-                    <p class="font-body-md text-body-md text-white/80">Wujudkan desa hijau, bersih, dan sejahtera melalui kolaborasi digitalisasi bank sampah warga.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Upcoming Schedule & Actions Section -->
-        <div class="space-y-lg">
-            <div class="bg-surface-container-lowest rounded-xl border border-surface-variant shadow-sm p-lg">
-                <h3 class="font-headline-md text-headline-md text-on-surface mb-lg">Jadwal &amp; Agenda Desa</h3>
-                <div class="space-y-md">
-                    <!-- Schedule Card 1 -->
-                    <div class="flex gap-md border-l-4 border-primary pl-md py-xs">
-                        <div class="shrink-0 text-center w-12">
-                            <p class="font-label-sm text-label-sm text-on-surface-variant uppercase">{{ date('M') }}</p>
-                            <p class="font-display-lg-mobile text-display-lg-mobile font-bold text-on-surface">{{ date('d') }}</p>
-                        </div>
-                        <div>
-                            <p class="font-headline-md text-body-lg font-semibold text-on-surface">Penimbangan Bank Sampah</p>
-                            <div class="flex items-center gap-1 text-on-surface-variant">
-                                <span class="material-symbols-outlined text-[16px]">schedule</span>
-                                <span class="font-body-md text-body-md">08:00 - 12:00 WIB</span>
-                            </div>
-                            <div class="flex items-center gap-1 text-on-surface-variant">
-                                <span class="material-symbols-outlined text-[16px]">location_on</span>
-                                <span class="font-body-md text-body-md">Posko Utama RW 03</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Schedule Card 2 -->
-                    <div class="flex gap-md border-l-4 border-secondary pl-md py-xs">
-                        <div class="shrink-0 text-center w-12">
-                            <p class="font-label-sm text-label-sm text-on-surface-variant uppercase">{{ date('M', strtotime('+2 days')) }}</p>
-                            <p class="font-display-lg-mobile text-display-lg-mobile font-bold text-on-surface">{{ date('d', strtotime('+2 days')) }}</p>
-                        </div>
-                        <div>
-                            <p class="font-headline-md text-body-lg font-semibold text-on-surface">Workshop Kompos Organik</p>
-                            <div class="flex items-center gap-1 text-on-surface-variant">
-                                <span class="material-symbols-outlined text-[16px]">schedule</span>
-                                <span class="font-body-md text-body-md">13:00 - 15:30 WIB</span>
-                            </div>
-                            <div class="flex items-center gap-1 text-on-surface-variant">
-                                <span class="material-symbols-outlined text-[16px]">location_on</span>
-                                <span class="font-body-md text-body-md">Aula Desa Balonggandu</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <button onclick="location.href='/admin/bank-digital'" class="w-full mt-lg py-md rounded-lg border border-primary text-primary font-bold hover:bg-primary/5 transition-colors cursor-pointer active:scale-95 duration-150">
-                    Buka Panel Bank Sampah
-                </button>
-            </div>
-
-            <!-- Quick Access / Data Analytics -->
-            <div class="bg-primary text-on-primary p-lg rounded-xl shadow-lg relative overflow-hidden">
-                <div class="relative z-10">
-                    <h4 class="font-headline-md text-headline-md mb-xs">Analistik Data 3R</h4>
-                    <p class="font-body-md text-body-md text-white/80 mb-md">Pantau rekapitulasi data pengunjung dan transaksi nasabah bank sampah.</p>
-                    <a href="/admin/bank-digital" class="bg-white text-primary px-lg py-sm rounded-full font-bold text-label-sm inline-flex items-center gap-sm shadow-sm hover:shadow-md active:scale-95 transition-all">
-                        <span class="material-symbols-outlined">analytics</span>
-                        KELOLA DATA BANK SAMPAH
-                    </a>
-                </div>
-                <div class="absolute top-0 right-0 -mr-8 -mt-8 w-32 h-32 bg-white/10 rounded-full"></div>
-                <div class="absolute bottom-0 right-0 -mr-4 -mb-4 w-20 h-20 bg-white/5 rounded-full"></div>
-            </div>
-        </div>
-    </div>
-</main>
-
-<!-- BottomNavBar (Visible on Mobile) -->
-<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center h-[72px] px-sm pb-safe bg-surface-container-lowest shadow-lg md:hidden border-t border-outline-variant">
-    <a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 active:scale-90 transition-transform duration-200" href="/admin">
-        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
-        <span class="font-label-sm text-label-sm">Home</span>
-    </a>
-    <a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 active:scale-90 transition-transform duration-200" href="/admin/artikel">
-        <span class="material-symbols-outlined">menu_book</span>
-        <span class="font-label-sm text-label-sm">Edukasi</span>
-    </a>
-    <a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 active:scale-90 transition-transform duration-200" href="/admin/bank-digital">
-        <span class="material-symbols-outlined">settings_suggest</span>
-        <span class="font-label-sm text-label-sm">Pengelolaan</span>
-    </a>
-    <a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 active:scale-90 transition-transform duration-200" href="/admin/galeri">
-        <span class="material-symbols-outlined">collections</span>
-        <span class="font-label-sm text-label-sm">Galeri</span>
-    </a>
-</nav>
-
-<!-- Drawer Overlay (Hidden by Default) -->
-<div class="fixed inset-0 bg-black/50 z-[60] opacity-0 pointer-events-none transition-opacity duration-300" id="drawer-overlay"></div>
-
-<!-- Sidebar Drawer (Menu Samping) -->
-<aside class="fixed left-0 top-0 bottom-0 w-[280px] bg-surface-container-lowest z-[70] -translate-x-full transition-transform duration-300 shadow-2xl flex flex-col" id="sidebar">
-    <div class="p-lg flex items-center justify-between border-b border-surface-variant">
-        <div class="flex items-center gap-md">
-            <span class="material-symbols-outlined text-primary text-display-lg-mobile" style="font-variation-settings: 'FILL' 1;">school</span>
-            <div class="flex flex-col">
-                <span class="font-headline-md text-headline-md font-bold text-primary">EduManage</span>
-                <span class="font-label-sm text-on-surface-variant">Admin Console</span>
-            </div>
-        </div>
-        <button id="sidebar-close" class="p-1 rounded-full hover:bg-surface-container-high text-on-surface">
-            <span class="material-symbols-outlined text-[22px]">close</span>
-        </button>
-    </div>
-
-    <!-- Menu Samping Navigasi -->
-    <nav class="flex-1 p-md space-y-sm overflow-y-auto mt-md">
-        <a class="flex items-center gap-md p-md rounded-xl bg-secondary-container text-on-secondary-container shadow-sm font-semibold" href="/admin">
-            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
-            <span class="font-body-lg">Dashboard</span>
-        </a>
-        <a class="flex items-center gap-md p-md rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors" href="/admin/artikel">
-            <span class="material-symbols-outlined">article</span>
-            <span class="font-body-lg">Manajemen Artikel</span>
-        </a>
-        <a class="flex items-center gap-md p-md rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors" href="/admin/bank-digital">
-            <span class="material-symbols-outlined">equalizer</span>
-            <span class="font-body-lg">Bank Sampah Digital</span>
-        </a>
-        <a class="flex items-center gap-md p-md rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors" href="/admin/galeri">
-            <span class="material-symbols-outlined">collections</span>
-            <span class="font-body-lg">Galeri Kegiatan</span>
-        </a>
-        <div class="h-px bg-surface-variant mx-md my-md"></div>
-        <a class="flex items-center gap-md p-md rounded-xl text-on-surface-variant hover:bg-surface-container-low transition-colors" href="/" target="_blank">
-            <span class="material-symbols-outlined">open_in_new</span>
-            <span class="font-body-lg">Lihat Website Warga</span>
-        </a>
-    </nav>
-
-    <div class="p-lg bg-surface-container-low border-t border-surface-variant">
-        <div class="flex items-center justify-between gap-md mb-3">
-            <div class="flex items-center gap-md overflow-hidden">
-                <div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-bold shrink-0">
-                    {{ strtoupper(substr(session('admin_name', 'Admin'), 0, 1)) }}
-                </div>
-                <div class="flex flex-col overflow-hidden">
-                    <span class="font-body-md font-bold text-on-surface truncate">{{ session('admin_name', 'Admin Utama') }}</span>
-                    <span class="font-label-sm text-on-surface-variant truncate">admin@balonggandu.desa.id</span>
-                </div>
-            </div>
-        </div>
-        <form action="{{ route('admin.logout') }}" method="POST">
-            @csrf
-            <button type="submit" class="w-full flex items-center justify-center gap-2 p-2.5 rounded-xl bg-error-container text-on-error-container font-bold text-xs hover:bg-error hover:text-white transition-all">
-                <span class="material-symbols-outlined text-[18px]">logout</span>
-                <span>Keluar Sistem</span>
+            <button onclick="toggleAdminDrawer()" class="p-1 rounded-full hover:bg-primary-fixed text-[#1b1c1a] flex items-center justify-center">
+                <span class="material-symbols-outlined text-[22px]">close</span>
             </button>
-        </form>
-    </div>
-</aside>
+        </div>
 
-<!-- Floating Action Button (FAB) -->
-<button onclick="location.href='/admin/artikel'" class="fixed bottom-24 right-md md:bottom-lg md:right-margin-desktop w-14 h-14 bg-primary text-on-primary rounded-2xl shadow-xl flex items-center justify-center cursor-pointer hover:scale-105 active:scale-90 transition-all z-40 group">
-    <span class="material-symbols-outlined text-[32px]">add</span>
-    <span class="absolute right-full mr-md py-sm px-md bg-inverse-surface text-on-surface rounded-lg text-label-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">Tambah Artikel Baru</span>
-</button>
+        <!-- Sidebar Navigation Menu -->
+        <nav class="flex-1 space-y-3">
+            <a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container rounded-xl border-2 border-neubrutal-black shadow-[2px_2px_0px_0px_#1b1c1a] transition-all hover:translate-y-[-1px]" href="/admin">
+                <span class="material-symbols-outlined">dashboard</span>
+                <span class="font-label-bold">Dashboard</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-[#334d34] transition-all rounded-xl" href="/admin/bank-digital">
+                <span class="material-symbols-outlined text-[#fd8603]">equalizer</span>
+                <span class="font-label-bold">Bank Sampah Digital</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-[#334d34] transition-all rounded-xl" href="/admin/artikel">
+                <span class="material-symbols-outlined">description</span>
+                <span class="font-label-bold">Artikel Edukasi</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-[#334d34] transition-all rounded-xl" href="/admin/galeri">
+                <span class="material-symbols-outlined">photo_library</span>
+                <span class="font-label-bold">Galeri Kegiatan</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-[#334d34] transition-all rounded-xl" href="/admin/kontak">
+                <span class="material-symbols-outlined">contact_support</span>
+                <span class="font-label-bold">Kontak</span>
+            </a>
+            <a class="flex items-center gap-3 px-4 py-3 text-on-primary hover:bg-[#334d34] transition-all rounded-xl" href="/">
+                <span class="material-symbols-outlined">open_in_new</span>
+                <span class="font-label-bold">Lihat Website</span>
+            </a>
+        </nav>
 
-<script>
-    const sidebar = document.getElementById('sidebar');
-    const overlay = document.getElementById('drawer-overlay');
-    const toggle = document.getElementById('sidebar-toggle');
-    const closeBtn = document.getElementById('sidebar-close');
+        <!-- Logout Button -->
+        <div class="mt-auto pt-4 border-t border-on-primary-container/30">
+            <form method="POST" action="{{ route('admin.logout') }}">
+                @csrf
+                <button type="submit" class="w-full flex items-center gap-3 px-4 py-3 text-red-300 hover:bg-red-900/30 transition-all rounded-xl border border-red-500/20">
+                    <span class="material-symbols-outlined text-[20px]">logout</span>
+                    <span class="font-label-bold text-[14px]">Logout</span>
+                </button>
+            </form>
+        </div>
+    </aside>
 
-    function openSidebar() {
-        sidebar.classList.remove('-translate-x-full');
-        overlay.classList.remove('opacity-0', 'pointer-events-none');
-    }
+    <!-- TOP NAVBAR SHELL -->
+    <header class="fixed top-0 right-0 w-full h-16 bg-[#f5f3ef] neubrutal-header flex justify-between items-center px-4 md:px-8 z-40">
+        <div class="flex items-center gap-3">
+            <button onclick="toggleAdminDrawer()" class="p-2 border-2 border-neubrutal-black rounded-lg bg-white shadow-[2px_2px_0px_0px_#1b1c1a] hover:scale-105 active:scale-95 transition-transform flex items-center justify-center">
+                <span class="material-symbols-outlined text-neubrutal-black">menu</span>
+            </button>
+            <span class="font-bold text-[16px] text-on-background md:hidden">Dashboard</span>
+            <div class="hidden md:flex items-center bg-white border-2 border-neubrutal-black rounded-full px-4 py-2 w-72 shadow-[2px_2px_0px_0px_#1b1c1a]">
+                <span class="material-symbols-outlined text-neubrutal-black text-xl">search</span>
+                <input class="bg-transparent border-none focus:ring-0 text-sm w-full placeholder:text-outline/80 ml-2" placeholder="Cari data desa..." type="text">
+            </div>
+        </div>
+        <div class="flex items-center gap-6">
+            <button class="bg-white border-2 border-neubrutal-black rounded-full p-2 transition-transform hover:scale-105 active:scale-95 shadow-[2px_2px_0px_0px_#1b1c1a] flex items-center justify-center">
+                <span class="material-symbols-outlined text-primary">notifications</span>
+            </button>
+            <div class="h-8 w-[2px] bg-neubrutal-black opacity-20"></div>
+            <span class="font-label-bold text-[14px] text-neubrutal-black">Admin Balonggandu</span>
+            <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-neubrutal-black flex items-center justify-center shadow-[2px_2px_0px_0px_#1b1c1a] flex-shrink-0">
+                <img class="w-full h-full object-cover" src="{{ asset('images/admin_avatar.jpg') }}" alt="Admin avatar">
+            </div>
+        </div>
+    </header>
 
-    function closeSidebar() {
-        sidebar.classList.add('-translate-x-full');
-        overlay.classList.add('opacity-0', 'pointer-events-none');
-    }
+    <!-- MAIN CONTENT CANVAS -->
+    <main class="pt-20 pb-12 px-4 md:px-8 lg:px-12 max-w-[1400px] mx-auto">
+        <!-- Top Stats Row (Website + Bank Digital) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-10">
+            <!-- Total Artikel -->
+            <div class="bg-primary-fixed p-6 rounded-xl neubrutal-card flex flex-col justify-between min-h-[140px]">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="p-3 bg-white border-2 border-neubrutal-black rounded-lg">
+                        <span class="material-symbols-outlined text-primary text-[24px]">article</span>
+                    </div>
+                    <span class="text-xs font-label-bold text-on-background bg-white border border-neubrutal-black px-2 py-1 rounded-full">Total</span>
+                </div>
+                <div>
+                    <p class="font-label-bold text-on-background opacity-70 text-[13px]">Total Artikel</p>
+                    <h3 class="font-headline-lg text-headline-lg text-on-background leading-none mt-1">{{ $totalArticles }}</h3>
+                </div>
+            </div>
 
-    if (toggle) toggle.addEventListener('click', openSidebar);
-    if (overlay) overlay.addEventListener('click', closeSidebar);
-    if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
+            <!-- Total Nasabah Bank Sampah -->
+            <div class="bg-secondary-container p-6 rounded-xl neubrutal-card flex flex-col justify-between min-h-[140px]">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="p-3 bg-white border-2 border-neubrutal-black rounded-lg">
+                        <span class="material-symbols-outlined text-[#fd8603] text-[24px]">group</span>
+                    </div>
+                    <span class="text-xs font-label-bold text-on-secondary-container bg-white border border-neubrutal-black px-2 py-1 rounded-full">Nasabah</span>
+                </div>
+                <div>
+                    <p class="font-label-bold text-on-secondary-container opacity-80 text-[13px]">Nasabah Bank Sampah</p>
+                    <h3 class="font-headline-lg text-headline-lg text-on-secondary-container leading-none mt-1">{{ $totalNasabah ?? 0 }}</h3>
+                </div>
+            </div>
 
-    // Micro-interaction for Stat Cards
-    document.querySelectorAll('.bg-surface-container-lowest').forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            card.classList.add('scale-[1.01]');
-        });
-        card.addEventListener('mouseleave', () => {
-            card.classList.remove('scale-[1.01]');
-        });
-    });
-</script>
+            <!-- Total Transaksi Sampah -->
+            <div class="bg-tertiary-fixed p-6 rounded-xl neubrutal-card flex flex-col justify-between min-h-[140px]">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="p-3 bg-white border-2 border-neubrutal-black rounded-lg">
+                        <span class="material-symbols-outlined text-tertiary text-[24px]">receipt_long</span>
+                    </div>
+                    <span class="text-xs font-label-bold text-on-tertiary-fixed-variant bg-white border border-neubrutal-black px-2 py-1 rounded-full">Setoran</span>
+                </div>
+                <div>
+                    <p class="font-label-bold text-on-tertiary-fixed-variant opacity-80 text-[13px]">Total Transaksi</p>
+                    <h3 class="font-headline-lg text-headline-lg text-on-tertiary-fixed-variant leading-none mt-1">{{ $totalTransaksi ?? 0 }}</h3>
+                </div>
+            </div>
+
+            <!-- Total Saldo Terkumpul -->
+            <div class="bg-[#ffd23f] p-6 rounded-xl neubrutal-card flex flex-col justify-between min-h-[140px]">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="p-3 bg-white border-2 border-neubrutal-black rounded-lg">
+                        <span class="material-symbols-outlined text-neubrutal-black text-[24px]">payments</span>
+                    </div>
+                    <span class="text-xs font-label-bold text-neubrutal-black bg-white border border-neubrutal-black px-2 py-1 rounded-full">Rupiah</span>
+                </div>
+                <div>
+                    <p class="font-label-bold text-neubrutal-black opacity-80 text-[13px]">Total Saldo Warga</p>
+                    <h3 class="font-headline-md text-headline-md text-neubrutal-black leading-none mt-1 font-bold">
+                        Rp {{ number_format($totalSaldo ?? 0, 0, ',', '.') }}
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Portal Quick Links / Actions -->
+        <div class="bg-white p-6 md:p-8 rounded-xl neubrutal-card mb-10">
+            <h3 class="font-headline-md text-headline-md text-on-background mb-4">Akses Cepat Pengelolaan Desa</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                <a href="/admin/bank-digital" class="p-4 bg-secondary-container rounded-xl border-2 border-neubrutal-black shadow-[2px_2px_0px_0px_#1b1c1a] hover:translate-y-[-2px] transition-all flex items-center gap-3">
+                    <span class="material-symbols-outlined text-[#fd8603] text-[28px]">equalizer</span>
+                    <div>
+                        <h4 class="font-bold text-[14px]">Bank Sampah</h4>
+                        <p class="text-[11px] opacity-75">Kelola Nasabah & Setoran</p>
+                    </div>
+                </a>
+                <a href="/admin/artikel" class="p-4 bg-primary-fixed rounded-xl border-2 border-neubrutal-black shadow-[2px_2px_0px_0px_#1b1c1a] hover:translate-y-[-2px] transition-all flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary text-[28px]">description</span>
+                    <div>
+                        <h4 class="font-bold text-[14px]">Artikel Edukasi</h4>
+                        <p class="text-[11px] opacity-75">Kelola Panduan 3R</p>
+                    </div>
+                </a>
+                <a href="/admin/galeri" class="p-4 bg-tertiary-fixed rounded-xl border-2 border-neubrutal-black shadow-[2px_2px_0px_0px_#1b1c1a] hover:translate-y-[-2px] transition-all flex items-center gap-3">
+                    <span class="material-symbols-outlined text-tertiary text-[28px]">photo_library</span>
+                    <div>
+                        <h4 class="font-bold text-[14px]">Galeri Kegiatan</h4>
+                        <p class="text-[11px] opacity-75">Kelola Dokumentasi</p>
+                    </div>
+                </a>
+                <a href="/admin/kontak" class="p-4 bg-[#ffd23f] rounded-xl border-2 border-neubrutal-black shadow-[2px_2px_0px_0px_#1b1c1a] hover:translate-y-[-2px] transition-all flex items-center gap-3">
+                    <span class="material-symbols-outlined text-neubrutal-black text-[28px]">contact_support</span>
+                    <div>
+                        <h4 class="font-bold text-[14px]">Kontak Desa</h4>
+                        <p class="text-[11px] opacity-75">Kelola Info Layanan</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function toggleAdminDrawer() {
+            const drawer = document.getElementById('admin-drawer');
+            const backdrop = document.getElementById('admin-backdrop');
+            const isOpen = drawer.classList.contains('translate-x-0');
+
+            if (isOpen) {
+                drawer.classList.remove('translate-x-0');
+                drawer.classList.add('-translate-x-full');
+                backdrop.classList.remove('opacity-100', 'pointer-events-auto');
+                backdrop.classList.add('opacity-0', 'pointer-events-none');
+                setTimeout(() => backdrop.classList.add('hidden'), 300);
+            } else {
+                backdrop.classList.remove('hidden');
+                setTimeout(() => {
+                    drawer.classList.remove('-translate-x-full');
+                    drawer.classList.add('translate-x-0');
+                    backdrop.classList.remove('opacity-0', 'pointer-events-none');
+                    backdrop.classList.add('opacity-100', 'pointer-events-auto');
+                }, 10);
+            }
+        }
+    </script>
 </body>
 </html>
