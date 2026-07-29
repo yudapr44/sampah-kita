@@ -30,8 +30,10 @@ foreach ($dirs as $dir) {
 $sourceDb = __DIR__ . '/../database/database.sqlite';
 $targetDb = '/tmp/database.sqlite';
 
-if (file_exists($sourceDb) && (!file_exists($targetDb) || filesize($targetDb) === 0)) {
-    @copy($sourceDb, $targetDb);
+if (file_exists($sourceDb)) {
+    if (!file_exists($targetDb) || filesize($targetDb) === 0 || filemtime($sourceDb) > filemtime($targetDb)) {
+        @copy($sourceDb, $targetDb);
+    }
 }
 
 // Set environment variables for serverless execution

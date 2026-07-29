@@ -130,25 +130,32 @@ class AdminController extends Controller
             'status' => 'nullable|string'
         ], $messages);
 
-        $imageUrl = $this->processUpload($request, 'artikel', $request->title) ?? $request->image_url;
+        try {
+            $imageUrl = $this->processUpload($request, 'artikel', $request->title) ?? $request->image_url;
 
-        $adminId = session('admin_id') ?? \App\Models\User::first()?->id;
+            $adminId = session('admin_id') ?? \App\Models\User::first()?->id;
 
-        $article = Article::create([
-            'user_id' => $adminId,
-            'title' => $request->title,
-            'slug' => Str::slug($request->title) . '-' . rand(100, 999),
-            'category' => $request->category,
-            'content' => $request->content,
-            'image' => $imageUrl,
-            'status' => $request->status ?? 'Aktif',
-            'views' => 0
-        ]);
+            $article = Article::create([
+                'user_id' => $adminId,
+                'title' => $request->title,
+                'slug' => Str::slug($request->title) . '-' . rand(100, 999),
+                'category' => $request->category,
+                'content' => $request->content,
+                'image' => $imageUrl,
+                'status' => $request->status ?? 'Aktif',
+                'views' => 0
+            ]);
 
-        return response()->json([
-            'success' => true,
-            'article' => $article
-        ]);
+            return response()->json([
+                'success' => true,
+                'article' => $article
+            ]);
+        } catch (\Throwable $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Gagal menyimpan artikel: ' . $e->getMessage()
+            ], 500);
+        }
     }
 
     // Update Artikel Existing (via POST)
@@ -178,26 +185,33 @@ class AdminController extends Controller
             'status' => 'nullable|string'
         ], $messages);
 
-        $article->title = $request->title;
-        $article->category = $request->category;
-        $article->content = $request->content;
-        if ($request->has('status') && $request->status) {
-            $article->status = $request->status;
+        try {
+            $article->title = $request->title;
+            $article->category = $request->category;
+            $article->content = $request->content;
+            if ($request->has('status') && $request->status) {
+                $article->status = $request->status;
+            }
+
+            $uploaded = $this->processUpload($request, 'artikel', $request->title);
+            if ($uploaded) {
+                $article->image = $uploaded;
+            } elseif ($request->filled('image_url')) {
+                $article->image = $request->image_url;
+            }
+
+            $article->save();
+
+            return response()->json([
+                'success' => true,
+                'article' => $article
+            ]);
+        } catch (\Throwable $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Gagal menginstal/memperbarui artikel: ' . $e->getMessage()
+            ], 500);
         }
-
-        $uploaded = $this->processUpload($request, 'artikel', $request->title);
-        if ($uploaded) {
-            $article->image = $uploaded;
-        } elseif ($request->filled('image_url')) {
-            $article->image = $request->image_url;
-        }
-
-        $article->save();
-
-        return response()->json([
-            'success' => true,
-            'article' => $article
-        ]);
     }
 
     // Hapus Artikel (via DELETE)
@@ -292,36 +306,43 @@ class AdminController extends Controller
             'image_url' => 'nullable|string'
         ], $messages);
 
-        $imageUrl = $this->processUpload($request, 'galeri', $request->title) ?? $request->image_url;
+        try {
+            $imageUrl = $this->processUpload($request, 'galeri', $request->title) ?? $request->image_url;
 
-        if (!$imageUrl) {
-            $imageUrl = '/images/hero_karawang.png';
+            if (!$imageUrl) {
+                $imageUrl = '/images/hero_karawang.png';
+            }
+
+            if ($request->has('is_featured') && $request->is_featured) {
+                \App\Models\Gallery::query()->update(['is_featured' => false]);
+            }
+
+            $galleryData = [
+                'title' => $request->title,
+                'category' => $request->category,
+                'type' => $request->type,
+                'image_url' => $imageUrl,
+                'description' => $request->description,
+                'uploader' => $request->uploader ?: (session('admin_name') ?? 'Admin Utama'),
+                'is_featured' => $request->has('is_featured') ? (bool)$request->is_featured : false
+            ];
+
+            if ($request->filled('created_at')) {
+                $galleryData['created_at'] = $request->created_at;
+            }
+
+            $gallery = \App\Models\Gallery::create($galleryData);
+
+            return response()->json([
+                'success' => true,
+                'gallery' => $gallery
+            ]);
+        } catch (\Throwable $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Gagal menyimpan aset galeri: ' . $e->getMessage()
+            ], 500);
         }
-
-        if ($request->has('is_featured') && $request->is_featured) {
-            \App\Models\Gallery::query()->update(['is_featured' => false]);
-        }
-
-        $galleryData = [
-            'title' => $request->title,
-            'category' => $request->category,
-            'type' => $request->type,
-            'image_url' => $imageUrl,
-            'description' => $request->description,
-            'uploader' => $request->uploader ?: (session('admin_name') ?? 'Admin Utama'),
-            'is_featured' => $request->has('is_featured') ? (bool)$request->is_featured : false
-        ];
-
-        if ($request->filled('created_at')) {
-            $galleryData['created_at'] = $request->created_at;
-        }
-
-        $gallery = \App\Models\Gallery::create($galleryData);
-
-        return response()->json([
-            'success' => true,
-            'gallery' => $gallery
-        ]);
     }
 
     public function updateGaleri(Request $request, $id)
@@ -352,36 +373,43 @@ class AdminController extends Controller
             'image_url' => 'nullable|string'
         ], $messages);
 
-        $uploaded = $this->processUpload($request, 'galeri', $request->title);
-        if ($uploaded) {
-            $gallery->image_url = $uploaded;
-        } elseif ($request->filled('image_url')) {
-            $gallery->image_url = $request->image_url;
-        }
+        try {
+            $uploaded = $this->processUpload($request, 'galeri', $request->title);
+            if ($uploaded) {
+                $gallery->image_url = $uploaded;
+            } elseif ($request->filled('image_url')) {
+                $gallery->image_url = $request->image_url;
+            }
 
-        if ($request->has('is_featured') && $request->is_featured) {
-            \App\Models\Gallery::where('id', '!=', $id)->update(['is_featured' => false]);
-            $gallery->is_featured = true;
-        } elseif ($request->has('is_featured')) {
-            $gallery->is_featured = (bool)$request->is_featured;
-        }
+            if ($request->has('is_featured') && $request->is_featured) {
+                \App\Models\Gallery::where('id', '!=', $id)->update(['is_featured' => false]);
+                $gallery->is_featured = true;
+            } elseif ($request->has('is_featured')) {
+                $gallery->is_featured = (bool)$request->is_featured;
+            }
 
-        $gallery->title = $request->title;
-        $gallery->category = $request->category;
-        $gallery->type = $request->type;
-        $gallery->description = $request->description;
-        if ($request->filled('uploader')) {
-            $gallery->uploader = $request->uploader;
-        }
-        if ($request->filled('created_at')) {
-            $gallery->created_at = $request->created_at;
-        }
-        $gallery->save();
+            $gallery->title = $request->title;
+            $gallery->category = $request->category;
+            $gallery->type = $request->type;
+            $gallery->description = $request->description;
+            if ($request->filled('uploader')) {
+                $gallery->uploader = $request->uploader;
+            }
+            if ($request->filled('created_at')) {
+                $gallery->created_at = $request->created_at;
+            }
+            $gallery->save();
 
-        return response()->json([
-            'success' => true,
-            'gallery' => $gallery
-        ]);
+            return response()->json([
+                'success' => true,
+                'gallery' => $gallery
+            ]);
+        } catch (\Throwable $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Gagal memperbarui aset galeri: ' . $e->getMessage()
+            ], 500);
+        }
     }
 
     public function deleteGaleri($id)

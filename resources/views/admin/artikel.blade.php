@@ -478,9 +478,12 @@
             if (res.ok && data.success) {
                 location.reload();
             } else {
-                let msg = data.message || 'Gagal menyimpan artikel.';
+                let msg = data.message || '';
                 if (data.errors) {
                     msg = Object.values(data.errors).flat().join('\n');
+                }
+                if (!msg) {
+                    msg = res.statusText ? (`Error (${res.status}): ${res.statusText}`) : 'Gagal menyimpan artikel.';
                 }
                 alert(msg);
             }
