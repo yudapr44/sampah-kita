@@ -88,6 +88,11 @@ class AdminController extends Controller
             return null;
         }
 
+        // On Vercel or read-only filesystem, convert directly to Base64 Data URL
+        if (isset($_SERVER['VERCEL']) || isset($_ENV['VERCEL']) || getenv('VERCEL') || !is_writable(public_path())) {
+            return 'data:' . $file->getMimeType() . ';base64,' . base64_encode(file_get_contents($file->getRealPath()));
+        }
+
         $uploadDir = public_path("uploads/{$folder}");
 
         try {
