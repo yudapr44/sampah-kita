@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Transparansi Data Digital 3R — Desa Balonggandu</title>
+    <title>Portal Transparansi Data Sampah Digital 3R — Desa Balonggandu</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0..1&display=block" rel="stylesheet">
@@ -100,7 +100,7 @@
                     <div>
                         <div class="flex items-center justify-between mb-3">
                             <h3 class="font-extrabold text-blue-900 text-sm flex items-center gap-1.5">
-                                <span class="material-symbols-outlined text-[18px]">compress</span> Reduce (Purangan)
+                                <span class="material-symbols-outlined text-[18px]">compress</span> Reduce (Kurangi)
                             </h3>
                             <span class="text-[10px] bg-blue-200 text-blue-800 font-bold px-2 py-0.5 rounded">Pencegahan</span>
                         </div>
@@ -121,7 +121,7 @@
                     <div>
                         <div class="flex items-center justify-between mb-3">
                             <h3 class="font-extrabold text-emerald-900 text-sm flex items-center gap-1.5">
-                                <span class="material-symbols-outlined text-[18px]">autorenew</span> Reuse (Guna Ulang)
+                                <span class="material-symbols-outlined text-[18px]">autorenew</span> Reuse (Gunakan Kembali)
                             </h3>
                             <span class="text-[10px] bg-emerald-200 text-emerald-800 font-bold px-2 py-0.5 rounded">Optimalisasi</span>
                         </div>

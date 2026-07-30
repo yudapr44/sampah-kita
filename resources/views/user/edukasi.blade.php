@@ -262,10 +262,10 @@
         <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mb-12 md:mb-16 reveal">
             <div class="mb-6">
                 <h3 class="text-xl sm:text-2xl font-bold text-[#012d1d]">Panduan Praktek & Inovasi Daur Ulang</h3>
-                <p class="text-xs sm:text-sm text-[#414844] mt-1">Panduan bergambar pembuatan pembakar sampah, lilin aromaterapi, dan pengolahan kompos</p>
+                <p class="text-xs sm:text-sm text-[#414844] mt-1">Panduan bergambar pemilahan sampah, hidroponik dari barang bekas, lilin aromaterapi, dan pengolahan kompos</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 sm:gap-8">
                 <!-- Card 1: Tong Sampah Pemilahan -->
                 <div class="bg-white rounded-3xl border border-[#c1c8c2]/60 shadow-sm overflow-hidden flex flex-col justify-between hover:shadow-md transition-all">
                     <div>
@@ -370,6 +370,42 @@
                         </button>
                     </div>
                 </div>
+
+                <!-- Card 4: Hidroponik dari Barang Bekas -->
+                <div class="bg-white rounded-3xl border border-[#c1c8c2]/60 shadow-sm overflow-hidden flex flex-col justify-between hover:shadow-md transition-all">
+                    <div>
+                        <div class="relative h-48 sm:h-52 w-full overflow-hidden bg-neutral-100">
+                            <img src="/images/hidroponik.jpg" alt="Hidroponik dari Barang Bekas" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"/>
+                            <span class="absolute top-3 left-3 px-3 py-1 bg-[#0d5c2e] text-white text-xs font-bold rounded-full shadow-md">
+                                Hidroponik Rumahan
+                            </span>
+                        </div>
+                        <div class="p-5 sm:p-6 space-y-3">
+                            <h4 class="text-base sm:text-lg font-bold text-[#012d1d] leading-snug">Bertanam Hidroponik dari Botol & Pipa Bekas</h4>
+                            
+                            <p class="text-xs sm:text-sm text-[#414844] leading-relaxed">
+                                Manfaatkan botol plastik dan pipa PVC bekas untuk membuat sistem hidroponik sederhana — tanam kangkung, selada, dan bayam tanpa tanah di halaman rumah.
+                            </p>
+
+                            <!-- Artikel Penjelasan Jurnal Ilmiah (On-Page Display) -->
+                            <div class="bg-[#f3f9f4] p-4 rounded-2xl border border-[#cee9d3] space-y-2.5 text-xs text-[#414844]">
+                                <p class="font-bold text-[#0d5c2e] flex items-center gap-1.5 text-xs">
+                                    <span class="material-symbols-outlined text-[16px]">menu_book</span> Jurnal & Artikel Penjelasan Riset:
+                                </p>
+                                <p class="leading-relaxed text-justify">
+                                    Sistem hidroponik NFT (<em>Nutrient Film Technique</em>) menggunakan larutan air bernutrisi mengalir tipis di akar tanaman terbukti menghemat air hingga 90% dibanding pertanian konvensional. Menurut <em>Scientia Horticulturae</em>, tanaman kangkung dan selada yang ditanam secara hidroponik mencapai masa panen 2–3 minggu lebih cepat dengan kandungan vitamin C 30% lebih tinggi. Memanfaatkan botol plastik bekas sebagai wadah tanam merupakan solusi <em>upcycling</em> yang menurunkan limbah plastik sekaligus menyediakan pangan bergizi bagi warga desa.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-5 sm:px-6 pb-6 pt-2">
+                        <button onclick="openArticle('hidroponik')" class="w-full py-2.5 bg-[#0d5c2e] hover:bg-[#0a4a25] text-white text-xs sm:text-sm font-bold rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-sm cursor-pointer">
+                            <span class="material-symbols-outlined text-[18px]">menu_book</span>
+                            Pelajari Panduan Lengkap (Popup)
+                        </button>
+                    </div>
+                </div>
+
             </div>
         </section>
         <!-- PANDUAN PRAKTIS PENGELOLAAN -->
@@ -980,6 +1016,93 @@
 
             <button onclick="closeArticle()" class="w-full py-4 bg-[#012d1d] text-white font-bold text-[15px] rounded-2xl hover:bg-[#163829] transition-colors">
                 Tutup Panduan ♻️
+            </button>
+        </div>
+    </div>
+
+    <!-- ═══ MODAL HIDROPONIK ═══ -->
+    <div id="modal-hidroponik" style="transform: translate(-50%, 100%); transition: transform 0.4s ease-out;"
+         class="fixed bottom-0 left-1/2 w-full max-w-[540px] md:max-w-2xl z-[60] bg-white rounded-t-3xl shadow-2xl max-h-[90vh] overflow-y-auto">
+        <div class="sticky top-0 bg-white/95 backdrop-blur-sm z-10 rounded-t-3xl">
+            <div class="flex justify-center pt-3 pb-1">
+                <div class="w-10 h-1 bg-[#c1c8c2] rounded-full"></div>
+            </div>
+            <div class="flex items-center justify-between px-5 pb-4 pt-2 border-b border-[#edeeef]">
+                <div class="flex items-center gap-3">
+                    <div class="w-11 h-11 rounded-2xl bg-[#c1ecd4] flex items-center justify-center">
+                        <span class="material-symbols-outlined text-[#0d5c2e] fill-icon text-[22px]">water_drop</span>
+                    </div>
+                    <div>
+                        <h2 class="text-[18px] font-extrabold text-[#0d5c2e] leading-tight">Hidroponik dari Barang Bekas</h2>
+                        <p class="text-[12px] text-[#717973]">Tanam Sayuran Tanpa Tanah di Rumah</p>
+                    </div>
+                </div>
+                <button onclick="closeArticle()" class="w-9 h-9 rounded-full bg-[#f3f4f5] flex items-center justify-center hover:bg-[#e7e8e9] transition-colors">
+                    <span class="material-symbols-outlined text-[#414844] text-[20px]">close</span>
+                </button>
+            </div>
+        </div>
+        <div class="px-5 pt-5 pb-10 space-y-5">
+            <div class="rounded-2xl overflow-hidden shadow-sm">
+                <img src="/images/hidroponik.jpg" alt="Panduan Hidroponik Sederhana" class="w-full h-48 sm:h-56 object-cover"/>
+            </div>
+
+            <div class="bg-[#c1ecd4]/30 rounded-2xl p-4 border-l-4 border-[#0d5c2e]">
+                <p class="text-[14px] text-[#191c1d] leading-relaxed">
+                    Hidroponik adalah metode bercocok tanam menggunakan air bernutrisi tanpa tanah. Dengan memanfaatkan botol plastik bekas dan pipa PVC, warga dapat menanam sayuran segar di halaman rumah secara hemat dan ramah lingkungan.
+                </p>
+            </div>
+
+            <div>
+                <h3 class="text-[15px] font-bold text-[#0d5c2e] mb-2">Bahan & Alat yang Dibutuhkan</h3>
+                <ul class="list-disc list-inside text-[13px] text-[#414844] space-y-1 bg-[#f8f9fa] p-4 rounded-xl border border-[#c1c8c2]/40">
+                    <li>Botol plastik bekas 1,5 liter atau pipa PVC 2–3 inci</li>
+                    <li>Nutrisi hidroponik AB Mix (tersedia di toko pertanian)</li>
+                    <li>Rockwool / spons cuci sebagai media semai</li>
+                    <li>Benih kangkung, selada, atau bayam</li>
+                    <li>Ember / bak penampung air sebagai reservoir</li>
+                    <li>Pompa akuarium kecil (opsional, untuk sistem NFT)</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-[15px] font-bold text-[#0d5c2e] mb-3">Langkah Pembuatan Sistem Hidroponik</h3>
+                <div class="space-y-2.5 text-[13px] text-[#414844]">
+                    <div class="flex items-start gap-3 bg-[#f8f9fa] p-3 rounded-xl">
+                        <span class="w-6 h-6 rounded-full bg-[#0d5c2e] text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">1</span>
+                        <p><strong>Siapkan wadah tanam:</strong> Lubangi tutup botol plastik seukuran netpot (gelas tanam). Atau potong pipa PVC setiap 20 cm dan beri lubang di atas.</p>
+                    </div>
+                    <div class="flex items-start gap-3 bg-[#f8f9fa] p-3 rounded-xl">
+                        <span class="w-6 h-6 rounded-full bg-[#0d5c2e] text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">2</span>
+                        <p><strong>Semai benih:</strong> Letakkan benih di atas rockwool/spons yang sudah dibasahi air bersih. Simpan di tempat teduh selama 3–5 hari hingga berkecambah.</p>
+                    </div>
+                    <div class="flex items-start gap-3 bg-[#f8f9fa] p-3 rounded-xl">
+                        <span class="w-6 h-6 rounded-full bg-[#0d5c2e] text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">3</span>
+                        <p><strong>Buat larutan nutrisi:</strong> Campur 5 ml nutrisi A + 5 ml nutrisi B ke dalam 1 liter air bersih. Larutan ini menjadi makanan utama tanaman.</p>
+                    </div>
+                    <div class="flex items-start gap-3 bg-[#f8f9fa] p-3 rounded-xl">
+                        <span class="w-6 h-6 rounded-full bg-[#0d5c2e] text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">4</span>
+                        <p><strong>Pindah tanam:</strong> Setelah berkecambah, pindahkan bibit ke dalam netpot/lubang botol. Pastikan akar menyentuh atau terendam larutan nutrisi.</p>
+                    </div>
+                    <div class="flex items-start gap-3 bg-[#f8f9fa] p-3 rounded-xl">
+                        <span class="w-6 h-6 rounded-full bg-[#0d5c2e] text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">5</span>
+                        <p><strong>Perawatan harian:</strong> Cek volume air setiap hari dan tambah jika berkurang. Ganti larutan nutrisi setiap 1–2 minggu. Panen kangkung dalam 14–21 hari!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-[#f3f9f4] p-4 rounded-2xl border border-[#cee9d3]">
+                <p class="text-xs font-bold text-[#0d5c2e] mb-2">💡 Tips Sukses Hidroponik:</p>
+                <ul class="text-[12px] text-[#414844] space-y-1">
+                    <li>✅ Tempatkan di lokasi yang mendapat sinar matahari minimal 6 jam/hari</li>
+                    <li>✅ Gunakan botol bekas berwarna gelap agar tidak ditumbuhi lumut</li>
+                    <li>✅ Jaga pH larutan nutrisi antara 5,5 – 6,5 untuk hasil optimal</li>
+                    <li>✅ Kangkung & bayam cocok untuk pemula — panen dalam 2–3 minggu</li>
+                </ul>
+            </div>
+
+            <button onclick="closeArticle()" class="w-full py-4 bg-[#0d5c2e] text-white font-bold text-[15px] rounded-2xl hover:bg-[#0a4a25] transition-colors">
+                Tutup Panduan 🌿
             </button>
         </div>
     </div>
