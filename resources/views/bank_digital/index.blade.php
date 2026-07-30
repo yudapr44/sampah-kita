@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pengelolaan Data Digital 3R — Admin Panel Desa Balonggandu</title>
+    <title>Pengelolaan  Data Sampah Digital 3R — Admin Panel Desa Balonggandu</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Be+Vietnam+Pro:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@400,0..1&display=block" rel="stylesheet">
@@ -50,7 +50,7 @@
                     <a href="/bank-digital" target="_blank" class="flex items-center justify-between px-4 py-2.5 rounded-xl bg-blue-950/50 hover:bg-blue-900 text-blue-200 font-bold text-xs transition-all border border-blue-700/50">
                         <span class="flex items-center gap-2">
                             <span class="material-symbols-outlined text-[18px]">public</span>
-                            Portal Warga 3R
+                            Portal Warga Sampah 3R
                         </span>
                         <span class="material-symbols-outlined text-[14px]">open_in_new</span>
                     </a>
@@ -101,7 +101,7 @@
                 </button>
                 <div>
                     <div class="flex items-center gap-2">
-                        <h2 class="text-base sm:text-xl font-extrabold text-slate-900">Pengelolaan Data Digital 3R</h2>
+                        <h2 class="text-base sm:text-xl font-extrabold text-slate-900">Pengelolaan  Data Sampah Digital 3R</h2>
                         <span class="bg-blue-100 text-blue-800 text-[10px] font-bold px-2.5 py-0.5 rounded-full">Modul Desa</span>
                     </div>
                     <p class="text-[11px] sm:text-xs text-gray-500 mt-0.5">Pendataan pemilahan sampah warga (Reduce, Reuse, Recycle)</p>
@@ -116,7 +116,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
             <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm flex items-center justify-between">
                 <div>
-                    <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Warga Partisipan 3R</p>
+                    <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Warga Partisipan Sampah 3R</p>
                     <h3 class="text-3xl font-extrabold text-slate-900 mt-1">{{ number_format($totalNasabah) }} <span class="text-sm font-semibold text-gray-400">Terdata</span></h3>
                 </div>
                 <div class="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center text-blue-600">
