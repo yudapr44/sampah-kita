@@ -258,7 +258,7 @@
             </div>
         </section>
 
-        <!-- PANDUAN PRAKTEK & INOVASI DAUR ULANG (GAMBAR & BACA PANDUAN) -->
+        <!-- PANDUAN PRAKTEK & INOVASI DAUR ULANG -->
         <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full mb-12 md:mb-16 reveal">
             <div class="mb-6">
                 <h3 class="text-xl sm:text-2xl font-bold text-[#012d1d]">Panduan Praktek & Inovasi Daur Ulang</h3>
@@ -296,7 +296,7 @@
                     <div class="px-5 sm:px-6 pb-6 pt-2">
                         <button onclick="openArticle('tong')" class="w-full py-2.5 bg-[#012d1d] hover:bg-[#163829] text-white text-xs sm:text-sm font-bold rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-sm cursor-pointer">
                             <span class="material-symbols-outlined text-[18px]">menu_book</span>
-                            Pelajari Panduan Lengkap (Popup)
+                            Pelajari Panduan Lengkap
                         </button>
                     </div>
                 </div>
@@ -331,7 +331,7 @@
                     <div class="px-5 sm:px-6 pb-6 pt-2">
                         <button onclick="openArticle('lilin')" class="w-full py-2.5 bg-[#934b00] hover:bg-[#7a3e00] text-white text-xs sm:text-sm font-bold rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-sm cursor-pointer">
                             <span class="material-symbols-outlined text-[18px]">menu_book</span>
-                            Pelajari Panduan Lengkap (Popup)
+                            Pelajari Panduan Lengkap
                         </button>
                     </div>
                 </div>
@@ -366,7 +366,7 @@
                     <div class="px-5 sm:px-6 pb-6 pt-2">
                         <button onclick="openArticle('kompos')" class="w-full py-2.5 bg-[#152b1c] hover:bg-[#2a4131] text-white text-xs sm:text-sm font-bold rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-sm cursor-pointer">
                             <span class="material-symbols-outlined text-[18px]">menu_book</span>
-                            Pelajari Panduan Lengkap (Popup)
+                            Pelajari Panduan Lengkap
                         </button>
                     </div>
                 </div>
@@ -401,7 +401,7 @@
                     <div class="px-5 sm:px-6 pb-6 pt-2">
                         <button onclick="openArticle('hidroponik')" class="w-full py-2.5 bg-[#0d5c2e] hover:bg-[#0a4a25] text-white text-xs sm:text-sm font-bold rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-sm cursor-pointer">
                             <span class="material-symbols-outlined text-[18px]">menu_book</span>
-                            Pelajari Panduan Lengkap (Popup)
+                            Pelajari Panduan Lengkap
                         </button>
                     </div>
                 </div>
@@ -1131,22 +1131,23 @@
         </div>
         <div class="px-5 pt-5 pb-10 space-y-5">
             <div class="rounded-2xl overflow-hidden shadow-sm">
-                <img src="/images/lilin_aromaterapi.jpg" alt="Lilin Aromaterapi Minyak Jelantah" class="w-full h-48 sm:h-56 object-cover"/>
+                <img src="/images/lilin_aromaterapi.jpg" alt="Lilin Aromaterapi Jelantah" class="w-full h-48 sm:h-56 object-cover"/>
             </div>
 
             <div class="bg-[#ffdcc4]/30 rounded-2xl p-4 border-l-4 border-[#934b00]">
                 <p class="text-[14px] text-[#191c1d] leading-relaxed">
-                    Minyak goreng bekas (jelantah) yang sering dibuang ke saluran air dapat merusak tanah dan air. Mengolahnya menjadi lilin aromaterapi adalah langkah inovasi daur ulang yang harum dan bermanfaat.
+                    Mengubah minyak goreng bekas (jelantah) menjadi lilin aromaterapi yang cantik dan wangi. Selain menghemat biaya, cara ini efektif mencegah pencemaran saluran air.
                 </p>
             </div>
 
             <div>
-                <h3 class="text-[15px] font-bold text-[#934b00] mb-2">Bahan & Alat</h3>
+                <h3 class="text-[15px] font-bold text-[#934b00] mb-2">Bahan & Alat yang Dibutuhkan</h3>
                 <ul class="list-disc list-inside text-[13px] text-[#414844] space-y-1 bg-[#fff8f0] p-4 rounded-xl border border-[#ffdcc4]">
-                    <li>200 ml minyak jelantah (sudah dibersihkan dengan arang aktif/ampas kelapa).</li>
-                    <li>100 gram Stearin / Soy Wax / Parafin lilin.</li>
-                    <li>Essential oil / Bibit Parfum (Lavender, Lemon, Jasmine).</li>
-                    <li>Sumbu katun lilin & wadah gelas hias.</li>
+                    <li>Miyak jelantah yang sudah disaring (100 ml).</li>
+                    <li>Stearin / asam stearat pengeras lilin (100 gram).</li>
+                    <li>Minyak esensial (lavender, jeruk, atau vanila) 15-20 gram.</li>
+                    <li>Sumbu lilin & tempat lilin (gelas kaca / kaleng bekas).</li>
+                    <li>Arang aktif / ampas kelapa untuk penjernih jelantah.</li>
                 </ul>
             </div>
 
@@ -1155,15 +1156,15 @@
                 <div class="space-y-2.5 text-[13px] text-[#414844]">
                     <div class="flex items-start gap-3 bg-[#fff8f0] p-3 rounded-xl">
                         <span class="w-6 h-6 rounded-full bg-[#934b00] text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">1</span>
-                        <p>Rendam minyak jelantah dengan arang aktif selama 24 jam untuk menghilangkan bau gorengan, lalu saring bersih.</p>
+                        <p>Rendam minyak jelantah dengan ampas kelapa/arang aktif selama 24 jam untuk menghilangkan bau tengik.</p>
                     </div>
                     <div class="flex items-start gap-3 bg-[#fff8f0] p-3 rounded-xl">
                         <span class="w-6 h-6 rounded-full bg-[#934b00] text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">2</span>
-                        <p>Panaskan minyak bersama stearin/parafin di atas kompor dengan api kecil hingga mencair rata.</p>
+                        <p>Saring minyak hingga bersih, lalu panaskan di atas api kecil bersama stearin hingga meleleh sempurna.</p>
                     </div>
                     <div class="flex items-start gap-3 bg-[#fff8f0] p-3 rounded-xl">
                         <span class="w-6 h-6 rounded-full bg-[#934b00] text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">3</span>
-                        <p>Matikan kompor, tunggu 2-3 menit hingga tidak terlalu panas, lalu campurkan 15-20 tetes essential oil pilihan.</p>
+                        <p>Matikan api, diamkan sejenak lalu teteskan minyak esensial sesuai selera aromaterapi Anda.</p>
                     </div>
                     <div class="flex items-start gap-3 bg-[#fff8f0] p-3 rounded-xl">
                         <span class="w-6 h-6 rounded-full bg-[#934b00] text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">4</span>
@@ -1207,26 +1208,27 @@
 
             <div class="bg-[#cee9d3]/30 rounded-2xl p-4 border-l-4 border-[#152b1c]">
                 <p class="text-[14px] text-[#191c1d] leading-relaxed">
-                    Lebih dari 50% sampah rumah tangga adalah sampah organik. Dengan membuat pupuk kompos, kita mengurangi sampah yang dibuang ke TPA sekaligus menghasilkan nutrisi terbaik bagi tanah pertanian dan kebun warga.
+                    Mengolah sisa sayuran, buah, dan sampah dapur menjadi pupuk kompos alami yang kaya hara untuk menyuburkan pekarangan rumah.
                 </p>
             </div>
 
             <div>
-                <h3 class="text-[15px] font-bold text-[#152b1c] mb-2">Bahan & Peralatan</h3>
+                <h3 class="text-[15px] font-bold text-[#152b1c] mb-2">Bahan & Alat yang Dibutuhkan</h3>
                 <ul class="list-disc list-inside text-[13px] text-[#414844] space-y-1 bg-[#f3f9f4] p-4 rounded-xl border border-[#cee9d3]">
-                    <li>Sampah Hijau: sisa sayuran, sisa buah, kulit telur, ampas teh/kopi.</li>
-                    <li>Sampah Cokelat: daun kering, sekam padi, serbuk kayu, potongan kardus.</li>
-                    <li>Aktivator EM4 Pertanian & larutan air gula merah.</li>
-                    <li>Wadah komposter / ember berlubang.</li>
+                    <li>Sampah organik hijau (sisa sayuran, kulit buah, rumput).</li>
+                    <li>Sampah organik cokelat (daun kering, serbuk gergaji, sekam).</li>
+                    <li>Cairan mikroorganisme pengurai (EM4 pertanian).</li>
+                    <li>Ember komposter / wadah berlubang dengan penutup.</li>
+                    <li>Air dan gula pasir / molase untuk pengaktif EM4.</li>
                 </ul>
             </div>
 
             <div>
-                <h3 class="text-[15px] font-bold text-[#152b1c] mb-3">Langkah Pengomposan</h3>
+                <h3 class="text-[15px] font-bold text-[#152b1c] mb-3">Langkah Pembuatan Kompos</h3>
                 <div class="space-y-2.5 text-[13px] text-[#414844]">
                     <div class="flex items-start gap-3 bg-[#f3f9f4] p-3 rounded-xl">
                         <span class="w-6 h-6 rounded-full bg-[#152b1c] text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">1</span>
-                        <p>Cacah sisa sampah dapur menjadi ukuran kecil agar mikroba pembusuk lebih cepat bekerja.</p>
+                        <p>Cacah sampah organik hingga berukuran kecil (2-5 cm) agar proses pembusukan lebih cepat.</p>
                     </div>
                     <div class="flex items-start gap-3 bg-[#f3f9f4] p-3 rounded-xl">
                         <span class="w-6 h-6 rounded-full bg-[#152b1c] text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">2</span>
@@ -1261,8 +1263,10 @@
         currentModal = modal;
 
         // Show backdrop
-        backdrop.classList.remove('opacity-0', 'pointer-events-none');
-        backdrop.classList.add('opacity-100', 'pointer-events-auto');
+        if (backdrop) {
+            backdrop.classList.remove('opacity-0', 'pointer-events-none');
+            backdrop.classList.add('opacity-100', 'pointer-events-auto');
+        }
 
         // Slide modal up explicitly
         modal.style.transform = 'translate(-50%, 0%)';
@@ -1277,13 +1281,12 @@
             currentModal.style.transform = 'translate(-50%, 100%)';
             currentModal = null;
         }
-        backdrop.classList.remove('opacity-100', 'pointer-events-auto');
-        backdrop.classList.add('opacity-0', 'pointer-events-none');
+        if (backdrop) {
+            backdrop.classList.remove('opacity-100', 'pointer-events-auto');
+            backdrop.classList.add('opacity-0', 'pointer-events-none');
+        }
         if (unlock) document.body.style.overflow = '';
     }
-
-    // Close modal on backdrop click is handled via onclick="closeArticle()"
-    // ── END Article Modal Logic ──
 
     // ── Drawer Toggle Logic ──
     function toggleSidebar() {

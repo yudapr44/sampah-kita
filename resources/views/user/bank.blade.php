@@ -224,14 +224,6 @@
                 </div>
             </div>
 
-            <!-- Topic chips -->
-            <div class="flex gap-2 overflow-x-auto mt-6 pb-1 hide-scrollbar">
-                <span class="tag flex-shrink-0 px-4 py-2 bg-[#012d1d] text-white rounded-full text-xs font-bold cursor-pointer">Semua</span>
-                <span class="tag flex-shrink-0 px-4 py-2 bg-[#e7e8e9] text-[#414844] rounded-full text-xs font-semibold cursor-pointer border border-[#c1c8c2]">Dasar</span>
-                <span class="tag flex-shrink-0 px-4 py-2 bg-[#e7e8e9] text-[#414844] rounded-full text-xs font-semibold cursor-pointer border border-[#c1c8c2]">Pengelolaan</span>
-                <span class="tag flex-shrink-0 px-4 py-2 bg-[#e7e8e9] text-[#414844] rounded-full text-xs font-semibold cursor-pointer border border-[#c1c8c2]">Manfaat</span>
-                <span class="tag flex-shrink-0 px-4 py-2 bg-[#e7e8e9] text-[#414844] rounded-full text-xs font-semibold cursor-pointer border border-[#c1c8c2]">Regulasi</span>
-            </div>
         </section>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
