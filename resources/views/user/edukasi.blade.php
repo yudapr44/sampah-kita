@@ -266,20 +266,20 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-                <!-- Card 1: Pembakaran Sampah -->
+                <!-- Card 1: Tong Sampah Pemilahan -->
                 <div class="bg-white rounded-3xl border border-[#c1c8c2]/60 shadow-sm overflow-hidden flex flex-col justify-between hover:shadow-md transition-all">
                     <div>
                         <div class="relative h-48 sm:h-52 w-full overflow-hidden bg-neutral-100">
-                            <img src="/images/pembakaran_sampah.jpg" alt="Alat Pembakaran Sampah Minim Asap" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"/>
+                            <img src="/images/tong_sampah.jpg" alt="Tong Sampah Pemilahan Organik Anorganik B3" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"/>
                             <span class="absolute top-3 left-3 px-3 py-1 bg-[#1b4332] text-white text-xs font-bold rounded-full shadow-md">
-                                Insinerator Minim Asap
+                                Pemilahan Sampah
                             </span>
                         </div>
                         <div class="p-5 sm:p-6 space-y-3">
-                            <h4 class="text-base sm:text-lg font-bold text-[#012d1d] leading-snug">Pembuatan Alat Pembakaran Sampah Minim Asap</h4>
+                            <h4 class="text-base sm:text-lg font-bold text-[#012d1d] leading-snug">Tong Sampah Pemilahan Organik, Anorganik & B3</h4>
                             
                             <p class="text-xs sm:text-sm text-[#414844] leading-relaxed">
-                                Tungku insinerator berbahan drum bekas dengan cerobong udara tinggi untuk memusnahkan sampah residu kotor tanpa mencemari udara lingkungan.
+                                Sistem tiga tong warna berbeda untuk memilah sampah organik (hijau), anorganik (kuning), dan limbah B3 berbahaya (merah) agar mudah diolah lebih lanjut.
                             </p>
 
                             <!-- Artikel Penjelasan Jurnal Ilmiah (On-Page Display) -->
@@ -288,13 +288,13 @@
                                     <span class="material-symbols-outlined text-[16px]">menu_book</span> Jurnal &amp; Artikel Penjelasan Riset:
                                 </p>
                                 <p class="leading-relaxed text-justify">
-                                    Pengolahan sampah residu non-daur ulang dengan metode <em>termo-oksidasi terfilter</em> menggunakan insinerator drum cerobong terbukti menurunkan volume limbah padat hingga 85–90% secara cepat. Menurut riset <em>Journal of Environmental Management</em>, kunci pembakaran bersih tanpa jelaga asap tebal terletak pada efisiensi pasokan oksigen (<em>draft air flow</em>) dan pencapaian suhu pembakaran di atas 600°C. Pipa cerobong udara yang tinggi menciptakan efek cerobong termal (<em>natural draft</em>) yang menarik oksigen dari dasar tungku melalui sarangan besi, sehingga pembakaran karbon terjadi secara sempurna ($C + O_2 \rightarrow CO_2$) tanpa menyisakan partikulat jelaga hitam ($PM_{2.5}$) di lingkungan warga.
+                                    Pemilahan sampah dari sumbernya merupakan kunci keberhasilan pengelolaan limbah padat perkotaan. Menurut <em>Journal of Cleaner Production</em>, pemilahan tiga kategori — organik (sisa makanan, daun), anorganik (plastik, kaca, logam), dan B3 (baterai, obat kadaluarsa, lampu neon) — terbukti meningkatkan efisiensi daur ulang hingga 70% dibanding pengelolaan sampah campur. Warna tong yang konsisten menciptakan <em>habit loop</em> pada warga sehingga kepatuhan pemilahan meningkat secara signifikan dalam 30–60 hari pertama.
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div class="px-5 sm:px-6 pb-6 pt-2">
-                        <button onclick="openArticle('pembakaran')" class="w-full py-2.5 bg-[#012d1d] hover:bg-[#163829] text-white text-xs sm:text-sm font-bold rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-sm cursor-pointer">
+                        <button onclick="openArticle('tong')" class="w-full py-2.5 bg-[#012d1d] hover:bg-[#163829] text-white text-xs sm:text-sm font-bold rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-sm cursor-pointer">
                             <span class="material-symbols-outlined text-[18px]">menu_book</span>
                             Pelajari Panduan Lengkap (Popup)
                         </button>
@@ -865,8 +865,8 @@
         </div>
     </div>
 
-    <!-- ═══ MODAL PEMBAKARAN SAMPAH MINIM ASAP ═══ -->
-    <div id="modal-pembakaran" style="transform: translate(-50%, 100%); transition: transform 0.4s ease-out;"
+    <!-- ═══ MODAL PEMILAHAN SAMPAH ═══ -->
+    <div id="modal-tong" style="transform: translate(-50%, 100%); transition: transform 0.4s ease-out;"
          class="fixed bottom-0 left-1/2 w-full max-w-[540px] md:max-w-2xl z-[60] bg-white rounded-t-3xl shadow-2xl max-h-[90vh] overflow-y-auto">
         <div class="sticky top-0 bg-white/95 backdrop-blur-sm z-10 rounded-t-3xl">
             <div class="flex justify-center pt-3 pb-1">
@@ -875,11 +875,11 @@
             <div class="flex items-center justify-between px-5 pb-4 pt-2 border-b border-[#edeeef]">
                 <div class="flex items-center gap-3">
                     <div class="w-11 h-11 rounded-2xl bg-[#c1ecd4] flex items-center justify-center">
-                        <span class="material-symbols-outlined text-[#012d1d] fill-icon text-[22px]">fire_hydrant</span>
+                        <span class="material-symbols-outlined text-[#012d1d] fill-icon text-[22px]">delete</span>
                     </div>
                     <div>
-                        <h2 class="text-[18px] font-extrabold text-[#012d1d] leading-tight">Pembakaran Sampah Minim Asap</h2>
-                        <p class="text-[12px] text-[#717973]">Insinerator Drum Sederhana</p>
+                        <h2 class="text-[18px] font-extrabold text-[#012d1d] leading-tight">Tong Sampah Pemilahan</h2>
+                        <p class="text-[12px] text-[#717973]">Organik · Anorganik · B3</p>
                     </div>
                 </div>
                 <button onclick="closeArticle()" class="w-9 h-9 rounded-full bg-[#f3f4f5] flex items-center justify-center hover:bg-[#e7e8e9] transition-colors">
@@ -889,49 +889,97 @@
         </div>
         <div class="px-5 pt-5 pb-10 space-y-5">
             <div class="rounded-2xl overflow-hidden shadow-sm">
-                <img src="/images/pembakaran_sampah.jpg" alt="Pembakaran Sampah Minim Asap" class="w-full h-48 sm:h-56 object-cover"/>
+                <img src="/images/tong_sampah.jpg" alt="Tong Sampah Pemilahan Organik Anorganik B3" class="w-full h-48 sm:h-56 object-cover"/>
             </div>
 
             <div class="bg-[#c1ecd4]/30 rounded-2xl p-4 border-l-4 border-[#012d1d]">
                 <p class="text-[14px] text-[#191c1d] leading-relaxed">
-                    Tungku pembakar sampah ramah lingkungan dirancang untuk memusnahkan sampah residu yang tak bisa didaur ulang dengan suhu pembakaran tinggi sehingga asap yang dihasilkan sangat minim.
+                    Sistem pemilahan sampah tiga tong warna adalah langkah pertama dan paling penting dalam pengelolaan sampah berkelanjutan. Dengan memisahkan sampah sejak dari rumah, proses daur ulang menjadi lebih efisien dan sampah berbahaya tidak mencemari lingkungan.
                 </p>
             </div>
 
-            <div>
-                <h3 class="text-[15px] font-bold text-[#012d1d] mb-2">Bahan & Alat yang Dibutuhkan</h3>
-                <ul class="list-disc list-inside text-[13px] text-[#414844] space-y-1 bg-[#f8f9fa] p-4 rounded-xl border border-[#c1c8c2]/40">
-                    <li>Drum bekas berbahan besi 200 Liter.</li>
-                    <li>Pipa besi cerobong asap diameter 3-4 inci (tinggi 1.5 - 2 meter).</li>
-                    <li>Plat besi berlubang / sarangan alas pembakaran.</li>
-                    <li>Blower angin kecil (optional untuk pasokan oksigen masif).</li>
-                </ul>
+            <!-- 3 Kategori Tong -->
+            <div class="grid grid-cols-3 gap-3">
+                <div class="bg-green-50 border-2 border-green-500 rounded-2xl p-3 text-center">
+                    <div class="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center mx-auto mb-2">
+                        <span class="material-symbols-outlined text-white text-[20px]">compost</span>
+                    </div>
+                    <p class="text-xs font-bold text-green-800">HIJAU</p>
+                    <p class="text-[10px] text-green-700 mt-0.5">Organik</p>
+                </div>
+                <div class="bg-yellow-50 border-2 border-yellow-500 rounded-2xl p-3 text-center">
+                    <div class="w-10 h-10 rounded-full bg-yellow-500 flex items-center justify-center mx-auto mb-2">
+                        <span class="material-symbols-outlined text-white text-[20px]">recycling</span>
+                    </div>
+                    <p class="text-xs font-bold text-yellow-800">KUNING</p>
+                    <p class="text-[10px] text-yellow-700 mt-0.5">Anorganik</p>
+                </div>
+                <div class="bg-red-50 border-2 border-red-500 rounded-2xl p-3 text-center">
+                    <div class="w-10 h-10 rounded-full bg-red-500 flex items-center justify-center mx-auto mb-2">
+                        <span class="material-symbols-outlined text-white text-[20px]">warning</span>
+                    </div>
+                    <p class="text-xs font-bold text-red-800">MERAH</p>
+                    <p class="text-[10px] text-red-700 mt-0.5">B3</p>
+                </div>
             </div>
 
             <div>
-                <h3 class="text-[15px] font-bold text-[#012d1d] mb-3">Langkah Pembuatan & Pengoperasian</h3>
+                <h3 class="text-[15px] font-bold text-[#012d1d] mb-2">Jenis Sampah per Kategori</h3>
+                <div class="space-y-3">
+                    <div class="bg-green-50 p-3 rounded-xl border border-green-200">
+                        <p class="text-xs font-bold text-green-800 mb-1">🟢 Tong HIJAU — Sampah Organik</p>
+                        <ul class="list-disc list-inside text-[12px] text-green-700 space-y-0.5">
+                            <li>Sisa makanan (nasi, sayur, buah)</li>
+                            <li>Daun, ranting kecil, rumput</li>
+                            <li>Kulit telur, ampas kopi/teh</li>
+                            <li>Kertas tidak dilapisi plastik</li>
+                        </ul>
+                    </div>
+                    <div class="bg-yellow-50 p-3 rounded-xl border border-yellow-200">
+                        <p class="text-xs font-bold text-yellow-800 mb-1">🟡 Tong KUNING — Sampah Anorganik</p>
+                        <ul class="list-disc list-inside text-[12px] text-yellow-700 space-y-0.5">
+                            <li>Botol plastik, kantong plastik</li>
+                            <li>Kaleng, logam, aluminium</li>
+                            <li>Kaca, botol beling</li>
+                            <li>Karton, dus, kardus</li>
+                        </ul>
+                    </div>
+                    <div class="bg-red-50 p-3 rounded-xl border border-red-200">
+                        <p class="text-xs font-bold text-red-800 mb-1">🔴 Tong MERAH — Limbah B3 (Berbahaya)</p>
+                        <ul class="list-disc list-inside text-[12px] text-red-700 space-y-0.5">
+                            <li>Baterai bekas, aki, elektronik</li>
+                            <li>Obat-obatan kadaluarsa</li>
+                            <li>Lampu neon/fluorescent</li>
+                            <li>Cat, thinner, oli bekas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-[15px] font-bold text-[#012d1d] mb-3">Cara Menerapkan di Rumah</h3>
                 <div class="space-y-2.5 text-[13px] text-[#414844]">
                     <div class="flex items-start gap-3 bg-[#f8f9fa] p-3 rounded-xl">
                         <span class="w-6 h-6 rounded-full bg-[#012d1d] text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">1</span>
-                        <p>Lubangi bagian bawah drum untuk pintu masuk udara & pembersihan abu pembakaran.</p>
+                        <p>Sediakan 3 tong/ember berbeda warna: hijau, kuning, dan merah di dapur atau halaman rumah.</p>
                     </div>
                     <div class="flex items-start gap-3 bg-[#f8f9fa] p-3 rounded-xl">
                         <span class="w-6 h-6 rounded-full bg-[#012d1d] text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">2</span>
-                        <p>Pasang sarangan alas besi di dalam drum sekitar 15 cm di atas dasar drum.</p>
+                        <p>Tempel label atau stiker gambar jenis sampah di setiap tong agar mudah dipahami semua anggota keluarga.</p>
                     </div>
                     <div class="flex items-start gap-3 bg-[#f8f9fa] p-3 rounded-xl">
                         <span class="w-6 h-6 rounded-full bg-[#012d1d] text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">3</span>
-                        <p>Pasang pipa cerobong asap di atas penutup drum secara presisi rapat udara.</p>
+                        <p>Pisahkan sampah setiap hari sebelum dibuang. Tong hijau bisa dikumpul untuk kompos, tong kuning untuk Bank Sampah 3R.</p>
                     </div>
                     <div class="flex items-start gap-3 bg-[#f8f9fa] p-3 rounded-xl">
                         <span class="w-6 h-6 rounded-full bg-[#012d1d] text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">4</span>
-                        <p>Masukkan sampah yang benar-benar KERING. Kunci minim asap adalah api panas tinggi dan sampah tanpa kelembaban basah.</p>
+                        <p>Limbah B3 (tong merah) JANGAN dibuang sembarangan. Kumpulkan dan serahkan ke petugas pengumpul limbah B3 desa.</p>
                     </div>
                 </div>
             </div>
 
             <button onclick="closeArticle()" class="w-full py-4 bg-[#012d1d] text-white font-bold text-[15px] rounded-2xl hover:bg-[#163829] transition-colors">
-                Tutup Panduan 🛑
+                Tutup Panduan ♻️
             </button>
         </div>
     </div>
