@@ -1,30 +1,39 @@
 @echo off
 echo ============================================
-echo   SampahKita - Update Gambar Lilin
+echo   SampahKita - Update Semua Gambar Edukasi
 echo ============================================
 echo.
 
-set "SRC=C:\Users\tamfa\.gemini\antigravity\brain\df47d070-eb10-4fdd-883d-bd6e56dd0c6c\.user_uploaded\media__1785497987890.jpg"
-set "DST=C:\Users\tamfa\OneDrive\Documents\KKN FILE\Project Individu\public\images\lilin_aromaterapi.jpg"
+set "PROJECT=C:\Users\tamfa\OneDrive\Documents\KKN FILE\Project Individu\public\images"
+set "ASSETS=C:\Users\tamfa\.gemini\antigravity\brain\df47d070-eb10-4fdd-883d-bd6e56dd0c6c"
 
-echo Menyalin foto lilin aromaterapi...
-copy /Y "%SRC%" "%DST%"
+echo [1/3] Menyalin gambar Tong Sampah Pemilahan...
+copy /Y "%ASSETS%\tong_sampah_pemilahan_1785422921872.jpg" "%PROJECT%\tong_sampah.jpg"
+if exist "%PROJECT%\tong_sampah.jpg" (echo     OK - tong_sampah.jpg) else (echo     GAGAL - tong_sampah.jpg)
 
-if exist "%DST%" (
-    echo.
-    echo [OK] Gambar berhasil disalin!
-    echo.
-    echo Sekarang melakukan git commit dan push...
-    cd /D "C:\Users\tamfa\OneDrive\Documents\KKN FILE\Project Individu"
-    git add public/images/lilin_aromaterapi.jpg
-    git commit -m "feat: update lilin aromaterapi image with real product photo from Desa Balonggandu"
-    git push
-    echo.
-    echo [SELESAI] Gambar sudah diupload ke Vercel!
-) else (
-    echo.
-    echo [ERROR] File gagal disalin. Pastikan path file benar.
-)
+echo.
+echo [2/3] Menyalin gambar Hidroponik...
+copy /Y "%ASSETS%\hidroponik_edukasi_1785424668594.jpg" "%PROJECT%\hidroponik.jpg"
+if exist "%PROJECT%\hidroponik.jpg" (echo     OK - hidroponik.jpg) else (echo     GAGAL - hidroponik.jpg)
 
+echo.
+echo [3/3] Menyalin gambar Lilin Aromaterapi (foto asli)...
+copy /Y "%ASSETS%\.user_uploaded\media__1785497987890.jpg" "%PROJECT%\lilin_aromaterapi.jpg"
+if exist "%PROJECT%\lilin_aromaterapi.jpg" (echo     OK - lilin_aromaterapi.jpg) else (echo     GAGAL - lilin_aromaterapi.jpg)
+
+echo.
+echo ============================================
+echo   Melakukan git commit dan push...
+echo ============================================
+cd /D "C:\Users\tamfa\OneDrive\Documents\KKN FILE\Project Individu"
+git add public/images/tong_sampah.jpg public/images/hidroponik.jpg public/images/lilin_aromaterapi.jpg
+git commit -m "feat: add/update edukasi images - tong sampah pemilahan, hidroponik, lilin aromaterapi"
+git push
+
+echo.
+echo ============================================
+echo   SELESAI! Semua gambar sudah di-upload.
+echo   Cek website Anda di Vercel setelah deploy.
+echo ============================================
 echo.
 pause
