@@ -11,7 +11,7 @@ return new class extends Migration {
             $table->string('title');
             $table->string('category')->default('Kegiatan');
             $table->string('type')->default('photo'); // photo / video
-            $table->text('image_url');
+            $table->longText('image_url');
             $table->string('uploader')->default('Admin Balonggandu');
             $table->boolean('is_featured')->default(false);
             $table->timestamps();

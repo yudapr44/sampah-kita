@@ -307,6 +307,10 @@ class AdminController extends Controller
         ], $messages);
 
         try {
+            try {
+                \Illuminate\Support\Facades\DB::statement("ALTER TABLE galleries MODIFY image_url LONGTEXT");
+            } catch (\Throwable $th) {}
+
             $imageUrl = $this->processUpload($request, 'galeri', $request->title) ?? $request->image_url;
 
             if (!$imageUrl) {
@@ -374,6 +378,10 @@ class AdminController extends Controller
         ], $messages);
 
         try {
+            try {
+                \Illuminate\Support\Facades\DB::statement("ALTER TABLE galleries MODIFY image_url LONGTEXT");
+            } catch (\Throwable $th) {}
+
             $uploaded = $this->processUpload($request, 'galeri', $request->title);
             if ($uploaded) {
                 $gallery->image_url = $uploaded;
