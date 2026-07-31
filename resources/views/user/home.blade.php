@@ -398,7 +398,7 @@
                 @forelse ($galleries as $gal)
                     <div class="bg-white rounded-2xl overflow-hidden border border-[#c1c8c2]/60 shadow-sm hover:shadow-md transition-all group">
                         <div class="h-32 sm:h-36 w-full overflow-hidden bg-neutral-100 relative">
-                            <img src="{{ asset($gal->image_url) }}" alt="{{ $gal->title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+                            <img src="{{ $gal->image_url }}" alt="{{ $gal->title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy"/>
                             <span class="absolute bottom-2 left-2 px-2 py-0.5 bg-black/60 backdrop-blur-sm text-white text-[10px] rounded-md font-semibold truncate max-w-[90%]">
                                 {{ $gal->title }}
                             </span>
