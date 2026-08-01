@@ -340,11 +340,12 @@
                 </div>
             </div>
         </section>
+
         <!-- ARTIKEL EDUKASI TERBARU (TERHUBUNG DARI ADMIN) -->
         <section class="mt-10 md:mt-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full reveal">
             <div class="flex items-center justify-between mb-6">
                 <div>
-                    <h3 class="text-xl sm:text-2xl font-bold text-[#1b4332]">Artikel & Edukasi Terbaru</h3>
+                    <h3 class="text-xl sm:text-2xl font-bold text-[#1b4332]">Artikel &amp; Edukasi Terbaru</h3>
                     <p class="text-xs sm:text-sm text-[#414844]">Informasi dan berita terbaru yang diunggah oleh Pengelola Desa Balonggandu</p>
                 </div>
                 <a href="/edukasi" class="text-xs sm:text-sm font-semibold text-[#934b00] hover:underline flex items-center gap-1">
@@ -355,20 +356,22 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 @forelse ($articles as $art)
                     <div class="bg-white rounded-2xl border border-[#c1c8c2]/60 shadow-sm overflow-hidden flex flex-col justify-between hover:shadow-md transition-all">
-                        <div>
-                            <div class="h-44 w-full bg-neutral-100 overflow-hidden relative">
-                                <img src="{{ $art->image ? asset($art->image) : asset('images/hero_edukasi.png') }}" alt="{{ $art->title }}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"/>
-                                <span class="absolute top-3 left-3 px-3 py-1 bg-[#1b4332] text-white text-[11px] font-bold rounded-full shadow-md">
-                                    {{ $art->category }}
-                                </span>
-                            </div>
-                            <div class="p-5 space-y-2">
-                                <h4 class="text-base font-bold text-[#1b4332] leading-snug line-clamp-2">{{ $art->title }}</h4>
-                                <p class="text-xs text-[#414844] line-clamp-3 leading-relaxed">{{ $art->content }}</p>
-                            </div>
+                        <div class="p-5 space-y-3">
+                            {{-- Badge Kategori --}}
+                            <span class="inline-flex items-center gap-1 px-3 py-1 bg-[#cee9d3] text-[#012d1d] text-[11px] font-bold rounded-full">
+                                <span class="material-symbols-outlined text-[13px]" style="font-variation-settings:'FILL' 1">eco</span>
+                                {{ $art->category }}
+                            </span>
+                            {{-- Judul --}}
+                            <h4 class="text-base font-bold text-[#1b4332] leading-snug line-clamp-2">{{ $art->title }}</h4>
+                            {{-- Isi singkat --}}
+                            <p class="text-xs text-[#414844] line-clamp-4 leading-relaxed">{{ $art->content }}</p>
                         </div>
                         <div class="px-5 pb-5 pt-2 border-t border-[#edeeef]/60 flex items-center justify-between">
-                            <span class="text-[11px] text-[#717973]">{{ $art->created_at ? $art->created_at->format('d M Y') : 'Baru' }}</span>
+                            <span class="text-[11px] text-[#717973] flex items-center gap-1">
+                                <span class="material-symbols-outlined text-[13px]">calendar_today</span>
+                                {{ $art->created_at ? $art->created_at->format('d M Y') : 'Baru' }}
+                            </span>
                             <a href="/edukasi" class="text-xs font-bold text-[#934b00] hover:underline flex items-center gap-1">
                                 Baca Panduan <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
                             </a>
